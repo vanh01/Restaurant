@@ -21,7 +21,7 @@ export default class App extends Component {
         <>
             <NavbarClerk />
             <Switch>
-                <Route path="/" exact component={Ordering}></Route>
+                <Route path="/" exact component={ManageOrder}></Route>
                 <Route path="/Setting" exact component={Setting}></Route>
             </Switch>
         </>
