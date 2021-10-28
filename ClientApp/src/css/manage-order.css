@@ -55,3 +55,10 @@
     color: #b1afaf;
     cursor: pointer;
 }
+
+.manage-list-order .row-title div i {
+    margin-left: 15%;
+    color: #eb7c68;
+    font-size: 17px;
+    cursor: pointer;
+}

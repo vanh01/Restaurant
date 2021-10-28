@@ -15,6 +15,7 @@ const ManageOrder = () => {
         setDetail(false);
         setDisable("hide");
     }
+
     return (
         <>
             <div className="manage-order">
@@ -37,124 +38,66 @@ const ManageOrder = () => {
                         <div>VietNam</div>
                         <div>500000d</div>
                         <div>Status</div>
-                        <div>Delete</div>
+                        <div>
+                            <i
+                                class="fas fa-times-circle"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    alert("hi");
+                                }}
+                            ></i>
+                        </div>
                     </div>
-                    <div className="row-title">
-                        <div>2</div>
+                    <div className="row-title" onClick={HandleShowDetail}>
+                        <div>1</div>
                         <div>Anh</div>
                         <div>28/11/2021</div>
                         <div>VietNam</div>
                         <div>500000d</div>
                         <div>Status</div>
-                        <div>Delete</div>
+                        <div>
+                            <i
+                                class="fas fa-times-circle"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    alert("hi");
+                                }}
+                            ></i>
+                        </div>
                     </div>
-                    <div className="row-title">
-                        <div>3</div>
+                    <div className="row-title" onClick={HandleShowDetail}>
+                        <div>1</div>
                         <div>Anh</div>
                         <div>28/11/2021</div>
                         <div>VietNam</div>
                         <div>500000d</div>
                         <div>Status</div>
-                        <div>Delete</div>
+                        <div>
+                            <i
+                                class="fas fa-times-circle"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    alert("hi");
+                                }}
+                            ></i>
+                        </div>
                     </div>
-                    <div className="row-title">
-                        <div>4</div>
+                    <div className="row-title" onClick={HandleShowDetail}>
+                        <div>1</div>
                         <div>Anh</div>
                         <div>28/11/2021</div>
                         <div>VietNam</div>
                         <div>500000d</div>
                         <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>5</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>6</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>5</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>6</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>5</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>6</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>5</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>6</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>5</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
-                    </div>
-                    <div className="row-title">
-                        <div>6</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>Delete</div>
+                        <div>
+                            <i
+                                class="fas fa-times-circle"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    alert("hi");
+                                }}
+                            ></i>
+                        </div>
                     </div>
                 </div>
             </div>
