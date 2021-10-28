@@ -4,6 +4,11 @@
     font-family: "Quicksand", sans-serif;
 }
 
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
 /* Line */
 .line {
     width: 90%;
@@ -94,8 +99,7 @@
 .row-title {
     width: 90%;
     position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
+    left: 5%;
     margin-top: 25px;
     margin-bottom: 10px;
     color: #fefefe;
@@ -173,7 +177,8 @@
 .order-detail-list {
     width: 100%;
     height: calc(100% - 250px);
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .order-detail-list .row-title div {
