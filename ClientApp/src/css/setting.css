@@ -1,0 +1,146 @@
+.setting {
+    height: 100vh;
+    width: calc(100% - 70px);
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #262837;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.setting-info {
+    height: 100vh;
+    width: 38%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.setting-info div {
+    font-size: 17px;
+    color: #fefefe;
+    margin: 30px 40px;
+    user-select: none;
+}
+
+.setting-info div input {
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
+    background-color: #2e303f;
+    border: 1px solid #393c49;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #9ba4b1;
+    font-size: 15px;
+    border-radius: 8px;
+    display: block;
+}
+
+.setting-info div .date-of-birth {
+    padding-left: 20px;
+    padding-right: 10px;
+    width: 180px;
+}
+
+.setting-password {
+    height: 100vh;
+    width: 38%;
+    position: absolute;
+    top: 0;
+    left: 38%;
+}
+
+.setting-password div {
+    font-size: 17px;
+    color: #fefefe;
+    margin: 30px 40px;
+    user-select: none;
+}
+
+.setting-password div input {
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
+    background-color: #2e303f;
+    border: 1px solid #393c49;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #9ba4b1;
+    font-size: 15px;
+    border-radius: 8px;
+    display: block;
+}
+
+.settingg button {
+    margin-top: 10px;
+    height: 40px;
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.settingg button:nth-of-type(1) {
+    position: absolute;
+    left: 40px;
+    color: #fefefe;
+    background-color: #eb7c68;
+}
+
+.settingg button:nth-of-type(2) {
+    position: absolute;
+    right: 40px;
+    background-color: transparent;
+    border: 1px solid #eb7c68;
+    color: #eb7c68;
+}
+
+.setting-avatar {
+    height: 100vh;
+    width: 24%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.setting-avatar .picture {
+    margin-top: 20px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    padding-top: 90%;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.edit {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 0;
+    background-color: #eb7c68;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fefefe;
+    user-select: none;
+}
+
+/* .edit input {
+    height: 1px;
+    width: 1px;
+} */
+
+.edit i {
+    margin-right: 5px;
+}

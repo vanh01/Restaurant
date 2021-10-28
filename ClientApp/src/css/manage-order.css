@@ -1,0 +1,8 @@
+.manage-order {
+    height: 100vh;
+    width: calc(100% - 70px);
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #262837;
+}
