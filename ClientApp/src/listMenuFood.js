@@ -4,100 +4,75 @@ const listMenuFood =
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
             nameFood: "Hủ tiếu",
-            categoryFood: "Hủ tiếu khô...",
+            description: "Hủ tiếu khô...",
             priceFood: 15000,
+            categoryFood: "Đồ ăn",
         },
         {
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
             nameFood: "Bánh mì",
-            categoryFood: "Bánh mì thịt, bánh mì không...",
+            description: "Bánh mì thịt, bánh mì không...",
             priceFood: 15000,
+            categoryFood: "Đồ tráng miệng",
         },
         {
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
             nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
+            description: "CocaCola lạnh, không đá...",
             priceFood: 15000,
+            categoryFood: "Đồ uống",
         },
         {
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
+            nameFood: "Pepsi",
+            description: "Pepsi lon, chai...",
             priceFood: 15000,
+            categoryFood: "Đồ uống",
         },
         {
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
+            nameFood: "Nước lọc",
+            description: "Nước tinh khiết siêu sạch...",
             priceFood: 15000,
+            categoryFood: "Đồ uống",
         },
         {
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
+            nameFood: "Bún bò huế",
+            description: "Bún bò gốc huế được người huế nấu...",
             priceFood: 15000,
+            categoryFood: "Đồ ăn",
         },
         {
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
+            nameFood: "Kem dâu tây",
+            description: "Kem dâu tây siêu ngon...",
             priceFood: 15000,
+            categoryFood: "Đồ tráng miệng",
         },
         {
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
+            nameFood: "Rau",
+            description: "Rau sạch...",
             priceFood: 15000,
+            categoryFood: "Đồ ăn",
         },
         {
             pathImage:
                 "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
+            nameFood: "Rau thơm",
+            description: "Rau không phun thuốc...",
             priceFood: 15000,
+            categoryFood: "Đồ ăn",
         },
-        {
-            pathImage:
-                "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
-            priceFood: 15000,
-        },
-        {
-            pathImage:
-                "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
-            priceFood: 15000,
-        },
-        {
-            pathImage:
-                "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
-            priceFood: 15000,
-        },
-        {
-            pathImage:
-                "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
-            priceFood: 15000,
-        },
-        {
-            pathImage:
-                "https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg",
-            nameFood: "CocaCola",
-            categoryFood: "CocaCola lạnh, không đá...",
-            priceFood: 15000,
-        },
+        
     ];
     
 export default listMenuFood;

@@ -2,8 +2,9 @@ import React from "react";
 import Items from "./Items";
 import Foods from "./Foods";
 import { useState } from "react";
-import listMenuFood from "../../listMenuFood";
 import FoodDetails from "./FoodDetails";
+import listMenuFood from "../../listMenuFood";
+import listCategory from "../../listCategory";
 
 const Order = () => {
     const [listOrderFood, setlistOrderFood] = useState([]);
@@ -14,6 +15,7 @@ const Order = () => {
     const [PaymentFull, setPaymentFull] = useState(false);
     const [ShowFoodDetails, setShowFoodDetails] = useState(false);
     const [Total, setTotal] = useState(0);
+    const [Category, setCategory] = useState("Category");
 
     function CalcTotal() {
         let tempTotal = 0;
@@ -65,12 +67,24 @@ const Order = () => {
                 <div className="line"></div>
                 <div className="ordering-menu-item">
                     <div className="title">Choose dishes</div>
+                    <select
+                        name="Category"
+                        onChange={(e) => {
+                            setCategory(e.target.value);
+                        }}
+                    >
+                        <option defaultValue="Category">Category</option>
+                        {listCategory.map((pram) => {
+                            return <option value={pram}>{pram}</option>;
+                        })}
+                    </select>
                     <div className="ordering-menu-list-food">
                         <Foods
                             listMenuFood={listMenuFood}
                             search={Search}
                             HandleShowFoodDetails={HandleShowFoodDetails}
                             setFoodCur={setFoodCur}
+                            Category={Category}
                         />
                     </div>
                 </div>
