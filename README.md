@@ -1,5 +1,5 @@
 # Restaurant
 
->> dotnet build
+> dotnet build
 
 >> dotnet watch run
