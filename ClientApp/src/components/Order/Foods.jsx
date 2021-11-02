@@ -1,6 +1,6 @@
 import React from "react";
 
-const Foods = ({ listMenuFood, search, listOrderFood, setlistOrderFood }) => {
+const Foods = ({ listMenuFood, search, HandleShowFoodDetails, setFoodCur }) => {
     return (
         <>
             {listMenuFood.map((food) => {
@@ -9,16 +9,8 @@ const Foods = ({ listMenuFood, search, listOrderFood, setlistOrderFood }) => {
                         <div
                             className="ordering-menu-food"
                             onClick={() => {
-                                // check exists
-                                if (1) {
-                                    setlistOrderFood((listOrderFood) => [
-                                        ...listOrderFood,
-                                        {
-                                            ...food,
-                                            quantity: 1,
-                                        },
-                                    ]);
-                                }
+                                HandleShowFoodDetails();
+                                setFoodCur(food);
                             }}
                         >
                             <img

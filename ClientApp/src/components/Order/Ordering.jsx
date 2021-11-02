@@ -3,12 +3,16 @@ import Items from "./Items";
 import Foods from "./Foods";
 import { useState } from "react";
 import listMenuFood from "../../listMenuFood";
+import FoodDetails from "./FoodDetails";
 
 const Order = () => {
     const [listOrderFood, setlistOrderFood] = useState([]);
     const [Search, setSearch] = useState("");
     const [Disable, setDisable] = useState("hide");
+    const [Disable1, setDisable1] = useState("hide");
+    const [FoodCur, setFoodCur] = useState({});
     const [PaymentFull, setPaymentFull] = useState(false);
+    const [ShowFoodDetails, setShowFoodDetails] = useState(false);
     const [Total, setTotal] = useState(0);
 
     function CalcTotal() {
@@ -22,6 +26,16 @@ const Order = () => {
 
     function HandleOnInput(e) {
         setSearch(e.target.value);
+    }
+
+    function HandleShowFoodDetails() {
+        setDisable1("hide hide1");
+        setShowFoodDetails(true);
+    }
+
+    function HandleCancelShowFoodDetails() {
+        setDisable1("hide");
+        setShowFoodDetails(false);
     }
 
     function HandleContinuePayment() {
@@ -55,8 +69,8 @@ const Order = () => {
                         <Foods
                             listMenuFood={listMenuFood}
                             search={Search}
-                            listOrderFood={listOrderFood}
-                            setlistOrderFood={setlistOrderFood}
+                            HandleShowFoodDetails={HandleShowFoodDetails}
+                            setFoodCur={setFoodCur}
                         />
                     </div>
                 </div>
@@ -65,7 +79,7 @@ const Order = () => {
             <div className="ordering-cart-behind"></div>
             {/*  */}
 
-            {PaymentFull === false ? (
+            {!PaymentFull ? (
                 <div className="ordering-cart">
                     <div className="ordering-cart-1">
                         <div className="ordering-cart-header">
@@ -156,6 +170,25 @@ const Order = () => {
                         </div>
                     </div>
                 </div>
+            )}
+            {/*  */}
+
+            <div
+                className={Disable1}
+                onClick={HandleCancelShowFoodDetails}
+            ></div>
+            {ShowFoodDetails ? (
+                <>
+                    <FoodDetails
+                        HandleCancelShowFoodDetails={
+                            HandleCancelShowFoodDetails
+                        }
+                        setlistOrderFood={setlistOrderFood}
+                        FoodCur={FoodCur}
+                    />
+                </>
+            ) : (
+                <></>
             )}
         </>
     );

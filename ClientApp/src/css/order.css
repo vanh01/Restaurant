@@ -419,3 +419,53 @@
     border: 1px solid #eb7c68;
     color: #eb7c68;
 }
+
+.food-details {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 700px;
+    background-color: #262837;
+    border-radius: 20px;
+}
+
+.food-details i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #eb7c68;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.food-details2 i {
+    position: absolute;
+    top: 85%;
+    right: 50px;
+    color: #eb7c68;
+    font-size: 30px;
+    cursor: pointer;
+}
+.food-details1 {
+    position: absolute;
+    width: 45%;
+    height: 100%;
+}
+
+.food-details1 .image-food {
+    position: absolute;
+    border-radius: 0px;
+    width: 90%;
+    margin: 0;
+    top: 40%;
+    transform: translate(0, -50%);
+}
+
+.food-details2 {
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    right: 0;
+}
