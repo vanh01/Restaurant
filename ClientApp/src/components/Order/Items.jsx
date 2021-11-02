@@ -17,13 +17,15 @@ const Items = ({ listOrderFood, setlistOrderFood, CalcTotal }) => {
                         <input
                             className="item-quantity"
                             type="text"
-                            defaultValue="1"
+                            defaultValue={orderFood.quantity}
                             onChange={(e) => {
                                 orderFood.quantity = e.target.value;
                                 CalcTotal();
                             }}
                         />
-                        <div className="item-total">15000đ</div>
+                        <div className="item-total">
+                            {orderFood.priceFood * orderFood.quantity}đ
+                        </div>
                         <button
                             className="item-remove-item"
                             onClick={() => {
@@ -36,11 +38,26 @@ const Items = ({ listOrderFood, setlistOrderFood, CalcTotal }) => {
                         >
                             <i className="far fa-trash-alt"></i>
                         </button>
-                        <input
-                            className="item-note"
-                            type="text"
-                            placeholder="Order Note..."
-                        />
+
+                        {orderFood.noteFood === "" ? (
+                            <input
+                                className="item-note"
+                                type="text"
+                                placeholder="Order Note..."
+                                onChange={(e) => {
+                                    orderFood.noteFood = e.target.value;
+                                }}
+                            />
+                        ) : (
+                            <input
+                                className="item-note"
+                                type="text"
+                                defaultValue={orderFood.noteFood}
+                                onChange={(e) => {
+                                    orderFood.noteFood = e.target.value;
+                                }}
+                            />
+                        )}
                     </div>
                 );
             })}

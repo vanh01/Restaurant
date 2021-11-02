@@ -84,7 +84,7 @@ const Order = () => {
                     <div className="ordering-cart-1">
                         <div className="ordering-cart-header">
                             <div className="title">Order</div>
-                            <div className="title2">Item</div>
+                            <div className="title2">Items</div>
                         </div>
                         <div className="line"></div>
                         <div className="ordering-cart-list-item">
