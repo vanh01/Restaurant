@@ -1,9 +1,9 @@
 .setting {
     height: 100vh;
-    width: calc(100% - 70px);
+    width: calc(100% - 80px);
     position: absolute;
     top: 0;
-    left: 70px;
+    left: 80px;
     background-color: #262837;
     overflow-y: auto;
     overflow-x: auto;

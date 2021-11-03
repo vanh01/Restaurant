@@ -1,6 +1,6 @@
 .nav-bar {
     height: 100vh;
-    width: 70px;
+    width: 80px;
     background-color: #1f1d2c;
     position: fixed;
     padding-left: 10px;
@@ -12,57 +12,106 @@
 }
 
 .nav-bar ul li {
+    width: 60px;
+    height: 60px;
     list-style: none;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     position: relative;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
 }
+
+/* active */
 .nav-bar ul li.active {
     background: #262837;
 }
-.nav-bar ul li a {
-    position: relative;
-    display: flex;
-    text-decoration: none;
-    color: #eb7c68;
-    padding-left: 15px;
+
+.nav-bar ul li.active b:nth-child(1) {
+    position: absolute;
+    top: -10px;
+    height: 10px;
+    width: 100%;
+    background-color: #262837;
 }
-.nav-bar ul li a i::before {
-    position: relative;
-    display: block;
-    line-height: 60px;
-    text-align: center;
-    font-size: 19px;
+
+.nav-bar ul li.active b:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1f1d2c;
+    border-bottom-right-radius: 10px;
 }
+
+.nav-bar ul li.active b:nth-child(2) {
+    position: absolute;
+    bottom: -10px;
+    height: 10px;
+    width: 100%;
+    background-color: #262837;
+}
+
+.nav-bar ul li.active b:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1f1d2c;
+    border-top-right-radius: 10px;
+}
+
+.nav-bar ul li.active div {
+    background-color: #eb7c68;
+}
+
+.nav-bar ul li.active div a {
+    color: white !important;
+}
+/* end active */
+
 .nav-bar ul li div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.nav-bar ul li div a {
+    width: 40px;
+    height: 40px;
     position: relative;
     display: flex;
     text-decoration: none;
     color: #eb7c68;
-    padding-left: 15px;
 }
-.nav-bar ul li div i::before {
-    position: relative;
-    display: block;
-    line-height: 60px;
-    text-align: center;
+
+.nav-bar ul li div a i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 19px;
 }
-.nav-bar ul li a span {
-    position: relative;
-    display: block;
-    padding-left: 30px;
-    height: 40px;
-    line-height: 60px;
-    user-select: none;
-    white-space: normal;
+
+.nav-bar ul li > i {
+    color: #eb7c68;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 5px);
+    transform: translate(-50%, -50%);
 }
 
 .nav-behind {
     height: 100vh;
-    width: 70px;
+    width: 80px;
     background-color: #262837;
     position: fixed;
     top: 0;

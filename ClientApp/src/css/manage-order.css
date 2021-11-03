@@ -1,9 +1,9 @@
 .manage-order {
     height: 100vh;
-    width: calc(100% - 70px);
+    width: calc(100% - 80px);
     position: absolute;
     top: 0;
-    left: 70px;
+    left: 80px;
     background-color: #262837;
 }
 
@@ -17,8 +17,8 @@
 }
 
 .manage-order .row-title {
-    width: calc(0.9 * (100vw - 70px));
-    left: calc(0.05 * (100vw - 70px));
+    width: calc(0.9 * (100vw - 80px));
+    left: calc(0.05 * (100vw - 80px));
     display: inline-flex;
     word-break: break-all;
     hyphens: auto;

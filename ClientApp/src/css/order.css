@@ -3,7 +3,7 @@
     width: 70%;
     background-color: #262837;
     position: fixed;
-    left: 70px;
+    left: 80px;
 }
 
 .ordering-menu-header {
@@ -42,7 +42,7 @@
 
 .ordering-menu-item > .title {
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .ordering-menu-item > select {
@@ -55,7 +55,7 @@
     /* background-color: transparent; */
     appearance: none;
     border-radius: 10px;
-    border: 0;
+    border: 1px solid #393b4a;
     color: #fefefe;
     font-size: 16px;
     cursor: pointer;
@@ -69,7 +69,7 @@
 
 .ordering-menu-list-food {
     width: inherit;
-    height: calc(100% - 81px);
+    height: calc(100% - 61px);
     align-items: center;
     justify-content: center;
     display: flex;
@@ -149,7 +149,7 @@
     height: 100vh;
     width: calc(60% - 140px);
     background-color: #262837;
-    left: calc(70% + 70px);
+    left: calc(70% + 80px);
 }
 
 .ordering-cart {
@@ -157,7 +157,7 @@
     height: 100vh;
     width: calc(60% - 140px);
     background-color: #1f1d2c;
-    left: calc(70% + 70px);
+    left: calc(70% + 80px);
     box-sizing: border-box;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
@@ -165,7 +165,7 @@
 }
 
 .ordering-cart-full {
-    left: calc(100% - 2 * (30% - 70px));
+    left: calc(100% - 2 * (30% - 80px));
 }
 
 .ordering-cart-1 {
