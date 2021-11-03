@@ -21,12 +21,12 @@ export default class App extends Component {
         <>
             {/* <NavbarClerk />
             <Switch>
-                <Route path="/" exact component={ManageOrder}></Route>
+                <Route path="/ManageOrder" exact component={ManageOrder}></Route>
                 <Route path="/Setting" exact component={Setting}></Route>
             </Switch> */}
             <NavbarCustomer />
             <Switch>
-                <Route path="/" exact component={Ordering}></Route>
+                <Route path="/Ordering" exact component={Ordering}></Route>
                 <Route path="/DashBoard" exact component={DashBoard}></Route>
                 <Route path="/Setting" exact component={Setting}></Route>
             </Switch>

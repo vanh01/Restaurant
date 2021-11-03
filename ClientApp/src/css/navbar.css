@@ -11,10 +11,11 @@
     border-bottom-right-radius: 10px;
 }
 
-.nav-bar ul li {
+.nav-bar > a {
     width: 60px;
     height: 60px;
     list-style: none;
+    display: block;
     width: 100%;
     margin-bottom: 20px;
     position: relative;
@@ -23,11 +24,11 @@
 }
 
 /* active */
-.nav-bar ul li.active {
+.nav-bar a.active {
     background: #262837;
 }
 
-.nav-bar ul li.active b:nth-child(1) {
+.nav-bar a.active b:nth-child(1) {
     position: absolute;
     top: -10px;
     height: 10px;
@@ -35,7 +36,7 @@
     background-color: #262837;
 }
 
-.nav-bar ul li.active b:nth-child(1)::before {
+.nav-bar a.active b:nth-child(1)::before {
     content: "";
     position: absolute;
     top: 0;
@@ -46,7 +47,7 @@
     border-bottom-right-radius: 10px;
 }
 
-.nav-bar ul li.active b:nth-child(2) {
+.nav-bar a.active b:nth-child(2) {
     position: absolute;
     bottom: -10px;
     height: 10px;
@@ -54,7 +55,7 @@
     background-color: #262837;
 }
 
-.nav-bar ul li.active b:nth-child(2)::before {
+.nav-bar a.active b:nth-child(2)::before {
     content: "";
     position: absolute;
     top: 0;
@@ -65,16 +66,16 @@
     border-top-right-radius: 10px;
 }
 
-.nav-bar ul li.active div {
+.nav-bar a.active div {
     background-color: #eb7c68;
 }
 
-.nav-bar ul li.active div a {
+.nav-bar a.active div i {
     color: white !important;
 }
 /* end active */
 
-.nav-bar ul li div {
+.nav-bar > a div {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -83,16 +84,8 @@
     border-radius: 5px;
 }
 
-.nav-bar ul li div a {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    display: flex;
-    text-decoration: none;
+.nav-bar > a div i {
     color: #eb7c68;
-}
-
-.nav-bar ul li div a i {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -100,13 +93,17 @@
     font-size: 19px;
 }
 
-.nav-bar ul li > i {
+.nav-bar > div {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.nav-bar > div > i {
     color: #eb7c68;
     font-size: 25px;
-    position: absolute;
-    top: 50%;
+    position: relative;
     left: calc(50% - 5px);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
 }
 
 .nav-behind {
