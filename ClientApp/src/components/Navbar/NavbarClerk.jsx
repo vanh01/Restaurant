@@ -2,34 +2,38 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavbarClerk = () => {
-    function HandleOnClick(e) {}
     return (
         <>
             <div className="nav-behind"></div>
             <nav className="nav-bar">
                 <ul>
-                    <li className="nav-item">
+                    <li>
+                        <i className="fas fa-store"></i>
+                    </li>
+                    <li className="active">
+                        <b></b>
+                        <b></b>
                         <div>
-                            <i className="fas fa-store"></i>
+                            <Link to="/">
+                                <i className="fas fa-home-alt"></i>
+                            </Link>
                         </div>
                     </li>
-                    <li className="nav-item" onClick={HandleOnClick}>
-                        <Link to="/">
-                            <i className="fas fa-home-alt"></i>
-                            <span>Home</span>
-                        </Link>
+                    <li className="">
+                        <b></b>
+                        <b></b>
+                        <div>
+                            <Link to="/Setting">
+                                <i className="fas fa-cog"></i>
+                            </Link>
+                        </div>
                     </li>
-                    <li className="nav-item" onClick={HandleOnClick}>
-                        <Link to="/Setting">
-                            <i className="fas fa-cog"></i>
-                            <span>Setting</span>
-                        </Link>
-                    </li>
-                    <li className="nav-item" onClick={HandleOnClick}>
-                        <Link to="/Home">
-                            <i className="fas fa-sign-out"></i>
-                            <span>Logout</span>
-                        </Link>
+                    <li>
+                        <div>
+                            <Link to="/Home">
+                                <i className="fas fa-sign-out"></i>
+                            </Link>
+                        </div>
                     </li>
                 </ul>
             </nav>
