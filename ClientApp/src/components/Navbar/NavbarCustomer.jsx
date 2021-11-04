@@ -16,11 +16,11 @@ const Navbar = () => {
                         <i className="fas fa-home-alt"></i>
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" to="/DashBoard">
+                <NavLink activeClassName="active" to="/History">
                     <b></b>
                     <b></b>
                     <div>
-                        <i className="fas fa-chart-pie-alt"></i>
+                        <i class="fas fa-history"></i>
                     </div>
                 </NavLink>
                 <NavLink activeClassName="active" to="/Setting">

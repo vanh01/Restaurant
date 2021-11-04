@@ -155,7 +155,7 @@
 .ordering-cart {
     position: fixed;
     height: 100vh;
-    width: calc(60% - 140px);
+    width: calc(60% - 2*80px);
     background-color: #1f1d2c;
     left: calc(70% + 80px);
     box-sizing: border-box;

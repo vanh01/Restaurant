@@ -8,7 +8,7 @@ import './css/style.css'
 import './css/manage-order.css'
 import NavbarCustomer from './components/Navbar/NavbarCustomer';
 import Ordering from './components/Order/Ordering';
-import DashBoard from './components/DashBoard/DashBoard';
+import History from './components/DashBoard/History';
 import Setting from './components/Setting/Setting';
 import NavbarClerk from './components/Navbar/NavbarClerk';
 import ManageOrder from './components/ManageOrder/ManageOrder';
@@ -16,21 +16,21 @@ import ManageOrder from './components/ManageOrder/ManageOrder';
 export default class App extends Component {
     static displayName = App.name;
 
-    render () {
+    render() {
         return (
-        <>
-            {/* <NavbarClerk />
+            <>
+                {/* <NavbarClerk />
             <Switch>
                 <Route path="/ManageOrder" exact component={ManageOrder}></Route>
                 <Route path="/Setting" exact component={Setting}></Route>
             </Switch> */}
-            <NavbarCustomer />
-            <Switch>
-                <Route path="/Ordering" exact component={Ordering}></Route>
-                <Route path="/DashBoard" exact component={DashBoard}></Route>
-                <Route path="/Setting" exact component={Setting}></Route>
-            </Switch>
-        </>
-    );
-  }
+                <NavbarCustomer />
+                <Switch>
+                    <Route path="/Ordering" exact component={Ordering}></Route>
+                    <Route path="/History" exact component={History}></Route>
+                    <Route path="/Setting" exact component={Setting}></Route>
+                </Switch>
+            </>
+        );
+    }
 }

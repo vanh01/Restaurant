@@ -81,7 +81,7 @@
     left: 10px;
     width: 40px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 .nav-bar > a div i {
@@ -94,7 +94,6 @@
 }
 
 .nav-bar > div {
-    margin-top: 10px;
     margin-bottom: 30px;
 }
 
