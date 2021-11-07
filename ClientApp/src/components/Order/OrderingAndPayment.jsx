@@ -13,6 +13,7 @@ const OrderingAndPayment = () => {
     const [Disable1, setDisable1] = useState("hide");
     const [FoodCur, setFoodCur] = useState({});
     const [PaymentFull, setPaymentFull] = useState(false);
+    const [PaymentMethod, setPaymentMethod] = useState(true);
     const [ShowFoodDetails, setShowFoodDetails] = useState(false);
     const [Total, setTotal] = useState(0);
     const [Category, setCategory] = useState("Category");
@@ -155,27 +156,70 @@ const OrderingAndPayment = () => {
                         <div className="line"></div>
                         <div className="title1">Payment method</div>
                         <div className="ordering-methods">
-                            <div className="ordering-method">
+                            <div
+                                className={
+                                    PaymentMethod
+                                        ? "ordering-method ordering-method1"
+                                        : "ordering-method"
+                                }
+                                onClick={() => {
+                                    setPaymentMethod(true);
+                                }}
+                            >
                                 <i className="fal fa-credit-card"></i>
                                 <div>Credit card</div>
                             </div>
-                            <div className="ordering-method">
+                            <div
+                                className={
+                                    !PaymentMethod
+                                        ? "ordering-method ordering-method1"
+                                        : "ordering-method"
+                                }
+                                onClick={() => {
+                                    setPaymentMethod(false);
+                                }}
+                            >
                                 <i className="far fa-wallet"></i>
                                 <div>Cash</div>
                             </div>
                         </div>
-                        <div className="ordering-infor">
-                            Name
-                            <input type="text" />
-                        </div>
-                        <div className="ordering-infor">
-                            Address
-                            <input type="text" />
-                        </div>
-                        <div className="ordering-infor">
-                            Phone Number
-                            <input type="text" />
-                        </div>
+
+                        {PaymentMethod ? (
+                            <>
+                                <div className="ordering-infor">
+                                    Name
+                                    <input type="text" />
+                                </div>
+                                <div className="ordering-infor">
+                                    Card Number
+                                    <input type="text" />
+                                </div>
+                                <div className="ordering-infor">
+                                    Phone Number
+                                    <input type="text" />
+                                </div>
+                                <div className="ordering-infor">
+                                    Address
+                                    <input type="text" />
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="ordering-infor">
+                                    Name
+                                    <input type="text" />
+                                </div>
+                                <div className="ordering-infor">
+                                    Address
+                                    <input type="text" />
+                                </div>
+                                <div className="ordering-infor">
+                                    Phone Number
+                                    <input type="text" />
+                                </div>
+                            </>
+                        )}
+
                         <div className="ordering-cart-2-btn">
                             <button onClick={HandleCancelPayment}>
                                 Cancel

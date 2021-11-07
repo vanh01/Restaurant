@@ -155,7 +155,7 @@
 .ordering-cart {
     position: fixed;
     height: 100vh;
-    width: calc(60% - 2*80px);
+    width: calc(60% - 2 * 80px);
     background-color: #1f1d2c;
     left: calc(70% + 80px);
     box-sizing: border-box;
@@ -372,7 +372,10 @@
     color: #b1afaf;
     justify-content: center;
 }
-
+.ordering-method1 {
+    border: 1px solid #eb7c68;
+    color: #eb7c68;
+}
 .ordering-method i {
     display: flex;
     font-size: 17px;
