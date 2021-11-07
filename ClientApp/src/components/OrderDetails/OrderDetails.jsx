@@ -8,7 +8,7 @@ const OrderDetails = ({ HandleCancelShowDetail }) => {
                     class="fas fa-times-circle"
                     onClick={HandleCancelShowDetail}
                 ></i>
-                <div className="dashboard-title">Order Details</div>
+                <div className="history-title">Order Details</div>
                 <div className="order-detail-info">
                     <div className="order-detail-info1">
                         <div>Name: Anh</div>

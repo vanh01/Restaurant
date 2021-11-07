@@ -16,7 +16,7 @@ const Setting = () => {
                         </div>
                         <div>
                             Date of birth
-                            <input type="date" className="date-of-birth" />
+                            <input type="date" className="date-of-birth" onChange={(e)=>{console.log(typeof e.target.value); console.log(e.target.value)}} />
                         </div>
                         <div>
                             Address

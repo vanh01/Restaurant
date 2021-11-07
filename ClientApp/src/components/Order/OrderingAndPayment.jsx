@@ -1,12 +1,12 @@
 import React from "react";
-import Items from "./Items";
+import CartItems from "./CartItems";
 import Foods from "./Foods";
 import { useState } from "react";
 import FoodDetails from "./FoodDetails";
 import listMenuFood from "../../listMenuFood";
 import listCategory from "../../listCategory";
 
-const Order = () => {
+const OrderingAndPayment = () => {
     const [listOrderFood, setlistOrderFood] = useState([]);
     const [Search, setSearch] = useState("");
     const [Disable, setDisable] = useState("hide");
@@ -102,7 +102,7 @@ const Order = () => {
                         </div>
                         <div className="line"></div>
                         <div className="ordering-cart-list-item">
-                            <Items
+                            <CartItems
                                 listOrderFood={listOrderFood}
                                 setlistOrderFood={setlistOrderFood}
                                 CalcTotal={CalcTotal}
@@ -131,7 +131,7 @@ const Order = () => {
                         </div>
                         <div className="line"></div>
                         <div className="ordering-cart-list-item ordering-cart-list-item1">
-                            <Items
+                            <CartItems
                                 listOrderFood={listOrderFood}
                                 setlistOrderFood={setlistOrderFood}
                                 CalcTotal={CalcTotal}
@@ -208,4 +208,4 @@ const Order = () => {
     );
 };
 
-export default Order;
+export default OrderingAndPayment;
