@@ -1,6 +1,6 @@
 .ordering-menu {
     height: 100vh;
-    width: 70%;
+    width: 67%;
     background-color: #262837;
     position: fixed;
     left: 80px;
@@ -96,34 +96,47 @@
 }
 
 .ordering-menu-food {
-    width: 180px;
-    height: 220px;
+    position: relative;
+    width: 195px;
+    height: 245px;
     background-color: #1f1d2c;
     cursor: pointer;
     border: 0;
     border-radius: 15px;
-    margin: 50px 20px 20px 20px;
+    margin: 60px 40px 40px 40px;
+    box-sizing: border-box;
+    padding: 0px 25px;
+    box-shadow: 5px 3px 8px #1f1d2c;
+}
+
+.image-food-d {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 100px;
+    margin-top: -40px;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+.image-food-d .image-food {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
 }
 
 .data-food {
     position: relative;
 }
 
-.image-food {
-    width: 80%;
-    margin-bottom: 5px;
-    border-radius: 100%;
-    margin-left: 18px;
-    margin-top: -40px;
-    user-select: none;
-}
-
-.description {
+.data-food .description {
+    height: 100px;
     margin-bottom: 15px;
     word-wrap: break-word;
 }
 
-.name-food {
+.data-food .description .name-food {
     font-size: 20px;
     font-weight: 600;
     text-align: center;
@@ -132,14 +145,14 @@
     user-select: none;
 }
 
-.descrip {
+.data-food .description .descrip {
     font-weight: 200;
     color: #b1afaf;
     text-align: center;
     user-select: none;
 }
 
-.price-food {
+.data-food .price-food {
     text-align: center;
     user-select: none;
 }
@@ -147,17 +160,17 @@
 .ordering-cart-behind {
     position: fixed;
     height: 100vh;
-    width: calc(60% - 140px);
+    width: calc(66% - 2 * 80px);
     background-color: #262837;
-    left: calc(70% + 80px);
+    left: calc(67% + 80px);
 }
 
 .ordering-cart {
     position: fixed;
     height: 100vh;
-    width: calc(60% - 2 * 80px);
+    width: calc(66% - 2 * 80px);
     background-color: #1f1d2c;
-    left: calc(70% + 80px);
+    left: calc(67% + 80px);
     box-sizing: border-box;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
@@ -165,7 +178,7 @@
 }
 
 .ordering-cart-full {
-    left: calc(100% - 2 * (30% - 80px));
+    left: calc(100% - 2 * (33% - 80px));
 }
 
 .ordering-cart-1 {
@@ -195,15 +208,17 @@
 
 .ordering-cart-list-item {
     width: 100%;
-    height: calc(100vh - 120px - 81px);
+    height: calc(100vh - 120px - 81px - 20px);
     flex-wrap: wrap;
     overflow-y: auto;
     position: relative;
     overflow-x: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .ordering-cart-list-item1 {
-    height: calc(100vh - 50px - 81px);
+    height: calc(100vh - 50px - 81px - 20px);
 }
 
 .ordering-cart-list-item::-webkit-scrollbar {
@@ -223,17 +238,18 @@
 }
 
 .ordering-cart-item {
-    width: 90%;
+    width: 85%;
     height: 100px;
     box-sizing: border-box;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .ordering-cart-item img {
     position: relative;
+    width: 45px;
     height: 30px;
     border-radius: 50%;
     top: 10px;
@@ -298,6 +314,7 @@
     user-select: none;
     font-size: 14px;
     color: #eb7c68;
+    box-shadow: 0.3px 0.3px 2px #eb7c68;
 }
 
 .item-note {
@@ -343,6 +360,7 @@
     cursor: pointer;
     color: #fefefe;
     user-select: none;
+    box-shadow: 0.3px 0.3px 2.5px #eb7c68;
 }
 
 .ordering-cart-2 {
@@ -372,10 +390,14 @@
     color: #b1afaf;
     justify-content: center;
 }
+
 .ordering-method1 {
+    width: 102px;
+    height: 52px;
     border: 1px solid #eb7c68;
     color: #eb7c68;
 }
+
 .ordering-method i {
     display: flex;
     font-size: 17px;
@@ -437,7 +459,7 @@
 .ordering-cart-2-btn button {
     width: 45%;
     height: 40px;
-    margin: 2%;
+    margin: 2.5%;
     border-radius: 10px;
     border: 0;
     background-color: #eb7c68;
@@ -446,6 +468,7 @@
     cursor: pointer;
     color: #fefefe;
     user-select: none;
+    box-shadow: 0.3px 0.3px 2.5px #eb7c68;
 }
 
 .ordering-cart-2-btn :first-child {
@@ -461,8 +484,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 400px;
-    width: 600px;
+    height: 500px;
+    width: 700px;
     background-color: #262837;
     border-radius: 20px;
 }
@@ -494,8 +517,9 @@
 .food-detail1 .image-food {
     position: absolute;
     border-radius: 30px;
-    width: 90%;
-    left: 5%;
+    width: 80%;
+    height: 45%;
+    left: 10%;
     margin: 0;
     top: 75px;
 }

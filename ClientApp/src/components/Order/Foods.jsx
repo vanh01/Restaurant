@@ -24,11 +24,13 @@ const Foods = ({
                                     setFoodCur(food);
                                 }}
                             >
-                                <img
-                                    className="image-food"
-                                    src={food.pathImage}
-                                    alt={food.nameFood}
-                                />
+                                <div className="image-food-d">
+                                    <img
+                                        className="image-food"
+                                        src={food.pathImage}
+                                        alt={food.nameFood}
+                                    />
+                                </div>
                                 <div className="data-food">
                                     <div className="description">
                                         <div className="name-food">

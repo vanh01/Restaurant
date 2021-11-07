@@ -15,8 +15,8 @@ const FoodDetails = ({
                 <div className="food-detail1">
                     <img
                         className="image-food"
-                        src="https://image.shutterstock.com/image-photo/chopsticks-holding-chinese-noddles-yakisoba-260nw-1021242892.jpg"
-                        alt="test"
+                        src={FoodCur.pathImage}
+                        alt={FoodCur.nameFood}
                     />
                 </div>
                 <div className="food-detail2">
@@ -34,12 +34,12 @@ const FoodDetails = ({
                             ]);
                         }}
                     ></i>
-                    <div className="food-detail-info1">Hủ tiếu</div>
+                    <div className="food-detail-info1">{FoodCur.nameFood}</div>
                     <div className="food-detail-info2">
-                        Hủ tiếu dai ngon từng sợi
+                        {FoodCur.description}
                     </div>
                     <div className="food-detail-info3">
-                        25000đ
+                        {FoodCur.priceFood}đ
                         <input
                             type="text"
                             defaultValue="1"
