@@ -1,0 +1,134 @@
+.edit-menu {
+    height: 100vh;
+    width: calc(100% - 80px);
+    background-color: #262837;
+    position: fixed;
+    left: 80px;
+}
+
+.edit-menu > .title {
+    font-size: 1.25rem;
+    font-weight: 580;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding-top: 0;
+}
+
+.edit-menu > .line {
+    margin-bottom: 20px;
+}
+
+.edit-menu > .dishes {
+    width: 100%;
+    height: calc(100% - 21px - 75px);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    overflow-y: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.edit-menu > .dishes > .create-dish {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+    border: 1px dashed #eb7c68;
+    border-radius: 15px;
+    margin: 40px;
+    box-sizing: border-box;
+    color: #eb7c68;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+}
+
+.edit-menu > .dishes > .create-dish > i {
+    font-weight: 500;
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.edit-menu > .dishes > .create-dish > p {
+    font-weight: 590;
+    position: absolute;
+    top: 64%;
+    transform: translate(0, -50%);
+}
+
+.edit-menu > .dishes > .dish {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    background-color: #1f1d2c;
+    cursor: pointer;
+    border: 0;
+    border-radius: 15px;
+    margin: 40px;
+    box-sizing: border-box;
+    padding: 0px 25px;
+    box-shadow: 5px 3px 8px #1f1d2c;
+}
+
+.dish > .dish-imgg {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 93%;
+    height: 100px;
+}
+
+.dish > .dish-imgg > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.dish > .name-dish {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 19px;
+    color: #fefefe;
+}
+
+.dish > .descrip-dish {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #b1afaf;
+}
+
+.dish > .price-dish {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #fefefe;
+}
+
+.dish > .edit-dish {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #50343a;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: #eb7c68;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.dish > .edit-dish > i {
+    margin-top: 20px;
+}
+
+.dish > .edit-dish > p {
+    margin-top: 17px;
+    margin-left: 10px;
+}
