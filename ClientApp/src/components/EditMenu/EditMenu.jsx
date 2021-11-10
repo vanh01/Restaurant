@@ -1,5 +1,5 @@
 import React from "react";
-import listMenuFood from "../../listMenuFood";
+import listMenuFood from "../../data/listMenuFood";
 import { useState } from "react";
 
 const EditMenu = () => {

@@ -3,8 +3,8 @@ import CartItems from "./CartItems";
 import Foods from "./Foods";
 import { useState } from "react";
 import FoodDetails from "./FoodDetails";
-import listMenuFood from "../../listMenuFood";
-import listCategory from "../../listCategory";
+import listMenuFood from "../../data/listMenuFood";
+import listCategory from "../../data/listCategory";
 
 const OrderingAndPayment = () => {
     const [listOrderFood, setlistOrderFood] = useState([]);
