@@ -126,6 +126,7 @@
     color: #eb7c68;
     display: inline-flex;
     justify-content: center;
+    user-select: none;
 }
 
 .dish > .edit-dish > i {
@@ -182,6 +183,7 @@
     height: 100%;
     border-radius: 5px;
     border: 1px dashed #eb7c68;
+    user-select: none;
 }
 
 .edit-info-dish1 > label > input {
@@ -195,6 +197,7 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    user-select: none;
 }
 
 .edit-info-dish1 > label > span {
@@ -203,6 +206,7 @@
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
+    user-select: none;
 }
 
 .edit-info-dish2 {
@@ -241,4 +245,17 @@
     border-radius: 5px;
     border: 0;
     cursor: pointer;
+}
+
+.edit-info-dish2-delete {
+    left: 10% !important;
+    color: #eb7c68 !important;
+    background-color: #262837 !important;
+    border: 1px solid #eb7c68 !important;
+}
+
+.edit-info-dish2-delete:hover {
+    border: 0 !important;
+    color: #fefefe !important;
+    background-color: #eb7c68 !important;
 }

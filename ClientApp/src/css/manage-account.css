@@ -1,0 +1,7 @@
+.manage-account {
+    height: 100vh;
+    width: calc(100% - 80px);
+    background-color: #262837;
+    position: fixed;
+    left: 80px;
+}

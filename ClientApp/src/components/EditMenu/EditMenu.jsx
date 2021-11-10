@@ -117,6 +117,24 @@ const EditMenu = () => {
                                 (DishTemp.categoryFood = e.target.value)
                             }
                         />
+                        {NewDish ? (
+                            <></>
+                        ) : (
+                            <button
+                                className="edit-info-dish2-delete"
+                                onClick={() => {
+                                    setDisable("hide");
+                                    var index =
+                                        listMenuFood.indexOf(DishCurrent);
+                                    listMenuFood.splice(index, 1);
+                                    console.log(index);
+                                    console.log(listMenuFood);
+                                    setDishCurrent({});
+                                }}
+                            >
+                                Delete
+                            </button>
+                        )}
                         <button
                             onClick={() => {
                                 setDisable("hide");

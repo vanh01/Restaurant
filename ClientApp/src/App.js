@@ -7,6 +7,7 @@ import './css/setting.css'
 import './css/style.css'
 import './css/manage-order.css'
 import './css/edit-menu.css'
+import './css/manage-account.css'
 import NavbarCustomer from './components/Navbar/NavbarCustomer';
 import OrderingAndPayment from './components/Order/OrderingAndPayment';
 import History from './components/DashBoard/History';
@@ -15,6 +16,7 @@ import NavbarClerk from './components/Navbar/NavbarClerk';
 import ManageOrder from './components/ManageOrder/ManageOrder';
 import NavbarManager from './components/Navbar/NavbarManager';
 import EditMenu from './components/EditMenu/EditMenu';
+import ManageAccount from './components/ManageAccount/ManageAccount';
 export default class App extends Component {
     static displayName = App.name;
 
@@ -35,6 +37,7 @@ export default class App extends Component {
                 <NavbarManager />
                 <Switch>
                     <Route path="/EditMenu" exact component={EditMenu}></Route>
+                    <Route path="/ManageAccount" exact component={ManageAccount}></Route>
                     <Route path="/Setting" exact component={Setting}></Route>
                 </Switch>
             </>
