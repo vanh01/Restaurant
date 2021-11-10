@@ -20,21 +20,21 @@ const NavbarManager = () => {
                     <b></b>
                     <b></b>
                     <div>
-                        <i class="fas fa-chart-pie"></i>
+                        <i className="fas fa-chart-pie"></i>
                     </div>
                 </NavLink>
                 <NavLink activeClassName="active" exact to="/History">
                     <b></b>
                     <b></b>
                     <div>
-                        <i class="fas fa-history"></i>
+                        <i className="fas fa-history"></i>
                     </div>
                 </NavLink>
                 <NavLink activeClassName="active" exact to="/ManageAccount">
                     <b></b>
                     <b></b>
                     <div>
-                        <i class="fas fa-user"></i>
+                        <i className="fas fa-user"></i>
                     </div>
                 </NavLink>
                 <NavLink activeClassName="active" exact to="/Setting">

@@ -42,7 +42,7 @@ const listMenuFood =
         },
         {
             pathImage:
-                "https://vietnamtravelinformation.net/wp-content/uploads/2014/06/vietnam-cuisine-bun-bo-hue.jpg",
+                "https://noinaupho.vn/wp-content/uploads/2018/09/cong-thuc-nau-bun-bo-hue-chuan-ngon.jpg",
             nameFood: "Bún bò huế",
             description: "Bún bò huế thơm ngon",
             priceFood: 15000,
