@@ -32,8 +32,8 @@ const History = () => {
                         <div className="row-title">
                             <div>Index</div>
                             <div>Time</div>
-                            <div>Type of Payment</div>
-                            <div>Total Payment</div>
+                            <div>Type of payment</div>
+                            <div>Total payment</div>
                         </div>
                         <div className="line"></div>
                         <div className="history-list-order">
@@ -77,9 +77,7 @@ const History = () => {
                                 <i class="fas fa-utensils-alt"></i>
                             </div>
                             <div className="history-num">15,140</div>
-                            <div className="history-tt">
-                                Total dish ordered
-                            </div>
+                            <div className="history-tt">Total dish ordered</div>
                         </div>
                     </div>
                 </div>

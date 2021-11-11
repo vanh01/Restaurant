@@ -1,0 +1,68 @@
+.history-of-manage {
+    height: 100vh;
+    width: calc(100% - 80px);
+    background-color: #262837;
+    position: fixed;
+    left: 80px;
+}
+
+.history-of-manage > .title {
+    font-size: 1.25rem;
+    font-weight: 580;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 0;
+}
+
+.history-of-manage > .title2 {
+    margin-bottom: 20px;
+}
+
+.history-of-manage > .line {
+    margin-bottom: 20px;
+}
+
+.table-ordered {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    height: calc(100% - 144px);
+    overflow-y: auto;
+}
+
+.table-ordered table th:nth-child(1),
+.table-ordered table td:nth-child(1) {
+    width: 10% !important;
+}
+.table-ordered table th:nth-child(2),
+.table-ordered table td:nth-child(2) {
+    width: 15% !important;
+}
+.table-ordered table th:nth-child(3),
+.table-ordered table td:nth-child(3) {
+    width: 15% !important;
+}
+.table-ordered table th:nth-child(4),
+.table-ordered table td:nth-child(4) {
+    width: 15% !important;
+}
+.table-ordered table th:nth-child(5),
+.table-ordered table td:nth-child(5) {
+    width: 15% !important;
+}
+.table-ordered table th:nth-child(6),
+.table-ordered table td:nth-child(6) {
+    width: 15% !important;
+}
+.table-ordered table th:nth-child(7),
+.table-ordered table td:nth-child(7) {
+    width: 15% !important;
+}
+
+.table-ordered > table > tr {
+    cursor: pointer;
+}
+
+.table-ordered > table > tr:nth-child(1) {
+    cursor: default;
+}

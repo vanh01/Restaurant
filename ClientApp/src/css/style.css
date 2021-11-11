@@ -122,6 +122,12 @@ body {
     flex-flow: column;
 }
 
+.order-detail > .line1 {
+    position: absolute;
+    bottom: 40px;
+    left: 5%;
+}
+
 .order-detail-info {
     width: 90%;
     position: relative;
@@ -152,37 +158,44 @@ body {
     left: 0;
 }
 
-.order-detail .row-title div {
-    display: inline-flex;
-    word-break: break-all;
-    hyphens: auto;
-}
-
-.order-detail .row-title div:nth-child(1) {
-    width: 30%;
-}
-
-.order-detail .row-title div:nth-child(2) {
-    width: 15%;
-}
-
-.order-detail .row-title div:nth-child(3) {
-    width: 15%;
-}
-
-.order-detail .row-title div:nth-child(4) {
-    width: 40%;
-}
-
 .order-detail-list {
-    width: 100%;
-    height: calc(100% - 250px);
+    position: relative;
+    left: 5%;
+    width: 90%;
+    height: calc(100% - 200px);
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-.order-detail-list .row-title div {
+.order-detail-list > table > tr > th {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.order-detail-list > table > tr > td {
     color: #b1afaf;
+}
+
+.order-detail-list > table > tr > th,
+.order-detail-list > table > tr > td {
+    padding: 8px 8px 8px 10px !important;
+}
+
+.order-detail-list > table > tr > th:nth-child(1),
+.order-detail-list > table > tr > td:nth-child(1) {
+    width: 20%;
+}
+.order-detail-list > table > tr > th:nth-child(2),
+.order-detail-list > table > tr > td:nth-child(2) {
+    width: 20%;
+}
+.order-detail-list > table > tr > th:nth-child(3),
+.order-detail-list > table > tr > td:nth-child(3) {
+    width: 20%;
+}
+.order-detail-list > table > tr > th:nth-child(4),
+.order-detail-list > table > tr > td:nth-child(4) {
+    width: 40%;
 }
 
 .order-detail-total {
@@ -214,3 +227,36 @@ body {
     cursor: pointer;
 }
 /*  */
+
+/* table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #fefefe;
+}
+
+table th {
+    border: 1px solid #393b4a;
+    text-align: left;
+    padding: 15px 15px 15px 20px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+table td {
+    border: 1px solid #393b4a;
+    text-align: left;
+    padding: 15px 15px 15px 20px;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+table td > i {
+    color: #eb7c68;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: #1f1d2c;
+}

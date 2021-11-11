@@ -49,13 +49,13 @@ const ManageAccount = () => {
                         })}
                     </table>
                 </div>
-                <div className="create-account">
-                    <i
-                        className="fas fa-plus"
-                        onClick={() => {
-                            setDisable("hide hide1");
-                        }}
-                    ></i>
+                <div
+                    className="create-account"
+                    onClick={() => {
+                        setDisable("hide hide1");
+                    }}
+                >
+                    <i className="fas fa-plus"></i>
                 </div>
             </div>
             <div
@@ -96,6 +96,7 @@ const ManageAccount = () => {
                     <button
                         onClick={() => {
                             setDisable("hide");
+                            setAccountTemp({});
                             AccountTemp.date = "11/10/2021";
                             listAccount.push(AccountTemp);
                         }}
