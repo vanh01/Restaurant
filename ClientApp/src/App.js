@@ -10,8 +10,8 @@ export default class App extends Component {
     render() {
         return (
             <>
-                <Customer/>
-                {/* <Clerk/> */}
+                {/* <Customer/> */}
+                <Clerk/>
                 {/* <Manager/> */}
             </>
         );

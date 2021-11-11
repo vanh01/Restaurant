@@ -11,54 +11,55 @@
     margin-top: 20px;
 }
 
-.manage-order .line1 {
+.manage-order .line {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.manage-order .row-title {
-    width: calc(0.9 * (100vw - 80px));
-    left: calc(0.05 * (100vw - 80px));
-    display: inline-flex;
-    word-break: break-all;
-    hyphens: auto;
-}
-
-.manage-order .row-title div:nth-child(1) {
-    width: 7%;
-}
-.manage-order .row-title div:nth-child(2) {
-    width: 17%;
-}
-.manage-order .row-title div:nth-child(3) {
-    width: 20%;
-}
-.manage-order .row-title div:nth-child(4) {
-    width: 28%;
-}
-.manage-order .row-title div:nth-child(5) {
-    width: 13%;
-}
-.manage-order .row-title div:nth-child(6) {
-    width: 8%;
-}
-.manage-order .row-title div:nth-child(7) {
-    width: 7%;
-}
-
 .manage-order .manage-list-order {
+    position: relative;
+    left: 5%;
+    width: 90%;
     overflow-y: auto;
-    height: calc(100% - 145px);
+    height: calc(100% - 120px);
+}
+.manage-list-order > table > tr > th {
+    padding: 15px;
 }
 
-.manage-order .manage-list-order div {
+.manage-list-order > table > tr > td {
+    padding: 10px 10px 10px 15px;
     color: #b1afaf;
     cursor: pointer;
 }
 
-.manage-list-order .row-title div i {
-    margin-left: 15%;
-    color: #eb7c68;
-    font-size: 17px;
-    cursor: pointer;
+.manage-list-order > table > tr > th:nth-child(1),
+.manage-list-order > table > tr > td:nth-child(1) {
+    width: 10%;
+}
+.manage-list-order > table > tr > th:nth-child(2),
+.manage-list-order > table > tr > td:nth-child(2) {
+    width: 15%;
+}
+.manage-list-order > table > tr > th:nth-child(3),
+.manage-list-order > table > tr > td:nth-child(3) {
+    width: 15%;
+}
+.manage-list-order > table > tr > th:nth-child(4),
+.manage-list-order > table > tr > td:nth-child(4) {
+    width: 20%;
+}
+.manage-list-order > table > tr > th:nth-child(5),
+.manage-list-order > table > tr > td:nth-child(5) {
+    width: 15%;
+}
+
+.manage-list-order > table > tr > th:nth-child(6),
+.manage-list-order > table > tr > td:nth-child(6) {
+    width: 15%;
+}
+
+.manage-list-order > table > tr > th:nth-child(7),
+.manage-list-order > table > tr > td:nth-child(7) {
+    width: 10%;
 }

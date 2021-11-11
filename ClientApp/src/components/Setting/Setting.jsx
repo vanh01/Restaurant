@@ -17,7 +17,14 @@ const Setting = () => {
                         </div>
                         <div>
                             Date of birth
-                            <input type="date" className="date-of-birth" onChange={(e)=>{console.log(typeof e.target.value); console.log(e.target.value)}} />
+                            <input
+                                type="date"
+                                className="date-of-birth"
+                                onChange={(e) => {
+                                    console.log(typeof e.target.value);
+                                    console.log(e.target.value);
+                                }}
+                            />
                         </div>
                         <div>
                             Address
@@ -54,9 +61,10 @@ const Setting = () => {
                 <div className="setting-avatar">
                     <div className="title">Profile picture</div>
                     <div className="picture"></div>
-                    <button className="edit">
+                    <label className="edit">
+                        <input type="file" />
                         <i class="fas fa-pen"></i>Edit
-                    </button>
+                    </label>
                 </div>
             </div>
         </>

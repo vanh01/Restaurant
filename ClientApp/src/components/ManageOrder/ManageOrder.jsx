@@ -21,85 +21,104 @@ const ManageOrder = () => {
         <>
             <div className="manage-order">
                 <div className="title">Manage Orders</div>
-                <div className="row-title">
-                    <div>Index</div>
-                    <div>Name</div>
-                    <div>Time</div>
-                    <div>Address</div>
-                    <div>Total</div>
-                    <div>Status</div>
-                    <div>Delete</div>
-                </div>
-                <div className="line1"></div>
+                <div className="line"></div>
                 <div className="manage-list-order">
-                    <div className="row-title" onClick={HandleShowDetail}>
-                        <div>1</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>
-                            <i
-                                class="fas fa-times-circle"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    alert("hi");
-                                }}
-                            ></i>
-                        </div>
-                    </div>
-                    <div className="row-title" onClick={HandleShowDetail}>
-                        <div>1</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>
-                            <i
-                                class="fas fa-times-circle"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    alert("hi");
-                                }}
-                            ></i>
-                        </div>
-                    </div>
-                    <div className="row-title" onClick={HandleShowDetail}>
-                        <div>1</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>
-                            <i
-                                class="fas fa-times-circle"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    alert("hi");
-                                }}
-                            ></i>
-                        </div>
-                    </div>
-                    <div className="row-title" onClick={HandleShowDetail}>
-                        <div>1</div>
-                        <div>Anh</div>
-                        <div>28/11/2021</div>
-                        <div>VietNam</div>
-                        <div>500000d</div>
-                        <div>Status</div>
-                        <div>
-                            <i
-                                class="fas fa-times-circle"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    alert("hi");
-                                }}
-                            ></i>
-                        </div>
-                    </div>
+                    <table>
+                        <tr>
+                            <th>Index</th>
+                            <th>Name</th>
+                            <th>Time</th>
+                            <th>Address</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr onClick={HandleShowDetail}>
+                            <td>1</td>
+                            <td>Anh</td>
+                            <td>11/11/2021</td>
+                            <td>Viet Nam</td>
+                            <td>500000</td>
+                            <td>paid</td>
+                            <td>
+                                <i
+                                    class="fas fa-times-circle"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        alert("hi");
+                                    }}
+                                ></i>
+                            </td>
+                        </tr>
+                        <tr onClick={HandleShowDetail}>
+                            <td>1</td>
+                            <td>Anh</td>
+                            <td>11/11/2021</td>
+                            <td>Viet Nam</td>
+                            <td>500000</td>
+                            <td>paid</td>
+                            <td>
+                                <i
+                                    class="fas fa-times-circle"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        alert("hi");
+                                    }}
+                                ></i>
+                            </td>
+                        </tr>
+                        <tr onClick={HandleShowDetail}>
+                            <td>1</td>
+                            <td>Anh</td>
+                            <td>11/11/2021</td>
+                            <td>Viet Nam</td>
+                            <td>500000</td>
+                            <td>paid</td>
+                            <td>
+                                <i
+                                    class="fas fa-times-circle"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        alert("hi");
+                                    }}
+                                ></i>
+                            </td>
+                        </tr>
+                        <tr onClick={HandleShowDetail}>
+                            <td>1</td>
+                            <td>Anh</td>
+                            <td>11/11/2021</td>
+                            <td>Viet Nam</td>
+                            <td>500000</td>
+                            <td>paid</td>
+                            <td>
+                                <i
+                                    class="fas fa-times-circle"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        alert("hi");
+                                    }}
+                                ></i>
+                            </td>
+                        </tr>
+                        <tr onClick={HandleShowDetail}>
+                            <td>1</td>
+                            <td>Anh</td>
+                            <td>11/11/2021</td>
+                            <td>Viet Nam</td>
+                            <td>500000</td>
+                            <td>paid</td>
+                            <td>
+                                <i
+                                    class="fas fa-times-circle"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        alert("hi");
+                                    }}
+                                ></i>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <div className={Disable} onClick={HandleCancelShowDetail}></div>

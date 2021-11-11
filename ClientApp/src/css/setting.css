@@ -5,6 +5,7 @@
     top: 0;
     left: 80px;
     background-color: #262837;
+    box-sizing: border-box;
     overflow-y: auto;
     overflow-x: auto;
 }
@@ -134,12 +135,13 @@
     cursor: pointer;
     color: #fefefe;
     user-select: none;
+    box-sizing: border-box;
 }
 
-/* .edit input {
-    height: 1px;
-    width: 1px;
-} */
+.edit input {
+    width: 0.1px;
+    height: 0.1px;
+}
 
 .edit i {
     margin-right: 5px;

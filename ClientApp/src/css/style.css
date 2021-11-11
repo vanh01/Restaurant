@@ -162,7 +162,7 @@ body {
     position: relative;
     left: 5%;
     width: 90%;
-    height: calc(100% - 200px);
+    height: calc(100% - 220px);
     overflow-x: hidden;
     overflow-y: auto;
 }

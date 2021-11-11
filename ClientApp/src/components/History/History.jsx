@@ -29,33 +29,94 @@ const History = () => {
                     <div className="line"></div>
                     <div className="history-order-report">
                         <div className="history-title">Order History</div>
-
-                        <div className="row-title">
-                            <div>Index</div>
-                            <div>Time</div>
-                            <div>Type of payment</div>
-                            <div>Total payment</div>
-                        </div>
                         <div className="line"></div>
                         <div className="history-list-order">
-                            <div
-                                className="row-title"
-                                onClick={HandleShowDetail}
-                            >
-                                <div>1</div>
-                                <div>23-10-2021</div>
-                                <div>Cash</div>
-                                <div>20000</div>
-                            </div>
-                            <div
-                                className="row-title"
-                                onClick={HandleShowDetail}
-                            >
-                                <div>2</div>
-                                <div>23-10-2021</div>
-                                <div>Credit card</div>
-                                <div>100000</div>
-                            </div>
+                            <table>
+                                <tr>
+                                    <th>Index</th>
+                                    <th>Time</th>
+                                    <th>Type of payment</th>
+                                    <th>Total payment</th>
+                                </tr>
+                                <tr onClick={HandleShowDetail}>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>11/11/2021</td>
+                                    <td>cash</td>
+                                    <td>20000</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <div className="history-totals">
