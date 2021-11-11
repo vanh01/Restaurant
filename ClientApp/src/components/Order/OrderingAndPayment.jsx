@@ -1,4 +1,5 @@
 import React from "react";
+import "../../css/order.css"
 import CartItems from "./CartItems";
 import Foods from "./Foods";
 import { useState } from "react";

@@ -1,4 +1,5 @@
 import React from "react";
+import "../../css/history.css";
 import { useState } from "react";
 import OrderDetails from "../OrderDetails/OrderDetails";
 
