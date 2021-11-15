@@ -59,7 +59,7 @@
 
 .table-account table th:nth-child(1),
 .table-account table td:nth-child(1) {
-    width: 20%;
+    width: 15%;
 }
 
 .table-account table th:nth-child(2),
@@ -69,7 +69,7 @@
 
 .table-account table th:nth-child(3),
 .table-account table td:nth-child(3) {
-    width: 15%;
+    width: 20%;
 }
 
 .table-account table th:nth-child(4),

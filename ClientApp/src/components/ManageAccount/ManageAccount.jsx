@@ -9,7 +9,7 @@ const ManageAccount = () => {
     const [ListAccount, setListAccount] = useState([]);
 
     useEffect(() => {
-        fetch("https://localhost:5001/api/AccountOfClerk")
+        fetch("https://localhost:5001/api/account")
             .then((response) => response.json())
             .then((data) => setListAccount(data));
     }, []);
@@ -34,14 +34,15 @@ const ManageAccount = () => {
                                 <tr>
                                     <td>{account.userName}</td>
                                     <td>{account.password}</td>
-                                    <td>{account.date}</td>
-                                    <td>{account.name}</td>
+                                    <td>{account.birthOfDate}</td>
+                                    <td>
+                                        {account.lName + " " + account.fname}
+                                    </td>
                                     <td>{account.phoneNumber}</td>
                                     <td>
                                         <i
                                             className="fas fa-times"
                                             onClick={() => {
-                                                setUpdate(!Update);
                                                 var listAccount = ListAccount;
                                                 var index =
                                                     listAccount.indexOf(
@@ -49,6 +50,7 @@ const ManageAccount = () => {
                                                     );
                                                 listAccount.splice(index, 1);
                                                 setListAccount(listAccount);
+                                                setUpdate(!Update);
                                                 console.log(listAccount);
                                             }}
                                         ></i>
