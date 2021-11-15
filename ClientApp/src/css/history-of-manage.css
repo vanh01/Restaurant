@@ -59,10 +59,10 @@
     width: 15% !important;
 }
 
-.table-ordered > table > tr {
+.table-ordered > table tr {
     cursor: pointer;
 }
 
-.table-ordered > table > tr:nth-child(1) {
+.table-ordered > table > thead tr:nth-child(1) {
     cursor: default;
 }

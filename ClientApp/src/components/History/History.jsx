@@ -32,111 +32,49 @@ const History = () => {
                         <div className="line"></div>
                         <div className="history-list-order">
                             <table>
-                                <tr>
-                                    <th>Index</th>
-                                    <th>Time</th>
-                                    <th>Type of payment</th>
-                                    <th>Total payment</th>
-                                </tr>
-                                <tr onClick={HandleShowDetail}>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>11/11/2021</td>
-                                    <td>cash</td>
-                                    <td>20000</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th>Index</th>
+                                        <th>Time</th>
+                                        <th>Type of payment</th>
+                                        <th>Total payment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr onClick={HandleShowDetail}>
+                                        <td>1</td>
+                                        <td>11/11/2021</td>
+                                        <td>cash</td>
+                                        <td>20000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>11/11/2021</td>
+                                        <td>cash</td>
+                                        <td>20000</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
                     <div className="history-totals">
                         <div className="history-total">
                             <div>
-                                <i class="fas fa-dollar-sign"></i>
+                                <i className="fas fa-dollar-sign"></i>
                             </div>
                             <div className="history-num">11,521,000 đ</div>
                             <div className="history-tt">Total spending</div>
                         </div>
                         <div className="history-total">
                             <div>
-                                <i class="fas fa-bookmark"></i>
+                                <i className="fas fa-bookmark"></i>
                             </div>
                             <div className="history-num">3,230</div>
                             <div className="history-tt">Total ordered</div>
                         </div>
                         <div className="history-total">
                             <div>
-                                <i class="fas fa-utensils-alt"></i>
+                                <i className="fas fa-utensils-alt"></i>
                             </div>
                             <div className="history-num">15,140</div>
                             <div className="history-tt">Total dish ordered</div>

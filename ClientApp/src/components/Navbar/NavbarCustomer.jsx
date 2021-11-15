@@ -21,7 +21,7 @@ const NavbarCustomer = () => {
                     <b></b>
                     <b></b>
                     <div>
-                        <i class="fas fa-history"></i>
+                        <i className="fas fa-history"></i>
                     </div>
                 </NavLink>
                 <NavLink activeClassName="active" to="/Setting">

@@ -24,100 +24,87 @@ const ManageOrder = () => {
                 <div className="line"></div>
                 <div className="manage-list-order">
                     <table>
-                        <tr>
-                            <th>Index</th>
-                            <th>Name</th>
-                            <th>Time</th>
-                            <th>Address</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                            <th>Delete</th>
-                        </tr>
-                        <tr onClick={HandleShowDetail}>
-                            <td>1</td>
-                            <td>Anh</td>
-                            <td>11/11/2021</td>
-                            <td>Viet Nam</td>
-                            <td>500000</td>
-                            <td>paid</td>
-                            <td>
-                                <i
-                                    class="fas fa-times-circle"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        alert("hi");
-                                    }}
-                                ></i>
-                            </td>
-                        </tr>
-                        <tr onClick={HandleShowDetail}>
-                            <td>1</td>
-                            <td>Anh</td>
-                            <td>11/11/2021</td>
-                            <td>Viet Nam</td>
-                            <td>500000</td>
-                            <td>paid</td>
-                            <td>
-                                <i
-                                    class="fas fa-times-circle"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        alert("hi");
-                                    }}
-                                ></i>
-                            </td>
-                        </tr>
-                        <tr onClick={HandleShowDetail}>
-                            <td>1</td>
-                            <td>Anh</td>
-                            <td>11/11/2021</td>
-                            <td>Viet Nam</td>
-                            <td>500000</td>
-                            <td>paid</td>
-                            <td>
-                                <i
-                                    class="fas fa-times-circle"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        alert("hi");
-                                    }}
-                                ></i>
-                            </td>
-                        </tr>
-                        <tr onClick={HandleShowDetail}>
-                            <td>1</td>
-                            <td>Anh</td>
-                            <td>11/11/2021</td>
-                            <td>Viet Nam</td>
-                            <td>500000</td>
-                            <td>paid</td>
-                            <td>
-                                <i
-                                    class="fas fa-times-circle"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        alert("hi");
-                                    }}
-                                ></i>
-                            </td>
-                        </tr>
-                        <tr onClick={HandleShowDetail}>
-                            <td>1</td>
-                            <td>Anh</td>
-                            <td>11/11/2021</td>
-                            <td>Viet Nam</td>
-                            <td>500000</td>
-                            <td>paid</td>
-                            <td>
-                                <i
-                                    class="fas fa-times-circle"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        alert("hi");
-                                    }}
-                                ></i>
-                            </td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Index</th>
+                                <th>Name</th>
+                                <th>Time</th>
+                                <th>Address</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onClick={HandleShowDetail}>
+                                <td>1</td>
+                                <td>Anh</td>
+                                <td>11/11/2021</td>
+                                <td>Viet Nam</td>
+                                <td>500000</td>
+                                <td>paid</td>
+                                <td>
+                                    <i
+                                        className="fas fa-times-circle"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            alert("hi");
+                                        }}
+                                    ></i>
+                                </td>
+                            </tr>
+                            <tr onClick={HandleShowDetail}>
+                                <td>1</td>
+                                <td>Anh</td>
+                                <td>11/11/2021</td>
+                                <td>Viet Nam</td>
+                                <td>500000</td>
+                                <td>paid</td>
+                                <td>
+                                    <i
+                                        className="fas fa-times-circle"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            alert("hi");
+                                        }}
+                                    ></i>
+                                </td>
+                            </tr>
+                            <tr onClick={HandleShowDetail}>
+                                <td>1</td>
+                                <td>Anh</td>
+                                <td>11/11/2021</td>
+                                <td>Viet Nam</td>
+                                <td>500000</td>
+                                <td>paid</td>
+                                <td>
+                                    <i
+                                        className="fas fa-times-circle"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            alert("hi");
+                                        }}
+                                    ></i>
+                                </td>
+                            </tr>
+                            <tr onClick={HandleShowDetail}>
+                                <td>1</td>
+                                <td>Anh</td>
+                                <td>11/11/2021</td>
+                                <td>Viet Nam</td>
+                                <td>500000</td>
+                                <td>paid</td>
+                                <td>
+                                    <i
+                                        className="fas fa-times-circle"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            alert("hi");
+                                        }}
+                                    ></i>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

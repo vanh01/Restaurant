@@ -71,15 +71,9 @@ namespace RestaurantPOS2._0
             Type temp = typeof(T);
             T obj = Activator.CreateInstance<T>();
 
-            foreach (DataColumn column in dr.Table.Columns)
+            foreach (PropertyInfo pro in temp.GetProperties())
             {
-                foreach (PropertyInfo pro in temp.GetProperties())
-                {
-                    if (pro.Name == column.ColumnName)
-                        pro.SetValue(obj, dr[column.ColumnName], null);
-                    else
-                        continue;
-                }
+                pro.SetValue(obj, dr[pro.Name], null);
             }
             return obj;
         }

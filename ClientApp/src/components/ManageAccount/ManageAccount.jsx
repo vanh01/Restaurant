@@ -21,43 +21,53 @@ const ManageAccount = () => {
                 <div className="line"></div>
                 <div className="table-account">
                     <table>
-                        <tr>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Phone Number</th>
-                            <th>Delete</th>
-                        </tr>
-                        {ListAccount.map((account) => {
-                            return (
-                                <tr>
-                                    <td>{account.userName}</td>
-                                    <td>{account.password}</td>
-                                    <td>{account.birthOfDate}</td>
-                                    <td>
-                                        {account.lName + " " + account.fname}
-                                    </td>
-                                    <td>{account.phoneNumber}</td>
-                                    <td>
-                                        <i
-                                            className="fas fa-times"
-                                            onClick={() => {
-                                                var listAccount = ListAccount;
-                                                var index =
-                                                    listAccount.indexOf(
-                                                        account
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Phone Number</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {ListAccount.map((account) => {
+                                return (
+                                    <tr key={account.id}>
+                                        <td>{account.userName}</td>
+                                        <td>{account.password}</td>
+                                        <td>{account.birthOfDate}</td>
+                                        <td>
+                                            {account.lName +
+                                                " " +
+                                                account.fName}
+                                        </td>
+                                        <td>{account.phoneNumber}</td>
+                                        <td>
+                                            <i
+                                                className="fas fa-times"
+                                                onClick={() => {
+                                                    var listAccount =
+                                                        ListAccount;
+                                                    var index =
+                                                        listAccount.indexOf(
+                                                            account
+                                                        );
+                                                    listAccount.splice(
+                                                        index,
+                                                        1
                                                     );
-                                                listAccount.splice(index, 1);
-                                                setListAccount(listAccount);
-                                                setUpdate(!Update);
-                                                console.log(listAccount);
-                                            }}
-                                        ></i>
-                                    </td>
-                                </tr>
-                            );
-                        })}
+                                                    setListAccount(listAccount);
+                                                    setUpdate(!Update);
+                                                    console.log(listAccount);
+                                                }}
+                                            ></i>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
                     </table>
                 </div>
                 <div

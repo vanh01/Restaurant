@@ -63,7 +63,7 @@ const Setting = () => {
                     <div className="picture"></div>
                     <label className="edit">
                         <input type="file" />
-                        <i class="fas fa-pen"></i>Edit
+                        <i className="fas fa-pen"></i>Edit
                     </label>
                 </div>
             </div>

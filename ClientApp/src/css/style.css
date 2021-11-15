@@ -167,34 +167,34 @@ body {
     overflow-y: auto;
 }
 
-.order-detail-list > table > tr > th {
+.order-detail-list > table tr > th {
     font-weight: 500;
     font-size: 1rem;
 }
 
-.order-detail-list > table > tr > td {
+.order-detail-list > table tr > td {
     color: #b1afaf;
 }
 
-.order-detail-list > table > tr > th,
-.order-detail-list > table > tr > td {
+.order-detail-list > table tr > th,
+.order-detail-list > table tr > td {
     padding: 8px 8px 8px 10px !important;
 }
 
-.order-detail-list > table > tr > th:nth-child(1),
-.order-detail-list > table > tr > td:nth-child(1) {
+.order-detail-list > table tr > th:nth-child(1),
+.order-detail-list > table tr > td:nth-child(1) {
     width: 20%;
 }
-.order-detail-list > table > tr > th:nth-child(2),
-.order-detail-list > table > tr > td:nth-child(2) {
+.order-detail-list > table tr > th:nth-child(2),
+.order-detail-list > table tr > td:nth-child(2) {
     width: 20%;
 }
-.order-detail-list > table > tr > th:nth-child(3),
-.order-detail-list > table > tr > td:nth-child(3) {
+.order-detail-list > table tr > th:nth-child(3),
+.order-detail-list > table tr > td:nth-child(3) {
     width: 20%;
 }
-.order-detail-list > table > tr > th:nth-child(4),
-.order-detail-list > table > tr > td:nth-child(4) {
+.order-detail-list > table tr > th:nth-child(4),
+.order-detail-list > table tr > td:nth-child(4) {
     width: 40%;
 }
 
@@ -257,6 +257,6 @@ table td > i {
     font-size: 1rem;
 }
 
-tr:nth-child(even) {
+tbody > tr:nth-child(odd) {
     background-color: #1f1d2c;
 }

@@ -5,7 +5,7 @@ const OrderDetails = ({ HandleCancelShowDetail }) => {
         <>
             <div className="order-detail">
                 <i
-                    class="fas fa-times-circle"
+                    className="fas fa-times-circle"
                     onClick={HandleCancelShowDetail}
                 ></i>
                 <div className="history-title">Order Details</div>
@@ -22,84 +22,28 @@ const OrderDetails = ({ HandleCancelShowDetail }) => {
                 </div>
                 <div className="order-detail-list">
                     <table>
-                        <tr>
-                            <th>Food</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Order note</th>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
-                        <tr>
-                            <td>Hu tieu</td>
-                            <td>2</td>
-                            <td>15000</td>
-                            <td>it nuoc</td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Food</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Order note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hu tieu</td>
+                                <td>2</td>
+                                <td>15000</td>
+                                <td>it nuoc</td>
+                            </tr>
+                            <tr>
+                                <td>Hu tieu</td>
+                                <td>2</td>
+                                <td>15000</td>
+                                <td>it nuoc</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="line1"></div>
