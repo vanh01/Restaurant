@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../css/manage-account.css";
 import { useState } from "react";
-import listAccount from "../../data/listAccount";
 
 const ManageAccount = () => {
     const [Disable, setDisable] = useState("hide");
     const [Update, setUpdate] = useState(false);
     const [AccountTemp, setAccountTemp] = useState({});
+    const [ListAccount, setListAccount] = useState([]);
+
+    useEffect(() => {
+        fetch("https://localhost:5001/api/AccountOfClerk")
+            .then((response) => response.json())
+            .then((data) => setListAccount(data));
+    }, []);
 
     return (
         <>
@@ -23,7 +29,7 @@ const ManageAccount = () => {
                             <th>Phone Number</th>
                             <th>Delete</th>
                         </tr>
-                        {listAccount.map((account) => {
+                        {ListAccount.map((account) => {
                             return (
                                 <tr>
                                     <td>{account.userName}</td>
@@ -33,14 +39,16 @@ const ManageAccount = () => {
                                     <td>{account.phoneNumber}</td>
                                     <td>
                                         <i
-                                            class="fas fa-times"
+                                            className="fas fa-times"
                                             onClick={() => {
                                                 setUpdate(!Update);
+                                                var listAccount = ListAccount;
                                                 var index =
                                                     listAccount.indexOf(
                                                         account
                                                     );
                                                 listAccount.splice(index, 1);
+                                                setListAccount(listAccount);
                                                 console.log(listAccount);
                                             }}
                                         ></i>
@@ -99,7 +107,7 @@ const ManageAccount = () => {
                             setDisable("hide");
                             setAccountTemp({});
                             AccountTemp.date = "11/10/2021";
-                            listAccount.push(AccountTemp);
+                            setListAccount((list) => [...list, AccountTemp]);
                         }}
                     >
                         Confirm

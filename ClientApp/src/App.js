@@ -11,8 +11,8 @@ export default class App extends Component {
         return (
             <>
                 {/* <Customer/> */}
-                <Clerk/>
-                {/* <Manager/> */}
+                {/* <Clerk/> */}
+                <Manager/>
             </>
         );
     }

@@ -2,4 +2,4 @@
 
 > dotnet build
 
->> dotnet watch run
+> dotnet watch run
