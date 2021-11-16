@@ -1,7 +1,7 @@
 import React from "react";
 import "../../css/setting.css";
 
-const Setting = () => {
+const Setting = ({ User }) => {
     return (
         <>
             <div className="setting">
@@ -9,11 +9,11 @@ const Setting = () => {
                     <div className="setting-info">
                         <div>
                             First name
-                            <input type="text" />
+                            <input type="text" defaultValue={User.fName} />
                         </div>
                         <div>
                             Last name
-                            <input type="text" />
+                            <input type="text" defaultValue={User.lName} />
                         </div>
                         <div>
                             Date of birth
@@ -28,11 +28,14 @@ const Setting = () => {
                         </div>
                         <div>
                             Address
-                            <input type="text" />
+                            <input type="text" defaultValue={User.address} />
                         </div>
                         <div>
                             Phone number
-                            <input type="text" />
+                            <input
+                                type="text"
+                                defaultValue={User.phoneNumber}
+                            />
                         </div>
                         <button>Save changes</button>
                         <button>Dismiss</button>
@@ -40,11 +43,18 @@ const Setting = () => {
                     <div className="setting-password">
                         <div>
                             Username
-                            <input readOnly type="text" />
+                            <input
+                                readOnly
+                                type="text"
+                                defaultValue={User.userName}
+                            />
                         </div>
                         <div>
                             Current password
-                            <input type="password" />
+                            <input
+                                type="password"
+                                defaultValue={User.password}
+                            />
                         </div>
                         <div>
                             New password

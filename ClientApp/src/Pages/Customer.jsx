@@ -5,10 +5,10 @@ import OrderingAndPayment from "../components/Order/OrderingAndPayment";
 import History from "../components/History/History";
 import Setting from "../components/Setting/Setting";
 
-const Customer = () => {
+const Customer = ({ setUser, User }) => {
     return (
         <>
-            <NavbarCustomer />
+            <NavbarCustomer setUser={setUser} />
             <Switch>
                 <Route
                     path="/Ordering"
@@ -16,7 +16,9 @@ const Customer = () => {
                     component={OrderingAndPayment}
                 ></Route>
                 <Route path="/History" exact component={History}></Route>
-                <Route path="/Setting" exact component={Setting}></Route>
+                <Route path="/Setting" exact>
+                    <Setting User={User} />
+                </Route>
             </Switch>
         </>
     );

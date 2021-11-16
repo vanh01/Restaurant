@@ -2,7 +2,7 @@ import React from "react";
 import "../../css/navbar.css";
 import { NavLink } from "react-router-dom";
 
-const NavbarManager = () => {
+const NavbarManager = ({ setUser }) => {
     return (
         <>
             <div className="nav-behind"></div>
@@ -10,7 +10,7 @@ const NavbarManager = () => {
                 <div>
                     <i className="fas fa-store"></i>
                 </div>
-                <NavLink activeClassName="active" exact to="/">
+                <NavLink activeClassName="active" exact to="/Home">
                     <b></b>
                     <b></b>
                     <div>
@@ -45,7 +45,7 @@ const NavbarManager = () => {
                         <i className="fas fa-cog"></i>
                     </div>
                 </NavLink>
-                <NavLink exact to="/out">
+                <NavLink exact to="/Login" onClick={() => setUser({})}>
                     <div>
                         <i className="fas fa-sign-out"></i>
                     </div>
