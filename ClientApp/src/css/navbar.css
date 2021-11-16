@@ -11,7 +11,8 @@
     border-bottom-right-radius: 10px;
 }
 
-.nav-bar > a {
+.nav-bar > a,
+.logout {
     width: 60px;
     height: 60px;
     list-style: none;
@@ -21,6 +22,7 @@
     position: relative;
     border-top-left-radius: 13px;
     border-bottom-left-radius: 13px;
+    cursor: pointer;
 }
 
 /* active */
@@ -75,7 +77,8 @@
 }
 /* end active */
 
-.nav-bar > a div {
+.nav-bar > a div,
+.logout > div {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -84,7 +87,8 @@
     border-radius: 7px;
 }
 
-.nav-bar > a div i {
+.nav-bar > a div i,
+.logout > div > i {
     color: #eb7c68;
     position: absolute;
     top: 50%;

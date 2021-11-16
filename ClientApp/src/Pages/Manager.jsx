@@ -6,10 +6,10 @@ import ManageAccount from "../components/ManageAccount/ManageAccount";
 import HistoryOfManage from "../components/History/HistoryOfManage";
 import Setting from "../components/Setting/Setting";
 
-const Manager = () => {
+const Manager = ({ setUser, User }) => {
     return (
         <>
-            <NavbarManager />
+            <NavbarManager setUser={setUser} />
             <Switch>
                 <Route path="/EditMenu" exact component={EditMenu}></Route>
                 <Route
@@ -22,7 +22,9 @@ const Manager = () => {
                     exact
                     component={HistoryOfManage}
                 ></Route>
-                <Route path="/Setting" exact component={Setting}></Route>
+                <Route path="/Setting" exact>
+                    <Setting User={User} />
+                </Route>
             </Switch>
         </>
     );

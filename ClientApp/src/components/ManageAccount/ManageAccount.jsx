@@ -9,7 +9,7 @@ const ManageAccount = () => {
     const [ListAccount, setListAccount] = useState([]);
 
     useEffect(() => {
-        fetch("https://localhost:5001/api/account")
+        fetch("https://localhost:5001/api/account/clerk")
             .then((response) => response.json())
             .then((data) => setListAccount(data));
     }, []);
@@ -33,16 +33,14 @@ const ManageAccount = () => {
                         </thead>
                         <tbody>
                             {ListAccount.map((account) => {
+                                console.log(account);
+                                console.log(typeof account.birthOfDate);
                                 return (
                                     <tr key={account.id}>
                                         <td>{account.userName}</td>
                                         <td>{account.password}</td>
                                         <td>{account.birthOfDate}</td>
-                                        <td>
-                                            {account.lName +
-                                                " " +
-                                                account.fName}
-                                        </td>
+                                        <td>{account.fName}</td>
                                         <td>{account.phoneNumber}</td>
                                         <td>
                                             <i
@@ -60,7 +58,6 @@ const ManageAccount = () => {
                                                     );
                                                     setListAccount(listAccount);
                                                     setUpdate(!Update);
-                                                    console.log(listAccount);
                                                 }}
                                             ></i>
                                         </td>
@@ -118,8 +115,31 @@ const ManageAccount = () => {
                         onClick={() => {
                             setDisable("hide");
                             setAccountTemp({});
-                            AccountTemp.date = "11/10/2021";
+                            var current = new Date();
+                            var date = `${current.getFullYear()}-${
+                                current.getMonth() + 1
+                            }-${current.getDate()}`;
+                            AccountTemp.birthOfDate = date;
                             setListAccount((list) => [...list, AccountTemp]);
+                            fetch("https://localhost:5001/api/account", {
+                                method: "POST",
+                                body: JSON.stringify({
+                                    id: AccountTemp.userName,
+                                    userName: AccountTemp.userName,
+                                    password: AccountTemp.password,
+                                    fName: AccountTemp.name,
+                                    lName: "",
+                                    birthOfDate: date,
+                                    address: "",
+                                    phoneNumber: AccountTemp.phoneNumber,
+                                    img: "IMG",
+                                    typeOfUser: "Clerk",
+                                }),
+                                headers: {
+                                    "Content-type":
+                                        "application/json; charset=UTF-8",
+                                },
+                            });
                         }}
                     >
                         Confirm
