@@ -5,12 +5,14 @@ import EditMenu from "../components/EditMenu/EditMenu";
 import ManageAccount from "../components/ManageAccount/ManageAccount";
 import HistoryOfManage from "../components/History/HistoryOfManage";
 import Setting from "../components/Setting/Setting";
+import Home from "../components/Home/Home";
 
 const Manager = ({ setUser, User }) => {
     return (
         <>
             <NavbarManager setUser={setUser} />
             <Switch>
+                <Route path="/" exact component={Home}></Route>
                 <Route path="/EditMenu" exact component={EditMenu}></Route>
                 <Route
                     path="/ManageAccount"

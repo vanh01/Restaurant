@@ -10,7 +10,7 @@ const NavbarManager = ({ setUser }) => {
                 <div>
                     <i className="fas fa-store"></i>
                 </div>
-                <NavLink activeClassName="active" exact to="/Home">
+                <NavLink activeClassName="active" exact to="/">
                     <b></b>
                     <b></b>
                     <div>
@@ -31,7 +31,11 @@ const NavbarManager = ({ setUser }) => {
                         <i className="fas fa-history"></i>
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" exact to="/ManageAccount">
+                <NavLink
+                    activeClassName="active"
+                    exact
+                    to="/ManageAccount"
+                >
                     <b></b>
                     <b></b>
                     <div>
@@ -45,7 +49,14 @@ const NavbarManager = ({ setUser }) => {
                         <i className="fas fa-cog"></i>
                     </div>
                 </NavLink>
-                <NavLink exact to="/Login" onClick={() => setUser({})}>
+                <NavLink
+                    exact
+                    to="/Login"
+                    onClick={() => {
+                        localStorage.setItem("type", "");
+                        setUser({});
+                    }}
+                >
                     <div>
                         <i className="fas fa-sign-out"></i>
                     </div>
