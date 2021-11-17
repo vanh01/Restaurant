@@ -71,13 +71,23 @@
     display: inline-block;
 }
 
-.login-form > .loginbtn > button {
+.login-form > .loginbtn {
     position: relative;
     width: 30%;
     height: 40px;
     left: 10%;
     cursor: pointer;
+    margin-top: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+    display: inline-block;
     margin-right: 30%;
+}
+
+.login-form > .loginbtn > button {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
     color: #fefefe;
     background-color: #eb7c68;
     border: 0;

@@ -7,14 +7,15 @@ import "../../css/login.css";
 const Login = ({ setUser }) => {
     const [UserName, setUserName] = useState("");
     const [Password, setPassword] = useState("");
+    localStorage.setItem("type", "");
     let history = useHistory();
     // var UserTemp;
-    function Submit() {
+    async function Submit() {
         var requestOptions = {
             method: "GET",
         };
 
-        fetch(
+        await fetch(
             "https://localhost:5001/api/account/login?username=" +
                 UserName +
                 "&password=" +
@@ -34,6 +35,14 @@ const Login = ({ setUser }) => {
                 localStorage.setItem("user", result);
             })
             .catch((error) => console.log("error", error));
+        if (
+            localStorage.getItem("type") !== "" &&
+            localStorage.getItem("type") !== null
+        )
+            history.replace("/");
+        else {
+            alert("sai thoong tin");
+        }
     }
 
     return (
@@ -59,9 +68,9 @@ const Login = ({ setUser }) => {
                             />
                         </div>
                     </div>
-                    <NavLink exact to="/" className="loginbtn" onClick={Submit}>
+                    <div className="loginbtn" onClick={Submit}>
                         <button>Login</button>
-                    </NavLink>
+                    </div>
                     <NavLink exact to="/Register" className="loginreg">
                         <button>Register</button>
                     </NavLink>

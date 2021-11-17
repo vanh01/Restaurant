@@ -3,14 +3,14 @@ import { Route, Switch } from "react-router";
 import NavbarClerk from "../components/Navbar/NavbarClerk";
 import ManageOrder from "../components/ManageOrder/ManageOrder";
 import Setting from "../components/Setting/Setting";
-import Home from "../components/Home/Home";
+import HomeClerk from "../components/Home/HomeClerk";
 
 const Clerk = ({ setUser, User }) => {
     return (
         <>
             <NavbarClerk setUser={setUser} />
             <Switch>
-                <Route path="/" exact component={Home}></Route>
+                <Route path="/" exact component={HomeClerk}></Route>
                 <Route
                     path="/ManageOrder"
                     exact

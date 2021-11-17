@@ -4,14 +4,14 @@ import NavbarCustomer from "../components/Navbar/NavbarCustomer";
 import OrderingAndPayment from "../components/Order/OrderingAndPayment";
 import History from "../components/History/History";
 import Setting from "../components/Setting/Setting";
-import Home from "../components/Home/Home";
+import HomeCustomer from "../components/Home/HomeCustomer";
 
 const Customer = ({ setUser, User }) => {
     return (
         <>
             <NavbarCustomer setUser={setUser} />
             <Switch>
-                <Route path="/" exact component={Home}></Route>
+                <Route path="/" exact component={HomeCustomer}></Route>
                 <Route
                     path="/Ordering"
                     exact
