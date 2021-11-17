@@ -19,7 +19,7 @@ const Customer = ({ setUser, User }) => {
                 ></Route>
                 <Route path="/History" exact component={History}></Route>
                 <Route path="/Setting" exact>
-                    <Setting User={User} />
+                    <Setting setUser={setUser} User={User} />
                 </Route>
             </Switch>
         </>
