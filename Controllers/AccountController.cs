@@ -10,9 +10,9 @@ namespace RestaurantPOS2._0.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        private string GetTypeOfAccount(string username, string password)
+        private string GetTypeOfAccount(string userName, string password)
         {
-            string query = @"EXEC [SE].[DBO].Login @userName = '" + username + "', @password = '" + password + "';";
+            string query = @"EXEC [SE].[DBO].Login @userName = '" + userName + "', @password = '" + password + "';";
             DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
 
             List<Account> accounts = table.ConvertToList<Account>();
@@ -56,6 +56,8 @@ namespace RestaurantPOS2._0.Controllers
 
             string query = $"INSERT INTO USER_ACCOUNT VALUES ('{account.UserName}', '{account.Password}', '{account.FName}','{account.LName}', '{account.BirthOfDate}', '{account.Address}', '{account.PhoneNumber}', 'IMG', '{account.TypeOfUser}');";
             // { DateTime.Now.ToString("yyyy-MM-dd")}
+            if (GetTypeOfAccount(account.UserName, account.Password) != "")
+                return "Fail";
             n = SqlExecutes.Instance.ExecuteNonQuery(query);
             if (n == 1)
                 return "Success";
@@ -65,7 +67,7 @@ namespace RestaurantPOS2._0.Controllers
         [HttpDelete]
         public string Delete(Account account)
         {
-            string query = @"DELETE FROM USER_ACCOUNT WHERE USER_ACCOUNT.ID = '" + account.ID + "';";
+            string query = @"DELETE FROM USER_ACCOUNT WHERE USER_ACCOUNT.UserName = '" + account.UserName + "';";
 
             int n = SqlExecutes.Instance.ExecuteNonQuery(query);
             if (n == 1)
@@ -80,7 +82,22 @@ namespace RestaurantPOS2._0.Controllers
             string query = $"UPDATE USER_ACCOUNT SET FName = '{account.FName}' , LName = '{account.LName}' , BirthOfDate = '{account.BirthOfDate}' , Address = '{account.Address}' , PhoneNumber = '{account.PhoneNumber}' WHERE ID = {account.ID};";
 
             if (GetTypeOfAccount(account.UserName, account.Password) == "")
-                return "UserName or password invalid";
+                return "Fail";
+
+            int n = SqlExecutes.Instance.ExecuteNonQuery(query);
+            if (n == 1)
+                return "Success";
+
+            return "Fail";
+        }
+
+        [HttpPut("password")]
+        public string UpdatePassword(string newPassword, Account account)
+        {
+            string query = $"UPDATE USER_ACCOUNT SET Password = '{newPassword}' WHERE UserName = '{account.UserName}' AND Password = '{account.Password}';";
+
+            if (GetTypeOfAccount(account.UserName, account.Password) == "")
+                return "Fail";
 
             int n = SqlExecutes.Instance.ExecuteNonQuery(query);
             if (n == 1)

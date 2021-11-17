@@ -5,6 +5,9 @@ const listOrdered =
             lName: "",
             phoneNumber: "",
             address: "",
+            time: "",
+            typeOfPayment: "",
+            total: "",
             listFood: [
                 {
                     nameFood: "",

@@ -1,16 +1,44 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "../../css/setting.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Setting = ({ setUser, User }) => {
     const [AccountTemp, setAccountTemp] = useState({});
+    const [CurrentPassword, setCurrentPassword] = useState("");
+    const [Password1, setPassword1] = useState("");
+    const [Password2, setPassword2] = useState("");
 
-    useEffect(() => {
+    const notify = () => {
+        toast.success("Success!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    const notify1 = () => {
+        toast.error("Fail!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+
+    const fetchData = async () => {
         var requestOptions = {
             method: "GET",
         };
 
-        fetch(
+        await fetch(
             "https://localhost:5001/api/account/login?username=" +
                 localStorage.getItem("userName") +
                 "&password=" +
@@ -30,9 +58,13 @@ const Setting = ({ setUser, User }) => {
                 setAccountTemp(result);
             })
             .catch((error) => console.log("error", error));
+    };
+
+    useEffect(() => {
+        fetchData();
     }, []);
 
-    const UpdateAccount1 = () => {
+    const UpdateAccount1 = async () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -54,9 +86,41 @@ const Setting = ({ setUser, User }) => {
             redirect: "follow",
         };
 
-        fetch("https://localhost:5001/api/account", requestOptions)
+        await fetch("https://localhost:5001/api/account", requestOptions)
             .then((response) => response.text())
             .then((result) => console.log(result))
+            .catch((error) => console.log("error", error));
+    };
+
+    const UpdateAccount2 = async () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            userName: User.userName,
+            password: localStorage.getItem("password"),
+        });
+
+        var requestOptions = {
+            method: "PUT",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+
+        await fetch(
+            "https://localhost:5001/api/account/password?newPassword=" +
+                Password1,
+            requestOptions
+        )
+            .then((response) => response.text())
+            .then((result) => {
+                console.log(result);
+                if (result === "Success") {
+                    notify();
+                    localStorage.setItem("password", Password1);
+                } else notify1();
+            })
             .catch((error) => console.log("error", error));
     };
 
@@ -121,13 +185,12 @@ const Setting = ({ setUser, User }) => {
                         <button
                             onClick={() => {
                                 UpdateAccount1();
+                                notify();
                             }}
                         >
                             Save changes
                         </button>
-                        <button onClick={() => setAccountTemp({})}>
-                            Dismiss
-                        </button>
+                        {/* <button>Dismiss</button> */}
                     </div>
                     <div className="setting-password">
                         <div>
@@ -140,18 +203,49 @@ const Setting = ({ setUser, User }) => {
                         </div>
                         <div>
                             Current password
-                            <input type="password" defaultValue="" />
+                            <input
+                                type="password"
+                                defaultValue=""
+                                autoComplete="off"
+                                onChange={(e) =>
+                                    setCurrentPassword(e.target.value)
+                                }
+                            />
                         </div>
                         <div>
                             New password
-                            <input type="password" />
+                            <input
+                                type="password"
+                                onChange={(e) => setPassword1(e.target.value)}
+                            />
                         </div>
                         <div>
                             Confirm password
-                            <input type="password" />
+                            <input
+                                type="password"
+                                onChange={(e) => setPassword2(e.target.value)}
+                            />
                         </div>
-                        <button>Change password</button>
-                        <button>Dismiss</button>
+                        <button
+                            onClick={() => {
+                                console.log(Password1);
+                                console.log(Password2);
+                                console.log(CurrentPassword);
+                                console.log(localStorage.getItem("password"));
+                                if (
+                                    Password1 !== Password2 ||
+                                    CurrentPassword !==
+                                        localStorage.getItem("password")
+                                ) {
+                                    notify1();
+                                } else {
+                                    UpdateAccount2();
+                                }
+                            }}
+                        >
+                            Change password
+                        </button>
+                        {/* <button>Dismiss</button> */}
                     </div>
                 </div>
                 <div className="setting-avatar">
@@ -162,6 +256,7 @@ const Setting = ({ setUser, User }) => {
                         <i className="fas fa-pen"></i>Edit
                     </label>
                 </div>
+                <ToastContainer />
             </div>
         </>
     );
