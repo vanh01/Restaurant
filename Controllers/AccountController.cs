@@ -9,31 +9,36 @@ namespace RestaurantPOS2._0.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<Account> GetFullAccount()
+        private string GetTypeOfAccount(Account account)
         {
-            string query = @"SELECT * FROM dbo.USER_ACCOUNT;";
-
+            string query = @"EXEC [SE].[DBO].Login @userName = '" + account.UserName + "', @password = '" + account.Password + "';";
             DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
 
-            return table.ConvertToList<Account>();
+            List<Account> accounts = table.ConvertToList<Account>();
+            if (accounts.Count == 0)
+                return "";
+            return accounts[0].TypeOfUser;
         }
 
         [HttpGet]
         [Route("clerk")]
-        public IEnumerable<Account> GetAccountOfClerk()
+        public IEnumerable<Account> GetAccountOfClerk(Account account)
         {
             string query = @"SELECT * FROM dbo.USER_ACCOUNT WHERE TypeOfUser = 'Clerk';";
+
+            if (GetTypeOfAccount(account) != "Manager")
+                return new List<Account>();
 
             DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
 
             return table.ConvertToList<Account>();
         }
+
         [HttpGet]
         [Route("login")]
         public Account Login(string username, string password)
         {
-            string query = @"SELECT * FROM dbo.USER_ACCOUNT WHERE USERNAME = '" + username + "'" + " AND PASSWORD = '" + password + "';";
+            string query = @"EXEC [SE].[DBO].Login @userName = '" + username + "', @password = '" + password + "';";
 
             DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
 
@@ -48,7 +53,7 @@ namespace RestaurantPOS2._0.Controllers
         {
             int n = 0;
 
-            string query = $"INSERT INTO USER_ACCOUNT VALUES ('{account.ID}', '{account.UserName}', '{account.Password}', '{account.FName}','{account.LName}', '{account.BirthOfDate}', '{account.Address}', '{account.PhoneNumber}', 'IMG', '{account.TypeOfUser}');";
+            string query = $"INSERT INTO USER_ACCOUNT VALUES ('{account.UserName}', '{account.Password}', '{account.FName}','{account.LName}', '{account.BirthOfDate}', '{account.Address}', '{account.PhoneNumber}', 'IMG', '{account.TypeOfUser}');";
             // { DateTime.Now.ToString("yyyy-MM-dd")}
             n = SqlExecutes.Instance.ExecuteNonQuery(query);
             if (n == 1)

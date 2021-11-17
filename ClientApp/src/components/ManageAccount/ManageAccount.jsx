@@ -9,10 +9,29 @@ const ManageAccount = () => {
     const [ListAccount, setListAccount] = useState([]);
 
     useEffect(() => {
-        fetch("https://localhost:5001/api/account/clerk")
+        // fetch("https://localhost:5001/api/account/clerk")
+        //     .then((response) => response.json())
+        //     .then((data) => setListAccount(data));
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            userName: "admin",
+            password: "admin",
+        });
+
+        var requestOptions = {
+            method: "GET",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+
+        fetch("https://localhost:5001/api/account/clerk", requestOptions)
             .then((response) => response.json())
-            .then((data) => setListAccount(data));
-    }, []);
+            .then((result) => setListAccount(result))
+            .catch((error) => console.log("error", error));
+    });
 
     return (
         <>
@@ -32,15 +51,17 @@ const ManageAccount = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {ListAccount.map((account) => {
-                                console.log(account);
-                                console.log(typeof account.birthOfDate);
+                            {ListAccount.map((account, index) => {
                                 return (
-                                    <tr key={account.id}>
+                                    <tr key={index}>
                                         <td>{account.userName}</td>
                                         <td>{account.password}</td>
                                         <td>{account.birthOfDate}</td>
-                                        <td>{account.fName}</td>
+                                        <td>
+                                            {account.lName +
+                                                " " +
+                                                account.fName}
+                                        </td>
                                         <td>{account.phoneNumber}</td>
                                         <td>
                                             <i
@@ -101,8 +122,13 @@ const ManageAccount = () => {
                     />
                     <input
                         type="text"
-                        placeholder="Name"
-                        onChange={(e) => (AccountTemp.name = e.target.value)}
+                        placeholder="First Name"
+                        onChange={(e) => (AccountTemp.fName = e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Last Name"
+                        onChange={(e) => (AccountTemp.lName = e.target.value)}
                     />
                     <input
                         type="text"
@@ -124,12 +150,11 @@ const ManageAccount = () => {
                             fetch("https://localhost:5001/api/account", {
                                 method: "POST",
                                 body: JSON.stringify({
-                                    id: AccountTemp.userName,
                                     userName: AccountTemp.userName,
                                     password: AccountTemp.password,
-                                    fName: AccountTemp.name,
-                                    lName: "",
-                                    birthOfDate: date,
+                                    fName: AccountTemp.fName,
+                                    lName: AccountTemp.lName,
+                                    birthOfDate: AccountTemp.birthOfDate,
                                     address: "",
                                     phoneNumber: AccountTemp.phoneNumber,
                                     img: "IMG",

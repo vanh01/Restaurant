@@ -32,15 +32,16 @@ const Login = ({ setUser }) => {
                     localStorage.setItem("type", "Customer");
                 else localStorage.setItem("type", "");
                 setUser(result);
-                localStorage.setItem("user", result);
             })
             .catch((error) => console.log("error", error));
         if (
             localStorage.getItem("type") !== "" &&
             localStorage.getItem("type") !== null
-        )
+        ) {
             history.replace("/");
-        else {
+            localStorage.setItem("userName", UserName);
+            localStorage.setItem("password", Password);
+        } else {
             alert("sai thoong tin");
         }
     }

@@ -105,7 +105,7 @@
     padding: 0;
     margin-left: 10%;
     margin-top: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .new-account > i {
@@ -120,7 +120,7 @@
 .new-account > input {
     position: relative;
     left: 10%;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     width: 80%;
     height: 40px;
     border-radius: 5px;
@@ -135,7 +135,7 @@
 
 .new-account > button {
     position: absolute;
-    bottom: 10%;
+    bottom: 7%;
     right: 10%;
     width: 30%;
     height: 40px;
