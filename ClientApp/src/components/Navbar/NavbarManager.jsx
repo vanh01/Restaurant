@@ -31,11 +31,7 @@ const NavbarManager = ({ setUser }) => {
                         <i className="fas fa-history"></i>
                     </div>
                 </NavLink>
-                <NavLink
-                    activeClassName="active"
-                    exact
-                    to="/ManageAccount"
-                >
+                <NavLink activeClassName="active" exact to="/ManageAccount">
                     <b></b>
                     <b></b>
                     <div>
@@ -54,6 +50,8 @@ const NavbarManager = ({ setUser }) => {
                     to="/Login"
                     onClick={() => {
                         localStorage.setItem("type", "");
+                        localStorage.setItem("userName", "");
+                        localStorage.setItem("password", "");
                         setUser({});
                     }}
                 >

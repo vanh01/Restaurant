@@ -17,7 +17,7 @@ const Clerk = ({ setUser, User }) => {
                     component={ManageOrder}
                 ></Route>
                 <Route path="/Setting" exact>
-                    <Setting User={User} />
+                    <Setting setUser={setUser} User={User} />
                 </Route>
             </Switch>
         </>

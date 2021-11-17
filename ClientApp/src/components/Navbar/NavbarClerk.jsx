@@ -36,6 +36,8 @@ const NavbarClerk = ({ setUser }) => {
                     to="/Login"
                     onClick={() => {
                         localStorage.setItem("type", "");
+                        localStorage.setItem("userName", "");
+                        localStorage.setItem("password", "");
                         setUser({});
                     }}
                 >

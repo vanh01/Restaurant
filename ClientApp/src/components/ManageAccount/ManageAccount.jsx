@@ -2,36 +2,76 @@ import React, { useEffect } from "react";
 import "../../css/manage-account.css";
 import { useState } from "react";
 
-const ManageAccount = () => {
+const ManageAccount = ({ User }) => {
     const [Disable, setDisable] = useState("hide");
     const [Update, setUpdate] = useState(false);
     const [AccountTemp, setAccountTemp] = useState({});
     const [ListAccount, setListAccount] = useState([]);
 
     useEffect(() => {
-        // fetch("https://localhost:5001/api/account/clerk")
-        //     .then((response) => response.json())
-        //     .then((data) => setListAccount(data));
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+        };
+
+        fetch(
+            "https://localhost:5001/api/account/clerk?username=" +
+                localStorage.getItem("userName") +
+                "&password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.json())
+            .then((result) => setListAccount(result))
+            .catch((error) => console.log("error", error));
+    }, []);
+
+    const CreateAccount = () => {
+        var current = new Date();
+        var date = `${current.getFullYear()}-${
+            current.getMonth() + 1
+        }-${current.getDate()}`;
+        AccountTemp.birthOfDate = date;
+        setListAccount((list) => [...list, AccountTemp]);
+        fetch("https://localhost:5001/api/account", {
+            method: "POST",
+            body: JSON.stringify({
+                userName: AccountTemp.userName,
+                password: AccountTemp.password,
+                fName: AccountTemp.fName,
+                lName: AccountTemp.lName,
+                birthOfDate: AccountTemp.birthOfDate,
+                address: "",
+                phoneNumber: AccountTemp.phoneNumber,
+                img: "IMG",
+                typeOfUser: "Clerk",
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        });
+    };
+
+    const DeleteAccount = (account) => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-            userName: "admin",
-            password: "admin",
+            ID: account.id,
         });
 
         var requestOptions = {
-            method: "GET",
+            method: "DELETE",
             headers: myHeaders,
             body: raw,
             redirect: "follow",
         };
 
-        fetch("https://localhost:5001/api/account/clerk", requestOptions)
-            .then((response) => response.json())
-            .then((result) => setListAccount(result))
+        fetch("https://localhost:5001/api/account", requestOptions)
+            .then((response) => response.text())
+            .then((result) => console.log(result))
             .catch((error) => console.log("error", error));
-    });
+    };
 
     return (
         <>
@@ -77,6 +117,7 @@ const ManageAccount = () => {
                                                         index,
                                                         1
                                                     );
+                                                    DeleteAccount(account);
                                                     setListAccount(listAccount);
                                                     setUpdate(!Update);
                                                 }}
@@ -141,30 +182,7 @@ const ManageAccount = () => {
                         onClick={() => {
                             setDisable("hide");
                             setAccountTemp({});
-                            var current = new Date();
-                            var date = `${current.getFullYear()}-${
-                                current.getMonth() + 1
-                            }-${current.getDate()}`;
-                            AccountTemp.birthOfDate = date;
-                            setListAccount((list) => [...list, AccountTemp]);
-                            fetch("https://localhost:5001/api/account", {
-                                method: "POST",
-                                body: JSON.stringify({
-                                    userName: AccountTemp.userName,
-                                    password: AccountTemp.password,
-                                    fName: AccountTemp.fName,
-                                    lName: AccountTemp.lName,
-                                    birthOfDate: AccountTemp.birthOfDate,
-                                    address: "",
-                                    phoneNumber: AccountTemp.phoneNumber,
-                                    img: "IMG",
-                                    typeOfUser: "Clerk",
-                                }),
-                                headers: {
-                                    "Content-type":
-                                        "application/json; charset=UTF-8",
-                                },
-                            });
+                            CreateAccount();
                         }}
                     >
                         Confirm

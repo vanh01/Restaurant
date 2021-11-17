@@ -42,7 +42,7 @@ const Login = ({ setUser }) => {
             localStorage.setItem("userName", UserName);
             localStorage.setItem("password", Password);
         } else {
-            alert("sai thoong tin");
+            alert("Nhap sai thong tin");
         }
     }
 
