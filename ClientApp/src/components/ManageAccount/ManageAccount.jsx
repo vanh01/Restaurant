@@ -1,13 +1,36 @@
 import React, { useEffect } from "react";
 import "../../css/manage-account.css";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ManageAccount = ({ User }) => {
     const [Disable, setDisable] = useState("hide");
     const [Update, setUpdate] = useState(false);
     const [AccountTemp, setAccountTemp] = useState({});
     const [ListAccount, setListAccount] = useState([]);
-
+    const notify = () => {
+        toast.success("Success!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    const notify1 = () => {
+        toast.error("Fail!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
     useEffect(() => {
         var requestOptions = {
             method: "GET",
@@ -26,38 +49,51 @@ const ManageAccount = ({ User }) => {
             .catch((error) => console.log("error", error));
     }, []);
 
-    const CreateAccount = () => {
+    const CreateAccount = async () => {
         var current = new Date();
         var date = `${current.getFullYear()}-${
             current.getMonth() + 1
         }-${current.getDate()}`;
         AccountTemp.birthOfDate = date;
-        setListAccount((list) => [...list, AccountTemp]);
-        fetch("https://localhost:5001/api/account", {
-            method: "POST",
-            body: JSON.stringify({
-                userName: AccountTemp.userName,
-                password: AccountTemp.password,
-                fName: AccountTemp.fName,
-                lName: AccountTemp.lName,
-                birthOfDate: AccountTemp.birthOfDate,
-                address: "",
-                phoneNumber: AccountTemp.phoneNumber,
-                img: "IMG",
-                typeOfUser: "Clerk",
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-            },
-        });
-    };
 
-    const DeleteAccount = (account) => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-            ID: account.id,
+            userName: AccountTemp.userName,
+            password: AccountTemp.password,
+            fName: AccountTemp.fName,
+            lName: AccountTemp.lName,
+            birthOfDate: AccountTemp.birthOfDate,
+            address: "",
+            phoneNumber: AccountTemp.phoneNumber,
+            img: "IMG",
+            typeOfUser: "Clerk",
+        });
+
+        var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+
+        await fetch("https://localhost:5001/api/account", requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+                if (result === "Success") {
+                    notify();
+                    setListAccount((list) => [...list, AccountTemp]);
+                } else notify1();
+            })
+            .catch((error) => console.log("error", error));
+    };
+
+    const DeleteAccount = async (account) => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var raw = JSON.stringify({
+            userName: account.userName,
         });
 
         var requestOptions = {
@@ -67,9 +103,12 @@ const ManageAccount = ({ User }) => {
             redirect: "follow",
         };
 
-        fetch("https://localhost:5001/api/account", requestOptions)
+        await fetch("https://localhost:5001/api/account", requestOptions)
             .then((response) => response.text())
-            .then((result) => console.log(result))
+            .then((result) => {
+                if (result === "Success") notify();
+                else notify1();
+            })
             .catch((error) => console.log("error", error));
     };
 
@@ -138,6 +177,7 @@ const ManageAccount = ({ User }) => {
                     <i className="fas fa-plus"></i>
                 </div>
             </div>
+            <ToastContainer />
             <div
                 className={Disable}
                 onClick={() => {
