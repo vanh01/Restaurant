@@ -10,11 +10,11 @@ const Home = () => {
                     <h1 className="head">
                         WELCOME TO OUR <span>WEBSITE</span>
                     </h1>
-                    <div class="btns">
-                        <NavLink class="btn1" to="/Login">
+                    <div className="btns">
+                        <NavLink className="btn1" to="/Login">
                             Register
                         </NavLink>
-                        <NavLink class="btn2" to="/Login">
+                        <NavLink className="btn2" to="/Login">
                             Login
                         </NavLink>
                     </div>

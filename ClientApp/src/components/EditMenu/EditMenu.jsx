@@ -25,13 +25,14 @@ const EditMenu = () => {
                         <i className="fas fa-plus"></i>
                         <p>Add new dish</p>
                     </div>
-                    {listMenuFood.map((dish) => {
+                    {listMenuFood.map((dish, index) => {
                         return (
-                            <div className="dish">
+                            <div className="dish" key={index}>
                                 <div className="dish-imgg">
                                     <img
                                         className="dish-img"
                                         src={dish.pathImage}
+                                        // src="../../"
                                         alt={dish.nameFood}
                                     />
                                 </div>
@@ -71,7 +72,7 @@ const EditMenu = () => {
                     setDishCurrent({});
                 }}
             ></div>
-            {Disable !== "hide" ? (
+            {Disable !== "hide" && (
                 <div className="edit-info-dish">
                     <div className="edit-info-dish1">
                         <label>
@@ -163,8 +164,6 @@ const EditMenu = () => {
                         }}
                     ></i>
                 </div>
-            ) : (
-                <></>
             )}
         </>
     );

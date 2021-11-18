@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/order.css"
+import "../../css/order.css";
 import CartItems from "./CartItems";
 import Foods from "./Foods";
 import { useState } from "react";
@@ -236,18 +236,12 @@ const OrderingAndPayment = () => {
                 className={Disable1}
                 onClick={HandleCancelShowFoodDetails}
             ></div>
-            {ShowFoodDetails ? (
-                <>
-                    <FoodDetails
-                        HandleCancelShowFoodDetails={
-                            HandleCancelShowFoodDetails
-                        }
-                        setlistOrderFood={setlistOrderFood}
-                        FoodCur={FoodCur}
-                    />
-                </>
-            ) : (
-                <></>
+            {ShowFoodDetails && (
+                <FoodDetails
+                    HandleCancelShowFoodDetails={HandleCancelShowFoodDetails}
+                    setlistOrderFood={setlistOrderFood}
+                    FoodCur={FoodCur}
+                />
             )}
         </>
     );

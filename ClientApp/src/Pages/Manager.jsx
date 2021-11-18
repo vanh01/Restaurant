@@ -6,7 +6,6 @@ import EditMenu from "../components/EditMenu/EditMenu";
 import ManageAccount from "../components/ManageAccount/ManageAccount";
 import HistoryOfManage from "../components/History/HistoryOfManage";
 import Setting from "../components/Setting/Setting";
-import HomeManager from "../components/Home/HomeManager";
 
 const Manager = ({ setUser, User }) => {
     return (

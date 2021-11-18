@@ -180,7 +180,7 @@ const ManageAccount = ({ User }) => {
                     setDisable("hide");
                 }}
             ></div>
-            {Disable !== "hide" ? (
+            {Disable !== "hide" && (
                 <div className="new-account">
                     <div className="title">Information</div>
                     <input
@@ -230,8 +230,6 @@ const ManageAccount = ({ User }) => {
                         }}
                     ></i>
                 </div>
-            ) : (
-                <></>
             )}
         </>
     );

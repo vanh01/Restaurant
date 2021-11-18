@@ -132,20 +132,32 @@
 
 .data-food .description {
     height: 100px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 0px;
     word-wrap: break-word;
+    box-sizing: border-box;
 }
 
 .data-food .description .name-food {
-    font-size: 20px;
+    width: 100%;
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 19px;
     font-weight: 600;
     text-align: center;
     margin-bottom: 15px;
-    margin-top: 20px;
     user-select: none;
 }
 
 .data-food .description .descrip {
+    width: 100%;
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 30px;
     font-weight: 200;
     color: #b1afaf;
     text-align: center;
@@ -153,6 +165,12 @@
 }
 
 .data-food .price-food {
+    width: 100%;
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 15px;
     text-align: center;
     user-select: none;
 }
@@ -261,6 +279,11 @@
 }
 
 .item-name {
+    width: 40%;
+    height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     color: whitesmoke;
     position: absolute;
     top: 8px;
@@ -536,6 +559,9 @@
 }
 
 .food-detail2 .food-detail-info1 {
+    width: calc(100% - 2 * 20px);
+    height: 50px;
+    overflow: hidden;
     margin-top: 70px;
     margin-left: 20px;
     font-size: 20px;
@@ -544,6 +570,9 @@
 }
 
 .food-detail2 .food-detail-info2 {
+    width: calc(100% - 2 * 20px);
+    height: 50px;
+    overflow: hidden;
     margin-top: 20px;
     margin-left: 20px;
     font-size: 18px;

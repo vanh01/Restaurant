@@ -2,6 +2,7 @@ import React from "react";
 import "../../css/history-of-manage.css";
 import { useState } from "react";
 import OrderDetails from "../OrderDetails/OrderDetails";
+import listOrdered from "../../data/listOrdered";
 
 const HistoryOfManage = () => {
     const [Disable, setDisable] = useState("hide");
@@ -30,32 +31,22 @@ const HistoryOfManage = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr
-                                onClick={() => {
-                                    setDisable("hide hide1");
-                                }}
-                            >
-                                <td>1</td>
-                                <td>Anh</td>
-                                <td>Viet nam</td>
-                                <td>0123</td>
-                                <td>11/10/2021</td>
-                                <td>Cash</td>
-                                <td>15000d</td>
-                            </tr>
-                            <tr
-                                onClick={() => {
-                                    setDisable("hide hide1");
-                                }}
-                            >
-                                <td>1</td>
-                                <td>Anh</td>
-                                <td>Viet nam</td>
-                                <td>0123</td>
-                                <td>11/10/2021</td>
-                                <td>Cash</td>
-                                <td>15000d</td>
-                            </tr>
+                            {listOrdered.map((ordered, index) => {
+                                return (
+                                    <tr
+                                        key={index}
+                                        onClick={() => setDisable("hide hide1")}
+                                    >
+                                        <td>{index}</td>
+                                        <td>{ordered.fName}</td>
+                                        <td>{ordered.address}</td>
+                                        <td>{ordered.phoneNumber}</td>
+                                        <td>{ordered.time}</td>
+                                        <td>{ordered.typeOfPayment}</td>
+                                        <td>{ordered.total}VND</td>
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
                 </div>
@@ -67,10 +58,8 @@ const HistoryOfManage = () => {
                     setDisable("hide");
                 }}
             ></div>
-            {Disable !== "hide" ? (
+            {Disable !== "hide" && (
                 <OrderDetails HandleCancelShowDetail={HandleCancelShowDetail} />
-            ) : (
-                <></>
             )}
         </>
     );
