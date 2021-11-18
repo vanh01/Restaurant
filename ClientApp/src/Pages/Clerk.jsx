@@ -10,12 +10,8 @@ const Clerk = ({ setUser, User }) => {
         <>
             <NavbarClerk setUser={setUser} />
             <Switch>
-                <Route path="/" exact component={HomeClerk}></Route>
-                <Route
-                    path="/ManageOrder"
-                    exact
-                    component={ManageOrder}
-                ></Route>
+                {/* <Route path="/" exact component={HomeClerk}></Route> */}
+                <Route path="/" exact component={ManageOrder}></Route>
                 <Route path="/Setting" exact>
                     <Setting setUser={setUser} User={User} />
                 </Route>

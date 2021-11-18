@@ -17,13 +17,13 @@ const NavbarClerk = ({ setUser }) => {
                         <i className="fas fa-home-alt"></i>
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" exact to="/ManageOrder">
+                {/* <NavLink activeClassName="active" exact to="/ManageOrder">
                     <b></b>
                     <b></b>
                     <div>
                         <i className="fas fa-home-alt"></i>
                     </div>
-                </NavLink>
+                </NavLink> */}
                 <NavLink activeClassName="active" exact to="/Setting">
                     <b></b>
                     <b></b>
