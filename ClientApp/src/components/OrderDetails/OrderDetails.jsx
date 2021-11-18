@@ -1,6 +1,10 @@
 import React from "react";
 
-const OrderDetails = ({ HandleCancelShowDetail }) => {
+const OrderDetails = ({
+    Ordered,
+    listFoodsOrdered,
+    HandleCancelShowDetail,
+}) => {
     return (
         <>
             <div className="order-detail">
@@ -11,13 +15,13 @@ const OrderDetails = ({ HandleCancelShowDetail }) => {
                 <div className="history-title">Order Details</div>
                 <div className="order-detail-info">
                     <div className="order-detail-info1">
-                        <div>Name: Anh</div>
-                        <div>Phone number: 0123</div>
-                        <div>Address: Viet nam</div>
+                        <div>Name: {Ordered.fName}</div>
+                        <div>Phone number: {Ordered.phoneNumber}</div>
+                        <div>Address: {Ordered.address}</div>
                     </div>
                     <div className="order-detail-info2">
-                        <div>Type of payment: Cash</div>
-                        <div>Status: Paid</div>
+                        <div>Type of payment: {Ordered.paytype}</div>
+                        <div>Status: {Ordered.available}</div>
                     </div>
                 </div>
                 <div className="order-detail-list">
@@ -31,25 +35,23 @@ const OrderDetails = ({ HandleCancelShowDetail }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Hu tieu</td>
-                                <td>2</td>
-                                <td>15000</td>
-                                <td>it nuoc</td>
-                            </tr>
-                            <tr>
-                                <td>Hu tieu</td>
-                                <td>2</td>
-                                <td>15000</td>
-                                <td>it nuoc</td>
-                            </tr>
+                            {listFoodsOrdered.map((food) => {
+                                return (
+                                    <tr>
+                                        <td>{food.name}</td>
+                                        <td>{food.quantity}</td>
+                                        <td>{food.price}</td>
+                                        <td>{food.orderNote}</td>
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
                 </div>
                 <div className="line1"></div>
                 <div className="order-detail-total">
                     <div>Total</div>
-                    <div>1000000</div>
+                    <div>{Ordered.total}</div>
                 </div>
             </div>
         </>

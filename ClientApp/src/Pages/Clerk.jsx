@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router";
 import NavbarClerk from "../components/Navbar/NavbarClerk";
 import ManageOrder from "../components/ManageOrder/ManageOrder";
 import Setting from "../components/Setting/Setting";
-import HomeClerk from "../components/Home/HomeClerk";
 
 const Clerk = ({ setUser, User }) => {
     return (

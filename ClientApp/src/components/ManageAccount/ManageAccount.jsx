@@ -49,7 +49,8 @@ const ManageAccount = ({ User }) => {
             .catch((error) => console.log("error", error));
     }, []);
 
-    const CreateAccount = async () => {
+    const CreateAccount = async (e) => {
+        e.preventDefault();
         var current = new Date();
         var date = `${current.getFullYear()}-${
             current.getMonth() + 1
@@ -181,10 +182,18 @@ const ManageAccount = ({ User }) => {
                 }}
             ></div>
             {Disable !== "hide" && (
-                <div className="new-account">
+                <form
+                    className="new-account"
+                    onSubmit={(e) => {
+                        setDisable("hide");
+                        setAccountTemp({});
+                        CreateAccount(e);
+                    }}
+                >
                     <div className="title">Information</div>
                     <input
                         type="text"
+                        required
                         placeholder="Username"
                         onChange={(e) =>
                             (AccountTemp.userName = e.target.value)
@@ -192,6 +201,7 @@ const ManageAccount = ({ User }) => {
                     />
                     <input
                         type="password"
+                        required
                         placeholder="Password"
                         onChange={(e) =>
                             (AccountTemp.password = e.target.value)
@@ -199,37 +209,32 @@ const ManageAccount = ({ User }) => {
                     />
                     <input
                         type="text"
+                        required
                         placeholder="First Name"
                         onChange={(e) => (AccountTemp.fName = e.target.value)}
                     />
                     <input
                         type="text"
+                        required
                         placeholder="Last Name"
                         onChange={(e) => (AccountTemp.lName = e.target.value)}
                     />
                     <input
                         type="text"
+                        required
                         placeholder="Phone Number"
                         onChange={(e) =>
                             (AccountTemp.phoneNumber = e.target.value)
                         }
                     />
-                    <button
-                        onClick={() => {
-                            setDisable("hide");
-                            setAccountTemp({});
-                            CreateAccount();
-                        }}
-                    >
-                        Confirm
-                    </button>
+                    <button type="submit">Confirm</button>
                     <i
                         className="fas fa-times-circle"
                         onClick={() => {
                             setDisable("hide");
                         }}
                     ></i>
-                </div>
+                </form>
             )}
         </>
     );

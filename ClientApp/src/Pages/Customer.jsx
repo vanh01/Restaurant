@@ -4,7 +4,6 @@ import NavbarCustomer from "../components/Navbar/NavbarCustomer";
 import OrderingAndPayment from "../components/Order/OrderingAndPayment";
 import History from "../components/History/History";
 import Setting from "../components/Setting/Setting";
-import HomeCustomer from "../components/Home/HomeCustomer";
 
 const Customer = ({ setUser, User }) => {
     return (

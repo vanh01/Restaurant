@@ -12,7 +12,6 @@ const Manager = ({ setUser, User }) => {
         <>
             <NavbarManager setUser={setUser} />
             <Switch>
-                {/* <Route path="/" exact component={HomeManager}></Route> */}
                 <Route path="/" exact component={EditMenu}></Route>
                 <Route
                     path="/ManageAccount"

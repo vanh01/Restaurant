@@ -5,19 +5,6 @@
     background: #ccc url(../assets/background.jpg) center center fixed no-repeat;
 }
 
-/* .home > .heading {
-    font-family: "Lato", sans-serif;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 80px;
-    font-weight: 600;
-    user-select: none;
-    text-align: center;
-    color: #eb7c68;
-} */
-
 .home .heading {
     position: absolute;
     height: auto;
@@ -60,7 +47,7 @@
     font-size: 15px;
     font-weight: 300;
     display: block;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid #eb7c68;
     height: auto;
     width: 150px;
     padding: 10px;

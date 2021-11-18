@@ -8,7 +8,7 @@ const EditMenu = () => {
     const [NewDish, setNewDish] = useState(false);
     const [DishCurrent, setDishCurrent] = useState({});
     const [DishTemp, setDishTemp] = useState({});
-
+    // xóa food, thêm food, sửa food, xem thông tin : 3 cái api
     return (
         <>
             <div className="edit-menu">
@@ -73,7 +73,21 @@ const EditMenu = () => {
                 }}
             ></div>
             {Disable !== "hide" && (
-                <div className="edit-info-dish">
+                <form
+                    className="edit-info-dish"
+                    onSubmit={() => {
+                        setDisable("hide");
+                        if (NewDish) {
+                            listMenuFood.push(DishTemp);
+                        } else {
+                            DishCurrent.nameFood = DishTemp.nameFood;
+                            DishCurrent.description = DishTemp.description;
+                            DishCurrent.priceFood = DishTemp.priceFood;
+                            DishCurrent.categoryFood = DishTemp.categoryFood;
+                        }
+                        setDishCurrent({});
+                    }}
+                >
                     <div className="edit-info-dish1">
                         <label>
                             <img
@@ -81,7 +95,7 @@ const EditMenu = () => {
                                 src={DishCurrent.pathImage}
                                 alt={DishCurrent.nameFood}
                             />
-                            <input type="file" name="Image" />
+                            <input type="file" name="Image" required />
                             <i className="fas fa-file-image"></i>
                             <span>Select a image</span>
                         </label>
@@ -89,6 +103,7 @@ const EditMenu = () => {
                     <div className="edit-info-dish2">
                         <input
                             type="text"
+                            required
                             placeholder="Name"
                             defaultValue={DishCurrent.nameFood}
                             onChange={(e) =>
@@ -97,6 +112,7 @@ const EditMenu = () => {
                         />
                         <input
                             type="text"
+                            required
                             placeholder="Price"
                             defaultValue={DishCurrent.priceFood}
                             onChange={(e) =>
@@ -105,6 +121,7 @@ const EditMenu = () => {
                         />
                         <input
                             type="text"
+                            required
                             placeholder="Description"
                             defaultValue={DishCurrent.description}
                             onChange={(e) =>
@@ -113,15 +130,14 @@ const EditMenu = () => {
                         />
                         <input
                             type="text"
+                            required
                             placeholder="Category"
                             defaultValue={DishCurrent.categoryFood}
                             onChange={(e) =>
                                 (DishTemp.categoryFood = e.target.value)
                             }
                         />
-                        {NewDish ? (
-                            <></>
-                        ) : (
+                        {!NewDish && (
                             <button
                                 className="edit-info-dish2-delete"
                                 onClick={() => {
@@ -137,24 +153,7 @@ const EditMenu = () => {
                                 Delete
                             </button>
                         )}
-                        <button
-                            onClick={() => {
-                                setDisable("hide");
-                                if (NewDish) {
-                                    listMenuFood.push(DishTemp);
-                                } else {
-                                    DishCurrent.nameFood = DishTemp.nameFood;
-                                    DishCurrent.description =
-                                        DishTemp.description;
-                                    DishCurrent.priceFood = DishTemp.priceFood;
-                                    DishCurrent.categoryFood =
-                                        DishTemp.categoryFood;
-                                }
-                                setDishCurrent({});
-                            }}
-                        >
-                            Save change
-                        </button>
+                        <button type="submit">Save change</button>
                     </div>
                     <i
                         className="fas fa-times-circle"
@@ -163,7 +162,7 @@ const EditMenu = () => {
                             setDishCurrent({});
                         }}
                     ></i>
-                </div>
+                </form>
             )}
         </>
     );

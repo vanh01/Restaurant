@@ -83,9 +83,9 @@ const History = () => {
                 </div>
             </div>
             <div className={Disable} onClick={HandleCancelShowDetail}></div>
-            {Detail && (
+            {/* {Detail && (
                 <OrderDetails HandleCancelShowDetail={HandleCancelShowDetail} />
-            )}
+            )} */}
         </>
     );
 };

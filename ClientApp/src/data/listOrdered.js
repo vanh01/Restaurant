@@ -9,26 +9,24 @@ const listOrdered =
             time: "123-12-",
             typeOfPayment: "cash",
             total: "1000",
-        },
-        {
-            fName: "a",
-            address: "b",
-            phoneNumber: "1",
-            time: "12",
-            typeOfPayment: "card",
-            total: "12000",
-        },
-        {
-            fName: "viet",
-            address: "ho chi minh",
-            phoneNumber: "0123",
-            time: "12-12-2001",
-            typeOfPayment: "cash",
-            total: "150000",
+            listOrdered : [
+                {
+                    name: "",
+                    quantity: "",
+                    price: "",
+                    orderNote: "",
+                },
+                {
+                    name: "",
+                    quantity: "",
+                    price: "",
+                    orderNote: "",
+                },
+            ]
         }
     ]
 
-const lístOrderFood =
+const listOrderFood =
     [
         {
             name: "",

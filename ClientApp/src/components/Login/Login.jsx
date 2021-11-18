@@ -12,7 +12,8 @@ const Login = ({ setUser }) => {
     localStorage.setItem("type", "");
     let history = useHistory();
     // var UserTemp;
-    async function Submit() {
+    async function Submit(e) {
+        e.preventDefault();
         var requestOptions = {
             method: "GET",
         };
@@ -59,7 +60,7 @@ const Login = ({ setUser }) => {
     return (
         <>
             <div className="login">
-                <div className="login-form">
+                <form className="login-form" onSubmit={Submit}>
                     <NavLink to="/" exact>
                         <i className="fas fa-store"></i>
                     </NavLink>
@@ -69,6 +70,7 @@ const Login = ({ setUser }) => {
                             <input
                                 type="text"
                                 onChange={(e) => setUserName(e.target.value)}
+                                required
                             />
                         </div>
                         <div>
@@ -76,16 +78,17 @@ const Login = ({ setUser }) => {
                             <input
                                 type="password"
                                 onChange={(e) => setPassword(e.target.value)}
+                                required
                             />
                         </div>
                     </div>
-                    <div className="loginbtn" onClick={Submit}>
-                        <button>Login</button>
+                    <div className="loginbtn">
+                        <button type="submit">Login</button>
                     </div>
                     <NavLink exact to="/Register" className="loginreg">
                         <button>Register</button>
                     </NavLink>
-                </div>
+                </form>
 
                 <ToastContainer />
             </div>

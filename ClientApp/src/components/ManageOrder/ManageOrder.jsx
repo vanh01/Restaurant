@@ -2,6 +2,7 @@ import React from "react";
 import "../../css/manage-order.css";
 import { useState } from "react";
 import OrderDetails from "../OrderDetails/OrderDetails";
+import listOrdered from "../../data/listOrdered";
 
 const ManageOrder = () => {
     const [Disable, setDisable] = useState("hide");
@@ -28,91 +29,52 @@ const ManageOrder = () => {
                             <tr>
                                 <th>Index</th>
                                 <th>Name</th>
-                                <th>Time</th>
                                 <th>Address</th>
+                                <th>Time</th>
                                 <th>Total</th>
-                                <th>Status</th>
+                                <th>Confirm</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr onClick={HandleShowDetail}>
-                                <td>1</td>
-                                <td>Anh</td>
-                                <td>11/11/2021</td>
-                                <td>Viet Nam</td>
-                                <td>500000</td>
-                                <td>paid</td>
-                                <td>
-                                    <i
-                                        className="fas fa-times-circle"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            alert("hi");
-                                        }}
-                                    ></i>
-                                </td>
-                            </tr>
-                            <tr onClick={HandleShowDetail}>
-                                <td>1</td>
-                                <td>Anh</td>
-                                <td>11/11/2021</td>
-                                <td>Viet Nam</td>
-                                <td>500000</td>
-                                <td>paid</td>
-                                <td>
-                                    <i
-                                        className="fas fa-times-circle"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            alert("hi");
-                                        }}
-                                    ></i>
-                                </td>
-                            </tr>
-                            <tr onClick={HandleShowDetail}>
-                                <td>1</td>
-                                <td>Anh</td>
-                                <td>11/11/2021</td>
-                                <td>Viet Nam</td>
-                                <td>500000</td>
-                                <td>paid</td>
-                                <td>
-                                    <i
-                                        className="fas fa-times-circle"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            alert("hi");
-                                        }}
-                                    ></i>
-                                </td>
-                            </tr>
-                            <tr onClick={HandleShowDetail}>
-                                <td>1</td>
-                                <td>Anh</td>
-                                <td>11/11/2021</td>
-                                <td>Viet Nam</td>
-                                <td>500000</td>
-                                <td>paid</td>
-                                <td>
-                                    <i
-                                        className="fas fa-times-circle"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            alert("hi");
-                                        }}
-                                    ></i>
-                                </td>
-                            </tr>
+                            {listOrdered.map((order, index) => {
+                                return (
+                                    <tr key={index} onClick={HandleShowDetail}>
+                                        <td>{index}</td>
+                                        <td>{order.fName}</td>
+                                        <td>{order.address}</td>
+                                        <td>{order.time}</td>
+                                        <td>{order.total}</td>
+                                        <td>
+                                            <i
+                                                class="fas fa-check"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    alert("Confirm");
+                                                }}
+                                            ></i>
+                                        </td>
+                                        <td>
+                                            <i
+                                                className="fas fa-times-circle"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    alert("hi");
+                                                }}
+                                            ></i>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
                 </div>
             </div>
             <div className={Disable} onClick={HandleCancelShowDetail}></div>
 
-            {Detail && (
+            {/* {Detail && (
                 <OrderDetails HandleCancelShowDetail={HandleCancelShowDetail} />
-            )}
+            )} */}
         </>
     );
 };

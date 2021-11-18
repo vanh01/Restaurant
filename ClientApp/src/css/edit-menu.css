@@ -202,8 +202,12 @@
 }
 
 .edit-info-dish1 > label > input {
+    width: 1px;
+    height: 1px;
     position: absolute;
-    top: -10000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .edit-info-dish1 > label > i {
     font-size: 30px;

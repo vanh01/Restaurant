@@ -1,11 +1,57 @@
 import React from "react";
 import "../../css/history-of-manage.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import OrderDetails from "../OrderDetails/OrderDetails";
-import listOrdered from "../../data/listOrdered";
+// import listOrdered from "../../data/listOrdered";
 
 const HistoryOfManage = () => {
     const [Disable, setDisable] = useState("hide");
+    const [listOrdered, setlistOrdered] = useState([{}]);
+    const [listFoodsOrdered, setlistFoodsOrdered] = useState([{}]);
+    const [Ordered, setOrdered] = useState({})
+
+    useEffect(() => {
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+        };
+
+        fetch(
+            "https://localhost:5001/api/order/All?UserName=" +
+                localStorage.getItem("userName") +
+                "&Password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+                setlistOrdered(result);
+            })
+            .catch((error) => console.log("error", error));
+    }, []);
+
+    const ShowFoodsOrdered = async (CustomerID, OrderID) => {
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+        };
+
+        await fetch(
+            "https://localhost:5001/api/order/food?CustomerID=" +
+                CustomerID +
+                "&OrderID=" +
+                OrderID +
+                "&UserName=" +
+                localStorage.getItem("userName") +
+                "&Password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.json())
+            .then((result) => setlistFoodsOrdered(result))
+            .catch((error) => console.log("error", error));
+    };
 
     function HandleCancelShowDetail() {
         setDisable("hide");
@@ -32,20 +78,29 @@ const HistoryOfManage = () => {
                         </thead>
                         <tbody>
                             {listOrdered.map((ordered, index) => {
-                                return (
-                                    <tr
-                                        key={index}
-                                        onClick={() => setDisable("hide hide1")}
-                                    >
-                                        <td>{index}</td>
-                                        <td>{ordered.fName}</td>
-                                        <td>{ordered.address}</td>
-                                        <td>{ordered.phoneNumber}</td>
-                                        <td>{ordered.time}</td>
-                                        <td>{ordered.typeOfPayment}</td>
-                                        <td>{ordered.total}VND</td>
-                                    </tr>
-                                );
+                                if (ordered.available == "Ready") {
+                                    return (
+                                        <tr
+                                            key={index}
+                                            onClick={() => {
+                                                ShowFoodsOrdered(
+                                                    ordered.customerID,
+                                                    ordered.orderID
+                                                );
+                                                setOrdered(ordered);
+                                                setDisable("hide hide1");
+                                            }}
+                                        >
+                                            <td>{index + 1}</td>
+                                            <td>{ordered.fName}</td>
+                                            <td>{ordered.address}</td>
+                                            <td>{ordered.phoneNumber}</td>
+                                            <td>{ordered.date}</td>
+                                            <td>{ordered.paytype}</td>
+                                            <td>{ordered.total}</td>
+                                        </tr>
+                                    );
+                                }
                             })}
                         </tbody>
                     </table>
@@ -59,7 +114,11 @@ const HistoryOfManage = () => {
                 }}
             ></div>
             {Disable !== "hide" && (
-                <OrderDetails HandleCancelShowDetail={HandleCancelShowDetail} />
+                <OrderDetails
+                    Ordered={Ordered}
+                    listFoodsOrdered={listFoodsOrdered}
+                    HandleCancelShowDetail={HandleCancelShowDetail}
+                />
             )}
         </>
     );

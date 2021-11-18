@@ -33,7 +33,8 @@ const Register = () => {
         });
     };
 
-    const register = async () => {
+    const register = async (e) => {
+        e.preventDefault();
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         if (AccountTemp.userName === null || AccountTemp.password === null) {
@@ -77,7 +78,7 @@ const Register = () => {
     return (
         <>
             <div className="register">
-                <div className="register-form">
+                <form className="register-form" onSubmit={register}>
                     <NavLink to="/" exact>
                         <i className="fas fa-store"></i>
                     </NavLink>
@@ -87,6 +88,7 @@ const Register = () => {
                                 First Name
                                 <input
                                     type="text"
+                                    required
                                     onChange={(e) => {
                                         AccountTemp.fName = e.target.value;
                                     }}
@@ -96,6 +98,7 @@ const Register = () => {
                                 Last Name
                                 <input
                                     type="text"
+                                    required
                                     onChange={(e) => {
                                         AccountTemp.lName = e.target.value;
                                     }}
@@ -106,6 +109,7 @@ const Register = () => {
                             Username
                             <input
                                 type="text"
+                                required
                                 onChange={(e) => {
                                     AccountTemp.userName = e.target.value;
                                 }}
@@ -115,6 +119,7 @@ const Register = () => {
                             Password
                             <input
                                 type="password"
+                                required
                                 onChange={(e) => {
                                     AccountTemp.password = e.target.value;
                                 }}
@@ -122,14 +127,14 @@ const Register = () => {
                         </div>
                     </div>
                     <div className="loginbtn" to="/Login" exact>
-                        <button onClick={register}>Register</button>
+                        <button type="submit">Register</button>
                     </div>
                     <NavLink className="loginreg" to="/Login" exact>
                         <button onClick={() => setAccountTemp({})}>
                             Login
                         </button>
                     </NavLink>
-                </div>
+                </form>
 
                 <ToastContainer />
             </div>
