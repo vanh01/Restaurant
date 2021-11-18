@@ -122,9 +122,9 @@ const ManageAccount = ({ User }) => {
                         <thead>
                             <tr>
                                 <th>Username</th>
-                                <th>Password</th>
+                                <th>Last Name</th>
+                                <th>First Name</th>
                                 <th>Date</th>
-                                <th>Name</th>
                                 <th>Phone Number</th>
                                 <th>Delete</th>
                             </tr>
@@ -134,13 +134,9 @@ const ManageAccount = ({ User }) => {
                                 return (
                                     <tr key={index}>
                                         <td>{account.userName}</td>
-                                        <td>{account.password}</td>
+                                        <td>{account.lName}</td>
+                                        <td>{account.fName}</td>
                                         <td>{account.birthOfDate}</td>
-                                        <td>
-                                            {account.lName +
-                                                " " +
-                                                account.fName}
-                                        </td>
                                         <td>{account.phoneNumber}</td>
                                         <td>
                                             <i

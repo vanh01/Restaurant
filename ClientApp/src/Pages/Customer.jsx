@@ -11,12 +11,8 @@ const Customer = ({ setUser, User }) => {
         <>
             <NavbarCustomer setUser={setUser} />
             <Switch>
-                <Route path="/" exact component={HomeCustomer}></Route>
-                <Route
-                    path="/Ordering"
-                    exact
-                    component={OrderingAndPayment}
-                ></Route>
+                {/* <Route path="/" exact component={HomeCustomer}></Route> */}
+                <Route path="/" exact component={OrderingAndPayment}></Route>
                 <Route path="/History" exact component={History}></Route>
                 <Route path="/Setting" exact>
                     <Setting setUser={setUser} User={User} />

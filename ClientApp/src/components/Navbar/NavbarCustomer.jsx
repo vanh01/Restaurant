@@ -17,13 +17,13 @@ const NavbarCustomer = ({ setUser }) => {
                         <i className="fas fa-home-alt"></i>
                     </div>
                 </NavLink>
-                <NavLink activeClassName="active" exact to="/Ordering">
+                {/* <NavLink activeClassName="active" exact to="/Ordering">
                     <b></b>
                     <b></b>
                     <div>
                         <i className="fas fa-concierge-bell"></i>
                     </div>
-                </NavLink>
+                </NavLink> */}
                 <NavLink activeClassName="active" exact to="/History">
                     <b></b>
                     <b></b>

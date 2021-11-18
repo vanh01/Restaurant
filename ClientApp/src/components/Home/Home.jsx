@@ -6,9 +6,19 @@ const Home = () => {
     return (
         <>
             <div className="home">
-                <NavLink exact to="/Login">
-                    Login
-                </NavLink>
+                <div className="heading">
+                    <h1 className="head">
+                        WELCOME TO OUR <span>WEBSITE</span>
+                    </h1>
+                    <div class="btns">
+                        <NavLink class="btn1" to="/Login">
+                            Register
+                        </NavLink>
+                        <NavLink class="btn2" to="/Login">
+                            Login
+                        </NavLink>
+                    </div>
+                </div>
             </div>
         </>
     );

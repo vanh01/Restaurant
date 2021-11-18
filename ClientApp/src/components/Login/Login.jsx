@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
 import "../../css/login.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = ({ setUser }) => {
     const [UserName, setUserName] = useState("");
@@ -42,7 +44,15 @@ const Login = ({ setUser }) => {
             localStorage.setItem("userName", UserName);
             localStorage.setItem("password", Password);
         } else {
-            alert("Nhap sai thong tin");
+            toast.error("Your login information was incorrect.", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 
@@ -76,6 +86,8 @@ const Login = ({ setUser }) => {
                         <button>Register</button>
                     </NavLink>
                 </div>
+
+                <ToastContainer />
             </div>
         </>
     );

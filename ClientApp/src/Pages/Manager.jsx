@@ -9,38 +9,12 @@ import Setting from "../components/Setting/Setting";
 import HomeManager from "../components/Home/HomeManager";
 
 const Manager = ({ setUser, User }) => {
-    // useEffect(() => {
-    //     var requestOptions = {
-    //         method: "GET",
-    //     };
-
-    //     fetch(
-    //         "https://localhost:5001/api/account/login?username=" +
-    //             localStorage.getItem("userName") +
-    //             "&password=" +
-    //             localStorage.getItem("password"),
-    //         requestOptions
-    //     )
-    //         .then((response) => response.json())
-    //         .then((result) => {
-    //             if (result.typeOfUser === "Manager")
-    //                 localStorage.setItem("type", "Manager");
-    //             else if (result.typeOfUser === "Clerk")
-    //                 localStorage.setItem("type", "Clerk");
-    //             else if (result.typeOfUser === "Customer")
-    //                 localStorage.setItem("type", "Customer");
-    //             else localStorage.setItem("type", "");
-    //             setUser(result);
-    //         })
-    //         .catch((error) => console.log("error", error));
-    // }, []);
-
     return (
         <>
             <NavbarManager setUser={setUser} />
             <Switch>
-                <Route path="/" exact component={HomeManager}></Route>
-                <Route path="/EditMenu" exact component={EditMenu}></Route>
+                {/* <Route path="/" exact component={HomeManager}></Route> */}
+                <Route path="/" exact component={EditMenu}></Route>
                 <Route
                     path="/ManageAccount"
                     exact
