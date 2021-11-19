@@ -4,8 +4,8 @@ import CartItems from "./CartItems";
 import Foods from "./Foods";
 import { useState, useEffect } from "react";
 import FoodDetails from "./FoodDetails";
-// import listMenuFood from "../../data/listMenuFood";
-// import listCategory from "../../data/listCategory";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const OrderingAndPayment = () => {
     const [listOrderFood, setlistOrderFood] = useState([]);
@@ -14,14 +14,35 @@ const OrderingAndPayment = () => {
     const [Disable1, setDisable1] = useState("hide");
     const [FoodCur, setFoodCur] = useState({});
     const [PaymentFull, setPaymentFull] = useState(false);
-    const [PaymentMethod, setPaymentMethod] = useState(true);
+    const [PaymentMethod, setPaymentMethod] = useState("Card");
     const [ShowFoodDetails, setShowFoodDetails] = useState(false);
     const [Total, setTotal] = useState(0);
     const [Category, setCategory] = useState("Category");
     const [listMenuFood, setlistMenuFood] = useState([{}]);
     const [listCategory, setlistCategory] = useState([]);
-
-    const callApi = async () => {
+    const notify = (s) => {
+        toast.success(s, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    const notify1 = (s) => {
+        toast.warn(s, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    const loadMenuFoods = async () => {
         var requestOptions = {
             method: "GET",
             redirect: "follow",
@@ -44,16 +65,66 @@ const OrderingAndPayment = () => {
     };
 
     useEffect(() => {
-        callApi();
+        loadMenuFoods();
     }, []);
 
     const CalcTotal = () => {
         let tempTotal = 0;
         listOrderFood.map((orderFood) => {
-            tempTotal +=
-                Number(orderFood.price) * Number(orderFood.quantity);
+            tempTotal += Number(orderFood.price) * Number(orderFood.quantity);
         });
         setTotal(tempTotal);
+    };
+
+    const Payment = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var current = new Date();
+        var date = `${current.getDate()}-${
+            current.getMonth() + 1
+        }-${current.getFullYear()}`;
+
+        var raw = JSON.stringify({
+            customerID: localStorage.getItem("id"),
+            date: date,
+            paytype: PaymentMethod,
+            total: Total.toString(),
+            inforFoods: listOrderFood,
+        });
+
+        var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+
+        fetch(
+            "https://localhost:5001/api/order/ordered?userName=" +
+                localStorage.getItem("userName") +
+                "&password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.text())
+            .then((result) => {
+                if (result === "Success") {
+                    notify("Success!");
+                    setlistOrderFood([]);
+                    setTotal(0);
+                } else
+                    toast.error("Fail!", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+            })
+            .catch((error) => console.log("error", error));
     };
 
     function HandleOnInput(e) {
@@ -192,12 +263,12 @@ const OrderingAndPayment = () => {
                         <div className="ordering-methods">
                             <div
                                 className={
-                                    PaymentMethod
+                                    PaymentMethod === "Card"
                                         ? "ordering-method ordering-method1"
                                         : "ordering-method"
                                 }
                                 onClick={() => {
-                                    setPaymentMethod(true);
+                                    setPaymentMethod("Card");
                                 }}
                             >
                                 <i className="fal fa-credit-card"></i>
@@ -205,12 +276,12 @@ const OrderingAndPayment = () => {
                             </div>
                             <div
                                 className={
-                                    !PaymentMethod
+                                    PaymentMethod === "Cash"
                                         ? "ordering-method ordering-method1"
                                         : "ordering-method"
                                 }
                                 onClick={() => {
-                                    setPaymentMethod(false);
+                                    setPaymentMethod("Cash");
                                 }}
                             >
                                 <i className="far fa-wallet"></i>
@@ -258,7 +329,13 @@ const OrderingAndPayment = () => {
                             <button onClick={HandleCancelPayment}>
                                 Cancel
                             </button>
-                            <button>Payment</button>
+                            <button
+                                onClick={() => {
+                                    Payment();
+                                }}
+                            >
+                                Payment
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -274,8 +351,12 @@ const OrderingAndPayment = () => {
                     HandleCancelShowFoodDetails={HandleCancelShowFoodDetails}
                     setlistOrderFood={setlistOrderFood}
                     FoodCur={FoodCur}
+                    notify={notify}
+                    notify1={notify1}
+                    listOrderFood={listOrderFood}
                 />
             )}
+            <ToastContainer />
         </>
     );
 };

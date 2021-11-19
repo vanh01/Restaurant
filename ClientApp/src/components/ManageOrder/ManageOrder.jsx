@@ -83,7 +83,7 @@ const ManageOrder = () => {
         };
 
         await fetch(
-            "https://localhost:5001/api/order/edit?Available=" +
+            "https://localhost:5001/api/order/confirm?Available=" +
                 Available +
                 "&OrderID=" +
                 ordered.orderID +

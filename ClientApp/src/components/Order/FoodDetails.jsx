@@ -5,9 +5,20 @@ const FoodDetails = ({
     HandleCancelShowFoodDetails,
     setlistOrderFood,
     FoodCur,
+    notify,
+    notify1,
+    listOrderFood,
 }) => {
     const [Quantity, setQuantity] = useState(1);
     const [OrderNote, setOrderNote] = useState("");
+
+    const Check = (food) => {
+        var contains = false;
+        listOrderFood.map((f) => {
+            if (f.name === food.name) contains = true;
+        });
+        return contains;
+    };
 
     return (
         <>
@@ -23,15 +34,19 @@ const FoodDetails = ({
                     <i
                         className="fas fa-cart-plus"
                         onClick={() => {
+                            if (!Check(FoodCur)) {
+                                notify("Success!");
+                                setlistOrderFood((list) => [
+                                    ...list,
+                                    {
+                                        ...FoodCur,
+                                        quantity: Quantity,
+                                        orderNote: OrderNote,
+                                        id: FoodCur.id,
+                                    },
+                                ]);
+                            } else notify1("The cart already has this food!");
                             HandleCancelShowFoodDetails();
-                            setlistOrderFood((list) => [
-                                ...list,
-                                {
-                                    ...FoodCur,
-                                    quantity: Quantity,
-                                    orderNote: OrderNote,
-                                },
-                            ]);
                         }}
                     ></i>
                     <div className="food-detail-info1">{FoodCur.name}</div>

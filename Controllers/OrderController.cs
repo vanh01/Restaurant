@@ -68,7 +68,7 @@ namespace RestaurantPOS2._0.Controllers
             return new List<Pay_Ord>();
         }
 
-        [HttpPut("edit")]
+        [HttpPut("confirm")]
         public string EditAllOrders(string Available, string OrderID, string UserName, string Password)
         {
             if (GetTypeOfAccount(UserName, Password) == "Clerk")
@@ -83,20 +83,18 @@ namespace RestaurantPOS2._0.Controllers
             return "Fail";
         }
 
-        [HttpPost("add")]
-        public String CusOrder([FromBody] AllInfo allInfo, [FromRoute] string TypeOfUser)
+        [HttpPost("ordered")]
+        public String CusOrder([FromBody] AllInfo allInfo, string userName, string password)
         {
-            if (TypeOfUser == "Customer")
+            if (GetTypeOfAccount(userName, password) == "Customer")
             {
-                string query2 = $"INSERT INTO ORDER_FOOD VALUES ({allInfo.Date}, 'Waitting', 0);";
-                string query3 = $"SELECT TOP 1 OrderID FROM ORDER_FOOD ORDER BY OrderID DESC;";
-                SqlExecutes.Instance.ExecuteNonQuery(query2);
-                int OrderID = Convert.ToInt32(SqlExecutes.Instance.ExecuteQuery(query3).Rows[0]["OrderID"]);
-                string query = $"INSERT INTO PAYMENT VALUES ({allInfo.CustomerID}, {OrderID}, {allInfo.Paytype}, {allInfo.Total});";
+                string query2 = $"INSERT INTO ORDER_FOOD VALUES ( '{allInfo.Date}', 'Waitting', 1);SELECT TOP 1 OrderID FROM ORDER_FOOD ORDER BY OrderID DESC; ";
+                string OrderID = SqlExecutes.Instance.ExecuteQuery(query2).Rows[0]["OrderID"].ToString();
+                string query = $"INSERT INTO PAYMENT VALUES ({allInfo.CustomerID}, {OrderID}, '{allInfo.Paytype}', '{allInfo.Total}');";
                 SqlExecutes.Instance.ExecuteNonQuery(query);
-                foreach (var item in allInfo.InforOr)
+                foreach (var item in allInfo.inforFoods)
                 {
-                    string query4 = $"INSERT INTO ORDERED VALUES ({item.CustomerID}, {OrderID}, {item.FoodID}, {item.Quantity}, {item.OrderNote});";
+                    string query4 = $"INSERT INTO ORDERED VALUES ({allInfo.CustomerID}, {OrderID}, {item.FoodID}, {item.Quantity}, '{item.OrderNote}');";
                     SqlExecutes.Instance.ExecuteNonQuery(query4);
                 }
                 return "Success";

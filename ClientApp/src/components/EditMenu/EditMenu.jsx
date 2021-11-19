@@ -252,7 +252,8 @@ const EditMenu = () => {
                                 type="file"
                                 name="Image"
                                 required
-                                onChange={() => {
+                                onChange={(e) => {
+                                    DishTemp.file = e.target.files[0];
                                     DishTemp.pathImg = "";
                                 }}
                             />

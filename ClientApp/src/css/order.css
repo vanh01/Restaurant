@@ -184,7 +184,7 @@
 }
 
 .ordering-cart {
-    position: fixed;
+    position: absolute;
     height: 100vh;
     width: calc(66% - 2 * 80px);
     background-color: #1f1d2c;

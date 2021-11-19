@@ -34,6 +34,7 @@ const Login = ({ setUser }) => {
                 else if (result.typeOfUser === "Customer")
                     localStorage.setItem("type", "Customer");
                 else localStorage.setItem("type", "");
+                localStorage.setItem("id", result.id);
                 setUser(result);
             })
             .catch((error) => console.log("error", error));
