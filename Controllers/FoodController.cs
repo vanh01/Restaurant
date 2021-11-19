@@ -30,6 +30,21 @@ namespace RestaurantPOS2._0
             return table.ConvertToList<Food>();
         }
 
+        [HttpGet("category")]
+        public List<string> GetCategory()
+        {
+            string query = $"SELECT Category FROM FOOD GROUP BY Category;";
+
+            DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
+            List<string> strs = new List<string>();
+
+            foreach (DataRow item in table.Rows)
+            {
+                strs.Add(item["Category"].ToString());
+            }
+            return strs;
+        }
+
         [HttpPut]
         public string PutFoods([FromBody] Food food, string userName, string password)
         {
@@ -51,6 +66,23 @@ namespace RestaurantPOS2._0
         public string PostFoods([FromBody] Food food, string userName, string password)
         {
             string query = $"INSERT INTO FOOD VALUES ('{food.Name}', '{food.Description}', '{food.Price}', '{food.PathImg}', '{food.Category}' , 1, 5);";
+
+            if (GetTypeOfAccount(userName, password) == "Manager")
+            {
+                int n = SqlExecutes.Instance.ExecuteNonQuery(query);
+
+                if (n == 1)
+                    return "Success";
+                return "Fail";
+            }
+
+            return "Fail";
+        }
+
+        [HttpDelete]
+        public string DeleteFood([FromBody] Food food, string userName, string password)
+        {
+            string query = $"DELETE FROM FOOD WHERE FoodID = {food.FoodID}";
 
             if (GetTypeOfAccount(userName, password) == "Manager")
             {

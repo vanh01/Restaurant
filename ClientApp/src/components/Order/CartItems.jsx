@@ -8,12 +8,9 @@ const Items = ({ listOrderFood, setlistOrderFood, CalcTotal }) => {
             {listOrderFood.map((orderFood) => {
                 return (
                     <div className="ordering-cart-item">
-                        <img
-                            src={orderFood.pathImage}
-                            alt={orderFood.nameFood}
-                        />
-                        <div className="item-name">{orderFood.nameFood}</div>
-                        <div className="item-price">{orderFood.priceFood}đ</div>
+                        <img src={orderFood.pathImg} alt={orderFood.name} />
+                        <div className="item-name">{orderFood.name}</div>
+                        <div className="item-price">{orderFood.price}đ</div>
                         <input
                             className="item-quantity"
                             type="text"
@@ -24,7 +21,7 @@ const Items = ({ listOrderFood, setlistOrderFood, CalcTotal }) => {
                             }}
                         />
                         <div className="item-total">
-                            {orderFood.priceFood * orderFood.quantity}đ
+                            {orderFood.price * orderFood.quantity}đ
                         </div>
                         <button
                             className="item-remove-item"
@@ -39,22 +36,22 @@ const Items = ({ listOrderFood, setlistOrderFood, CalcTotal }) => {
                             <i className="far fa-trash-alt"></i>
                         </button>
 
-                        {orderFood.noteFood === "" ? (
+                        {orderFood.orderNote === "" ? (
                             <input
                                 className="item-note"
                                 type="text"
                                 placeholder="Order Note..."
                                 onChange={(e) => {
-                                    orderFood.noteFood = e.target.value;
+                                    orderFood.orderNote = e.target.value;
                                 }}
                             />
                         ) : (
                             <input
                                 className="item-note"
                                 type="text"
-                                defaultValue={orderFood.noteFood}
+                                defaultValue={orderFood.orderNote}
                                 onChange={(e) => {
-                                    orderFood.noteFood = e.target.value;
+                                    orderFood.orderNote = e.target.value;
                                 }}
                             />
                         )}

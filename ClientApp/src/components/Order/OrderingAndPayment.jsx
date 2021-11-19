@@ -2,10 +2,10 @@ import React from "react";
 import "../../css/order.css";
 import CartItems from "./CartItems";
 import Foods from "./Foods";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FoodDetails from "./FoodDetails";
-import listMenuFood from "../../data/listMenuFood";
-import listCategory from "../../data/listCategory";
+// import listMenuFood from "../../data/listMenuFood";
+// import listCategory from "../../data/listCategory";
 
 const OrderingAndPayment = () => {
     const [listOrderFood, setlistOrderFood] = useState([]);
@@ -18,15 +18,43 @@ const OrderingAndPayment = () => {
     const [ShowFoodDetails, setShowFoodDetails] = useState(false);
     const [Total, setTotal] = useState(0);
     const [Category, setCategory] = useState("Category");
+    const [listMenuFood, setlistMenuFood] = useState([{}]);
+    const [listCategory, setlistCategory] = useState([]);
 
-    function CalcTotal() {
+    const callApi = async () => {
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+        };
+
+        await fetch("https://localhost:5001/api/food", requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                setlistMenuFood(result);
+            })
+            .catch((error) => console.log("error", error));
+
+        await fetch("https://localhost:5001/api/food/category", requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                setlistCategory(result);
+            })
+            .catch((error) => console.log("error", error));
+        return;
+    };
+
+    useEffect(() => {
+        callApi();
+    }, []);
+
+    const CalcTotal = () => {
         let tempTotal = 0;
         listOrderFood.map((orderFood) => {
             tempTotal +=
-                Number(orderFood.priceFood) * Number(orderFood.quantity);
+                Number(orderFood.price) * Number(orderFood.quantity);
         });
         setTotal(tempTotal);
-    }
+    };
 
     function HandleOnInput(e) {
         setSearch(e.target.value);
@@ -73,11 +101,16 @@ const OrderingAndPayment = () => {
                         name="Category"
                         onChange={(e) => {
                             setCategory(e.target.value);
+                            console.log(e.target.value);
                         }}
                     >
                         <option defaultValue="Category">Category</option>
-                        {listCategory.map((pram) => {
-                            return <option value={pram}>{pram}</option>;
+                        {listCategory.map((pram, index) => {
+                            return (
+                                <option key={index} value={pram}>
+                                    {pram}
+                                </option>
+                            );
                         })}
                     </select>
                     <div className="ordering-menu-list-food">

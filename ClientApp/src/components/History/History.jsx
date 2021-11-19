@@ -75,6 +75,7 @@ const History = () => {
                                     <tr>
                                         <th>Index</th>
                                         <th>Time</th>
+                                        <th>Status</th>
                                         <th>Type of payment</th>
                                         <th>Total payment</th>
                                     </tr>
@@ -95,6 +96,7 @@ const History = () => {
                                             >
                                                 <td>{index + 1}</td>
                                                 <td>{ordered.date}</td>
+                                                <td>{ordered.available}</td>
                                                 <td>{ordered.paytype}</td>
                                                 <td>{ordered.total}</td>
                                             </tr>
@@ -102,29 +104,6 @@ const History = () => {
                                     })}
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                    <div className="history-totals">
-                        <div className="history-total">
-                            <div>
-                                <i className="fas fa-dollar-sign"></i>
-                            </div>
-                            <div className="history-num">11,521,000 đ</div>
-                            <div className="history-tt">Total spending</div>
-                        </div>
-                        <div className="history-total">
-                            <div>
-                                <i className="fas fa-bookmark"></i>
-                            </div>
-                            <div className="history-num">3,230</div>
-                            <div className="history-tt">Total ordered</div>
-                        </div>
-                        <div className="history-total">
-                            <div>
-                                <i className="fas fa-utensils-alt"></i>
-                            </div>
-                            <div className="history-num">15,140</div>
-                            <div className="history-tt">Total dish ordered</div>
                         </div>
                     </div>
                 </div>

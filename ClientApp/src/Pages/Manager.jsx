@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import NavbarManager from "../components/Navbar/NavbarManager";
 import EditMenu from "../components/EditMenu/EditMenu";
 import ManageAccount from "../components/ManageAccount/ManageAccount";

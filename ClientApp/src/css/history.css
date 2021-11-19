@@ -34,7 +34,7 @@
     bottom: 0;
     right: 5%;
     margin: 30px 0;
-    width: calc(90% - 230px);
+    width: 90%;
     background-color: #1f1d2c;
     height: calc(100vh - 65px - 1px - 60px);
     border-radius: 10px;
@@ -65,77 +65,29 @@
 
 .history-list-order > table tr > th:nth-child(1),
 .history-list-order > table tr > td:nth-child(1) {
-    width: 15%;
+    width: 10%;
 }
 .history-list-order > table tr > th:nth-child(2),
 .history-list-order > table tr > td:nth-child(2) {
-    width: 30%;
+    width: 25%;
 }
 .history-list-order > table tr > th:nth-child(3),
 .history-list-order > table tr > td:nth-child(3) {
-    width: 30%;
+    width: 20%;
 }
 .history-list-order > table tr > th:nth-child(4),
 .history-list-order > table tr > td:nth-child(4) {
+    width: 20%;
+}
+.history-list-order > table tr > th:nth-child(5),
+.history-list-order > table tr > td:nth-child(5) {
     width: 25%;
 }
 
-.history-totals {
-    width: 200px;
-    height: calc(100vh - 65px - 1px - 60px);
-    position: absolute;
-    bottom: 0;
-    left: 5%;
-    box-sizing: border-box;
-    margin: 30px 0;
-}
-
-.history-total {
-    position: relative;
-    margin-bottom: 30px;
-    width: 100%;
-    height: calc((100% - 4 * 15px) / 3);
+.history-list-order > table > thead > tr:nth-child(odd) {
     background-color: #1f1d2c;
-    border-radius: 10px;
 }
 
-.history-total .history-num {
-    position: absolute;
-    color: #fefefe;
-    top: 50%;
-    left: 15px;
-    font-weight: 700;
-    font-size: 20px;
-    user-select: none;
-}
-
-.history-total .history-tt {
-    position: absolute;
-    color: #b1afaf;
-    left: 15px;
-    bottom: 15%;
-    font-weight: 500;
-    font-size: 16px;
-    user-select: none;
-}
-
-.history-total div:nth-child(1) {
-    position: absolute;
-    top: 15%;
-    left: 15px;
-    height: 40px;
-    width: 40px;
+.history-list-order > table tr:nth-child(odd) {
     background-color: #262837;
-    border-radius: 8px;
-    justify-content: center;
-    align-items: center;
-}
-
-.history-total i::before {
-    position: absolute;
-    color: #eb7c68;
-    font-size: 22px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }

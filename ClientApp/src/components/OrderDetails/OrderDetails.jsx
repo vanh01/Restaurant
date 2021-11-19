@@ -35,9 +35,9 @@ const OrderDetails = ({
                             </tr>
                         </thead>
                         <tbody>
-                            {listFoodsOrdered.map((food) => {
+                            {listFoodsOrdered.map((food, index) => {
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         <td>{food.name}</td>
                                         <td>{food.quantity}</td>
                                         <td>{food.price}</td>

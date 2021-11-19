@@ -7,7 +7,7 @@ const FoodDetails = ({
     FoodCur,
 }) => {
     const [Quantity, setQuantity] = useState(1);
-    const [NoteFood, setNoteFood] = useState("");
+    const [OrderNote, setOrderNote] = useState("");
 
     return (
         <>
@@ -15,8 +15,8 @@ const FoodDetails = ({
                 <div className="food-detail1">
                     <img
                         className="image-food"
-                        src={FoodCur.pathImage}
-                        alt={FoodCur.nameFood}
+                        src={FoodCur.pathImg}
+                        alt={FoodCur.name}
                     />
                 </div>
                 <div className="food-detail2">
@@ -29,17 +29,17 @@ const FoodDetails = ({
                                 {
                                     ...FoodCur,
                                     quantity: Quantity,
-                                    noteFood: NoteFood,
+                                    orderNote: OrderNote,
                                 },
                             ]);
                         }}
                     ></i>
-                    <div className="food-detail-info1">{FoodCur.nameFood}</div>
+                    <div className="food-detail-info1">{FoodCur.name}</div>
                     <div className="food-detail-info2">
                         {FoodCur.description}
                     </div>
                     <div className="food-detail-info3">
-                        {FoodCur.priceFood}đ
+                        {FoodCur.price}đ
                         <input
                             type="text"
                             defaultValue="1"
@@ -49,7 +49,7 @@ const FoodDetails = ({
                     <input
                         type="text"
                         placeholder="Order Note..."
-                        onChange={(e) => setNoteFood(e.target.value)}
+                        onChange={(e) => setOrderNote(e.target.value)}
                     />
                 </div>
                 <i

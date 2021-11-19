@@ -2,15 +2,40 @@ import React, { useEffect } from "react";
 import "../../css/edit-menu.css";
 // import listMenuFood from "../../data/listMenuFood";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EditMenu = () => {
+    const [Update, setUpdate] = useState(false);
     const [Disable, setDisable] = useState("hide");
     const [NewDish, setNewDish] = useState(false);
     const [DishCurrent, setDishCurrent] = useState({});
     const [DishTemp, setDishTemp] = useState({});
     const [listMenuFood, setlistMenuFood] = useState([{}]);
 
-    useEffect(async () => {
+    const notify = () => {
+        toast.success("Success!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    const notify1 = () => {
+        toast.error("Fail!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    const GetAllFoods = async () => {
         var requestOptions = {
             method: "GET",
             redirect: "follow",
@@ -22,9 +47,118 @@ const EditMenu = () => {
                 setlistMenuFood(result);
             })
             .catch((error) => console.log("error", error));
+    };
+
+    const InsertFood = async () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            name: DishTemp.name,
+            description: DishTemp.description,
+            price: DishTemp.price,
+            pathImg: DishTemp.pathImg,
+            category: DishTemp.category,
+        });
+
+        var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+
+        await fetch(
+            "https://localhost:5001/api/food?userName=" +
+                localStorage.getItem("userName") +
+                "&password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.text())
+            .then((result) => {
+                if (result === "Success") {
+                    notify();
+                    setDisable("hide");
+                } else notify1();
+            })
+            .catch((error) => console.log("error", error));
+    };
+
+    const UpdateFood = async () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            foodID: DishCurrent.foodID,
+            name: DishTemp.name,
+            description: DishTemp.description,
+            price: DishTemp.price,
+            pathImg: DishTemp.pathImg,
+            category: DishTemp.category,
+        });
+
+        var requestOptions = {
+            method: "PUT",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+
+        fetch(
+            "https://localhost:5001/api/food?userName=" +
+                localStorage.getItem("userName") +
+                "&password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.text())
+            .then((result) => {
+                if (result === "Success") {
+                    notify();
+                } else notify1();
+            })
+            .catch((error) => console.log("error", error));
+    };
+
+    const DeleteFood = async () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            foodID: DishCurrent.foodID,
+        });
+
+        var requestOptions = {
+            method: "DELETE",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+        };
+
+        fetch(
+            "https://localhost:5001/api/food?userName=" +
+                localStorage.getItem("userName") +
+                "&password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.text())
+            .then((result) => {
+                if (result === "Success") {
+                    notify();
+                    var index = listMenuFood.indexOf(DishCurrent);
+                    listMenuFood.splice(index, 1);
+                    setDishCurrent({});
+                } else notify1();
+            })
+            .catch((error) => console.log("error", error));
+    };
+
+    useEffect(() => {
+        GetAllFoods();
     }, []);
 
-    // xóa food, thêm food, sửa food, xem thông tin : 3 cái api
     return (
         <>
             <div className="edit-menu">
@@ -78,6 +212,7 @@ const EditMenu = () => {
                         );
                     })}
                 </div>
+                <ToastContainer />
             </div>
             <div
                 className={Disable}
@@ -89,27 +224,38 @@ const EditMenu = () => {
             {Disable !== "hide" && (
                 <form
                     className="edit-info-dish"
-                    onSubmit={() => {
-                        setDisable("hide");
+                    onSubmit={(e) => {
+                        e.preventDefault();
                         if (NewDish) {
-                            listMenuFood.push(DishTemp);
+                            InsertFood();
+                            GetAllFoods();
                         } else {
-                            DishCurrent.nameFood = DishTemp.nameFood;
+                            UpdateFood();
+                            DishCurrent.name = DishTemp.name;
                             DishCurrent.description = DishTemp.description;
-                            DishCurrent.priceFood = DishTemp.priceFood;
-                            DishCurrent.categoryFood = DishTemp.categoryFood;
+                            DishCurrent.price = DishTemp.price;
+                            DishCurrent.category = DishTemp.category;
                         }
+                        setDisable("hide");
                         setDishCurrent({});
+                        setUpdate(!Update);
                     }}
                 >
                     <div className="edit-info-dish1">
                         <label>
                             <img
                                 className="dish-img"
-                                src={DishCurrent.pathImage}
-                                alt={DishCurrent.nameFood}
+                                src={DishCurrent.pathImg}
+                                alt={DishCurrent.name}
                             />
-                            <input type="file" name="Image" required />
+                            <input
+                                type="file"
+                                name="Image"
+                                required
+                                onChange={() => {
+                                    DishTemp.pathImg = "";
+                                }}
+                            />
                             <i className="fas fa-file-image"></i>
                             <span>Select a image</span>
                         </label>
@@ -119,19 +265,15 @@ const EditMenu = () => {
                             type="text"
                             required
                             placeholder="Name"
-                            defaultValue={DishCurrent.nameFood}
-                            onChange={(e) =>
-                                (DishTemp.nameFood = e.target.value)
-                            }
+                            defaultValue={DishCurrent.name}
+                            onChange={(e) => (DishTemp.name = e.target.value)}
                         />
                         <input
                             type="text"
                             required
                             placeholder="Price"
-                            defaultValue={DishCurrent.priceFood}
-                            onChange={(e) =>
-                                (DishTemp.priceFood = e.target.value)
-                            }
+                            defaultValue={DishCurrent.price}
+                            onChange={(e) => (DishTemp.price = e.target.value)}
                         />
                         <input
                             type="text"
@@ -146,22 +288,17 @@ const EditMenu = () => {
                             type="text"
                             required
                             placeholder="Category"
-                            defaultValue={DishCurrent.categoryFood}
+                            defaultValue={DishCurrent.category}
                             onChange={(e) =>
-                                (DishTemp.categoryFood = e.target.value)
+                                (DishTemp.category = e.target.value)
                             }
                         />
                         {!NewDish && (
                             <button
                                 className="edit-info-dish2-delete"
                                 onClick={() => {
+                                    DeleteFood();
                                     setDisable("hide");
-                                    var index =
-                                        listMenuFood.indexOf(DishCurrent);
-                                    listMenuFood.splice(index, 1);
-                                    console.log(index);
-                                    console.log(listMenuFood);
-                                    setDishCurrent({});
                                 }}
                             >
                                 Delete
