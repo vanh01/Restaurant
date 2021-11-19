@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../css/edit-menu.css";
-import listMenuFood from "../../data/listMenuFood";
+// import listMenuFood from "../../data/listMenuFood";
 import { useState } from "react";
 
 const EditMenu = () => {
@@ -8,6 +8,22 @@ const EditMenu = () => {
     const [NewDish, setNewDish] = useState(false);
     const [DishCurrent, setDishCurrent] = useState({});
     const [DishTemp, setDishTemp] = useState({});
+    const [listMenuFood, setlistMenuFood] = useState([{}]);
+
+    useEffect(async () => {
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+        };
+
+        await fetch("https://localhost:5001/api/food", requestOptions)
+            .then((response) => response.json())
+            .then((result) => {
+                setlistMenuFood(result);
+            })
+            .catch((error) => console.log("error", error));
+    }, []);
+
     // xóa food, thêm food, sửa food, xem thông tin : 3 cái api
     return (
         <>
@@ -31,18 +47,16 @@ const EditMenu = () => {
                                 <div className="dish-imgg">
                                     <img
                                         className="dish-img"
-                                        src={dish.pathImage}
+                                        src={dish.pathImg}
                                         // src="../../"
-                                        alt={dish.nameFood}
+                                        alt={dish.name}
                                     />
                                 </div>
-                                <div className="name-dish">{dish.nameFood}</div>
+                                <div className="name-dish">{dish.name}</div>
                                 <div className="descrip-dish">
                                     {dish.description}
                                 </div>
-                                <div className="price-dish">
-                                    {dish.priceFood}đ
-                                </div>
+                                <div className="price-dish">{dish.price}</div>
                                 <div
                                     className="edit-dish"
                                     onClick={() => {
@@ -50,10 +64,10 @@ const EditMenu = () => {
                                         setNewDish(false);
                                         setDishCurrent(dish);
                                         setDishTemp({
-                                            nameFood: dish.nameFood,
+                                            name: dish.name,
                                             description: dish.description,
-                                            priceFood: dish.priceFood,
-                                            categoryFood: dish.categoryFood,
+                                            price: dish.price,
+                                            category: dish.category,
                                         });
                                     }}
                                 >

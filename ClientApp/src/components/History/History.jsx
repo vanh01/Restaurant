@@ -1,19 +1,58 @@
 import React from "react";
 import "../../css/history.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import OrderDetails from "../OrderDetails/OrderDetails";
 
 const History = () => {
     const [Disable, setDisable] = useState("hide");
-    const [Detail, setDetail] = useState(false);
+    const [listOrdered, setlistOrdered] = useState([{}]);
+    const [listFoodsOrdered, setlistFoodsOrdered] = useState([{}]);
+    const [Ordered, setOrdered] = useState({});
 
-    function HandleShowDetail() {
-        setDetail(true);
-        setDisable("hide hide1");
-    }
+    useEffect(() => {
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+        };
+
+        fetch(
+            "https://localhost:5001/api/order/?UserName=" +
+                localStorage.getItem("userName") +
+                "&Password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+                setlistOrdered(result);
+            })
+            .catch((error) => console.log("error", error));
+    }, []);
+
+    const ShowFoodsOrdered = async (CustomerID, OrderID) => {
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow",
+        };
+
+        await fetch(
+            "https://localhost:5001/api/order/food?CustomerID=" +
+                CustomerID +
+                "&OrderID=" +
+                OrderID +
+                "&UserName=" +
+                localStorage.getItem("userName") +
+                "&Password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.json())
+            .then((result) => setlistFoodsOrdered(result))
+            .catch((error) => console.log("error", error));
+    };
 
     function HandleCancelShowDetail() {
-        setDetail(false);
         setDisable("hide");
     }
 
@@ -41,18 +80,26 @@ const History = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr onClick={HandleShowDetail}>
-                                        <td>1</td>
-                                        <td>11/11/2021</td>
-                                        <td>cash</td>
-                                        <td>20000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>11/11/2021</td>
-                                        <td>cash</td>
-                                        <td>20000</td>
-                                    </tr>
+                                    {listOrdered.map((ordered, index) => {
+                                        return (
+                                            <tr
+                                                key={index}
+                                                onClick={() => {
+                                                    ShowFoodsOrdered(
+                                                        ordered.customerID,
+                                                        ordered.orderID
+                                                    );
+                                                    setOrdered(ordered);
+                                                    setDisable("hide hide1");
+                                                }}
+                                            >
+                                                <td>{index + 1}</td>
+                                                <td>{ordered.date}</td>
+                                                <td>{ordered.paytype}</td>
+                                                <td>{ordered.total}</td>
+                                            </tr>
+                                        );
+                                    })}
                                 </tbody>
                             </table>
                         </div>
@@ -83,9 +130,13 @@ const History = () => {
                 </div>
             </div>
             <div className={Disable} onClick={HandleCancelShowDetail}></div>
-            {/* {Detail && (
-                <OrderDetails HandleCancelShowDetail={HandleCancelShowDetail} />
-            )} */}
+            {Disable !== "hide" && (
+                <OrderDetails
+                    Ordered={Ordered}
+                    listFoodsOrdered={listFoodsOrdered}
+                    HandleCancelShowDetail={HandleCancelShowDetail}
+                />
+            )}
         </>
     );
 };

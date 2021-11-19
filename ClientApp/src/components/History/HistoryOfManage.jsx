@@ -2,13 +2,12 @@ import React from "react";
 import "../../css/history-of-manage.css";
 import { useState, useEffect } from "react";
 import OrderDetails from "../OrderDetails/OrderDetails";
-// import listOrdered from "../../data/listOrdered";
 
 const HistoryOfManage = () => {
     const [Disable, setDisable] = useState("hide");
     const [listOrdered, setlistOrdered] = useState([{}]);
     const [listFoodsOrdered, setlistFoodsOrdered] = useState([{}]);
-    const [Ordered, setOrdered] = useState({})
+    const [Ordered, setOrdered] = useState({});
 
     useEffect(() => {
         var requestOptions = {
@@ -17,7 +16,7 @@ const HistoryOfManage = () => {
         };
 
         fetch(
-            "https://localhost:5001/api/order/All?UserName=" +
+            "https://localhost:5001/api/order/all?UserName=" +
                 localStorage.getItem("userName") +
                 "&Password=" +
                 localStorage.getItem("password"),
@@ -78,7 +77,7 @@ const HistoryOfManage = () => {
                         </thead>
                         <tbody>
                             {listOrdered.map((ordered, index) => {
-                                if (ordered.available == "Ready") {
+                                if (ordered.available === "Ready") {
                                     return (
                                         <tr
                                             key={index}
