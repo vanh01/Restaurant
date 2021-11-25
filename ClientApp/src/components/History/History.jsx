@@ -67,44 +67,40 @@ const History = () => {
 
                     <div className="line"></div>
                     <div className="history-order-report">
-                        <div className="history-title">Order History</div>
-                        <div className="line"></div>
-                        <div className="history-list-order">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Index</th>
-                                        <th>Time</th>
-                                        <th>Status</th>
-                                        <th>Type of payment</th>
-                                        <th>Total payment</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {listOrdered.map((ordered, index) => {
-                                        return (
-                                            <tr
-                                                key={index}
-                                                onClick={() => {
-                                                    ShowFoodsOrdered(
-                                                        ordered.customerID,
-                                                        ordered.orderID
-                                                    );
-                                                    setOrdered(ordered);
-                                                    setDisable("hide hide1");
-                                                }}
-                                            >
-                                                <td>{index + 1}</td>
-                                                <td>{ordered.date}</td>
-                                                <td>{ordered.available}</td>
-                                                <td>{ordered.paytype}</td>
-                                                <td>{ordered.total}</td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
-                            </table>
-                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Index</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                    <th>Type of payment</th>
+                                    <th>Total payment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {listOrdered.map((ordered, index) => {
+                                    return (
+                                        <tr
+                                            key={index}
+                                            onClick={() => {
+                                                ShowFoodsOrdered(
+                                                    ordered.customerID,
+                                                    ordered.orderID
+                                                );
+                                                setOrdered(ordered);
+                                                setDisable("hide hide1");
+                                            }}
+                                        >
+                                            <td>{index + 1}</td>
+                                            <td>{ordered.date}</td>
+                                            <td>{ordered.available}</td>
+                                            <td>{ordered.paytype}</td>
+                                            <td>{ordered.total}</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

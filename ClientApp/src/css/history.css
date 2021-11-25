@@ -35,59 +35,38 @@
     right: 5%;
     margin: 30px 0;
     width: 90%;
-    background-color: #1f1d2c;
     height: calc(100vh - 65px - 1px - 60px);
-    border-radius: 10px;
     box-sizing: border-box;
-}
-
-.history-order-report > .line {
-    margin-bottom: 15px;
-}
-
-.history-list-order {
-    position: relative;
-    left: 5%;
-    width: 90%;
-    height: calc(100% - 51px - 35px);
     overflow-y: auto;
 }
 
-.history-list-order > table tr > th,
-.history-list-order > table tr > td {
+.history-order-report > table tr > th,
+.history-order-report > table tr > td {
     padding: 8px 8px 8px 10px !important;
 }
 
-.history-list-order > table tr > td {
+.history-order-report > table tr > td {
     cursor: pointer;
     color: #b1afaf;
 }
 
-.history-list-order > table tr > th:nth-child(1),
-.history-list-order > table tr > td:nth-child(1) {
+.history-order-report > table tr > th:nth-child(1),
+.history-order-report > table tr > td:nth-child(1) {
     width: 10%;
 }
-.history-list-order > table tr > th:nth-child(2),
-.history-list-order > table tr > td:nth-child(2) {
+.history-order-report > table tr > th:nth-child(2),
+.history-order-report > table tr > td:nth-child(2) {
     width: 25%;
 }
-.history-list-order > table tr > th:nth-child(3),
-.history-list-order > table tr > td:nth-child(3) {
+.history-order-report > table tr > th:nth-child(3),
+.history-order-report > table tr > td:nth-child(3) {
     width: 20%;
 }
-.history-list-order > table tr > th:nth-child(4),
-.history-list-order > table tr > td:nth-child(4) {
+.history-order-report > table tr > th:nth-child(4),
+.history-order-report > table tr > td:nth-child(4) {
     width: 20%;
 }
-.history-list-order > table tr > th:nth-child(5),
-.history-list-order > table tr > td:nth-child(5) {
+.history-order-report > table tr > th:nth-child(5),
+.history-order-report > table tr > td:nth-child(5) {
     width: 25%;
-}
-
-.history-list-order > table > thead > tr:nth-child(odd) {
-    background-color: #1f1d2c;
-}
-
-.history-list-order > table tr:nth-child(odd) {
-    background-color: #262837;
 }

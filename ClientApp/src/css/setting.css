@@ -7,17 +7,24 @@
     background-color: #262837;
     box-sizing: border-box;
     overflow-y: auto;
-    overflow-x: auto;
 }
 
+.setting .title {
+    left: 0;
+    padding-left: 0;
+    font-size: 20px;
+}
+.setting .line {
+    width: calc(100% - 80px);
+}
 .setting-info {
-    height: 100vh;
-    width: 40%;
+    height: max-content;
+    width: 42%;
     position: absolute;
     top: 0;
-    left: 7%;
+    left: 5%;
+    padding-bottom: 30px;
 }
-
 .setting-info div {
     font-size: 17px;
     color: #fefefe;
@@ -48,10 +55,10 @@
 
 .setting-password {
     height: 100vh;
-    width: 40%;
+    width: 42%;
     position: absolute;
     top: 0;
-    right: 7%;
+    right: 5%;
 }
 
 .setting-password div {
@@ -88,7 +95,7 @@
 }
 
 .settingg button:nth-of-type(1) {
-    position: absolute;
+    position: relative;
     left: 40px;
     color: #fefefe;
     background-color: #eb7c68;
@@ -102,47 +109,32 @@
     color: #eb7c68;
 }
 
-/* .setting-avatar {
-    height: 100vh;
-    width: 24%;
-    position: absolute;
-    top: 0;
-    right: 0;
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+    .setting-info {
+        width: 50%;
+        left: 0;
+    }
+    .setting-password {
+        width: 50%;
+        right: 0;
+    }
 }
 
-.setting-avatar .picture {
-    margin-top: 20px;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 90%;
-    padding-top: 90%;
-    border-radius: 100%;
-    background-color: white;
+@media only screen and (max-width: 740px) {
+    .setting {
+        display: block;
+    }
+    .setting-info {
+        position: relative;
+        width: 100%;
+        left: 0;
+        height: max-content;
+        margin-bottom: 100px;
+    }
+    .setting-password {
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: max-content;
+    }
 }
-
-.edit {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    padding: 5px 10px;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: 0;
-    background-color: #eb7c68;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    color: #fefefe;
-    user-select: none;
-    box-sizing: border-box;
-}
-
-.edit input {
-    width: 0.1px;
-    height: 0.1px;
-}
-
-.edit i {
-    margin-right: 5px;
-} */

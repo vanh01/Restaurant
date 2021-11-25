@@ -129,6 +129,8 @@ const Setting = ({ setUser, User }) => {
             <div className="setting">
                 <div className="settingg">
                     <div className="setting-info">
+                        <div className="title">Information</div>
+                        <div className="line"></div>
                         <div>
                             First name
                             <input
@@ -193,6 +195,8 @@ const Setting = ({ setUser, User }) => {
                         {/* <button>Dismiss</button> */}
                     </div>
                     <div className="setting-password">
+                        <div className="title">Account</div>
+                        <div className="line"></div>
                         <div>
                             Username
                             <input
@@ -245,17 +249,8 @@ const Setting = ({ setUser, User }) => {
                         >
                             Change password
                         </button>
-                        {/* <button>Dismiss</button> */}
                     </div>
                 </div>
-                {/* <div className="setting-avatar">
-                    <div className="title">Profile picture</div>
-                    <div className="picture"></div>
-                    <label className="edit">
-                        <input type="file" />
-                        <i className="fas fa-pen"></i>Edit
-                    </label>
-                </div> */}
                 <ToastContainer />
             </div>
         </>
