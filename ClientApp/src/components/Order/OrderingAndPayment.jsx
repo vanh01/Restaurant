@@ -289,7 +289,7 @@ const OrderingAndPayment = () => {
                             </div>
                         </div>
 
-                        {PaymentMethod ? (
+                        {PaymentMethod === "Card" ? (
                             <>
                                 <div className="ordering-infor">
                                     Name

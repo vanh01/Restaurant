@@ -1,6 +1,8 @@
 .home {
+    position: relative;
     width: 100%;
     height: 100vh;
+    overflow: auto;
     /* background-color: #262837; */
     background: #ccc url(../assets/background.jpg) center center fixed no-repeat;
 }
@@ -13,6 +15,8 @@
     transform: translateY(-50%);
     text-align: center;
     text-shadow: 0px 0.5px 5px rgba(0, 0, 0, 0.2);
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 .home .heading .head {
@@ -75,4 +79,27 @@
     background: transparent;
     border: 1px solid #eb7c68;
     color: rgba(255, 255, 255, 0.95);
+}
+
+@media only screen and (max-width: 740px) {
+    .home > .heading {
+        left: 10%;
+        width: 80%;
+    }
+    .home .heading .btns {
+        display: block;
+    }
+    .home .heading .btns a {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+    .home > .heading {
+        left: 10%;
+        width: 80%;
+    }
 }
