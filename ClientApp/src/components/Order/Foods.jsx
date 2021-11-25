@@ -30,7 +30,10 @@ const Foods = ({
                                     <div className="image-food-d">
                                         <img
                                             className="image-food"
-                                            src={food.pathImg}
+                                            src={
+                                                "https://localhost:5001/Images/" +
+                                                food.pathImg
+                                            }
                                             alt={food.name}
                                         />
                                     </div>

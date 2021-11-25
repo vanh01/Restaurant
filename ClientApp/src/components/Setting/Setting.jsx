@@ -248,14 +248,14 @@ const Setting = ({ setUser, User }) => {
                         {/* <button>Dismiss</button> */}
                     </div>
                 </div>
-                <div className="setting-avatar">
+                {/* <div className="setting-avatar">
                     <div className="title">Profile picture</div>
                     <div className="picture"></div>
                     <label className="edit">
                         <input type="file" />
                         <i className="fas fa-pen"></i>Edit
                     </label>
-                </div>
+                </div> */}
                 <ToastContainer />
             </div>
         </>

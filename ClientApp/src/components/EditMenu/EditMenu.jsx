@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const EditMenu = () => {
-    const [Update, setUpdate] = useState(false);
     const [Disable, setDisable] = useState("hide");
     const [NewDish, setNewDish] = useState(false);
     const [DishCurrent, setDishCurrent] = useState({});
@@ -50,21 +49,16 @@ const EditMenu = () => {
     };
 
     const InsertFood = async () => {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({
-            name: DishTemp.name,
-            description: DishTemp.description,
-            price: DishTemp.price,
-            pathImg: DishTemp.pathImg,
-            category: DishTemp.category,
-        });
+        var formdata = new FormData();
+        formdata.append("file", DishTemp.file);
+        formdata.append("Name", DishTemp.name);
+        formdata.append("Description", DishTemp.description);
+        formdata.append("Price", DishTemp.price);
+        formdata.append("Category", DishTemp.category);
 
         var requestOptions = {
             method: "POST",
-            headers: myHeaders,
-            body: raw,
+            body: formdata,
             redirect: "follow",
         };
 
@@ -86,26 +80,21 @@ const EditMenu = () => {
     };
 
     const UpdateFood = async () => {
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({
-            foodID: DishCurrent.foodID,
-            name: DishTemp.name,
-            description: DishTemp.description,
-            price: DishTemp.price,
-            pathImg: DishTemp.pathImg,
-            category: DishTemp.category,
-        });
+        var formdata = new FormData();
+        formdata.append("FoodID", DishCurrent.foodID);
+        if (DishTemp.file) formdata.append("file", DishTemp.file);
+        formdata.append("Name", DishTemp.name);
+        formdata.append("Description", DishTemp.description);
+        formdata.append("Price", DishTemp.price);
+        formdata.append("Category", DishTemp.category);
 
         var requestOptions = {
             method: "PUT",
-            headers: myHeaders,
-            body: raw,
+            body: formdata,
             redirect: "follow",
         };
 
-        fetch(
+        await fetch(
             "https://localhost:5001/api/food?userName=" +
                 localStorage.getItem("userName") +
                 "&password=" +
@@ -158,7 +147,7 @@ const EditMenu = () => {
     useEffect(() => {
         GetAllFoods();
     }, []);
-
+    console.log("hi");
     return (
         <>
             <div className="edit-menu">
@@ -181,8 +170,11 @@ const EditMenu = () => {
                                 <div className="dish-imgg">
                                     <img
                                         className="dish-img"
-                                        src={dish.pathImg}
-                                        // src="../../"
+                                        // src={dish.pathImg}
+                                        src={
+                                            "https://localhost:5001/Images/" +
+                                            dish.pathImg
+                                        }
                                         alt={dish.name}
                                     />
                                 </div>
@@ -224,41 +216,60 @@ const EditMenu = () => {
             {Disable !== "hide" && (
                 <form
                     className="edit-info-dish"
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                         e.preventDefault();
                         if (NewDish) {
-                            InsertFood();
-                            GetAllFoods();
+                            if (!DishTemp.file) {
+                                notify1();
+                                return;
+                            }
+                            await InsertFood();
+                            await GetAllFoods();
                         } else {
-                            UpdateFood();
-                            DishCurrent.name = DishTemp.name;
-                            DishCurrent.description = DishTemp.description;
-                            DishCurrent.price = DishTemp.price;
-                            DishCurrent.category = DishTemp.category;
+                            await UpdateFood();
+                            await GetAllFoods();
+                            // DishCurrent.name = DishTemp.name;
+                            // DishCurrent.description = DishTemp.description;
+                            // DishCurrent.price = DishTemp.price;
+                            // DishCurrent.category = DishTemp.category;
                         }
                         setDisable("hide");
                         setDishCurrent({});
-                        setUpdate(!Update);
                     }}
                 >
                     <div className="edit-info-dish1">
+                        <img
+                            className="dish-img"
+                            src={
+                                DishTemp.file
+                                    ? DishTemp.imagePath
+                                    : "https://localhost:5001/Images/" +
+                                      DishCurrent.pathImg
+                            }
+                            alt={DishCurrent.name}
+                        />
                         <label>
-                            <img
-                                className="dish-img"
-                                src={DishCurrent.pathImg}
-                                alt={DishCurrent.name}
-                            />
                             <input
                                 type="file"
+                                accept="image/*"
                                 name="Image"
-                                required
                                 onChange={(e) => {
                                     DishTemp.file = e.target.files[0];
-                                    DishTemp.pathImg = "";
+                                    var reader = new FileReader();
+                                    reader.onload = (e) => {
+                                        setDishTemp({
+                                            ...DishTemp,
+                                            imagePath: e.target.result,
+                                        });
+                                    };
+                                    reader.readAsDataURL(e.target.files[0]);
                                 }}
                             />
-                            <i className="fas fa-file-image"></i>
-                            <span>Select a image</span>
+                            <span>
+                                {DishTemp.file
+                                    ? DishTemp.file.name
+                                    : "Select a image"}
+                            </span>
                         </label>
                     </div>
                     <div className="edit-info-dish2">
@@ -267,14 +278,24 @@ const EditMenu = () => {
                             required
                             placeholder="Name"
                             defaultValue={DishCurrent.name}
-                            onChange={(e) => (DishTemp.name = e.target.value)}
+                            onChange={(e) =>
+                                setDishTemp({
+                                    ...DishTemp,
+                                    name: e.target.value,
+                                })
+                            }
                         />
                         <input
                             type="text"
                             required
                             placeholder="Price"
                             defaultValue={DishCurrent.price}
-                            onChange={(e) => (DishTemp.price = e.target.value)}
+                            onChange={(e) =>
+                                setDishTemp({
+                                    ...DishTemp,
+                                    price: e.target.value,
+                                })
+                            }
                         />
                         <input
                             type="text"
@@ -282,7 +303,10 @@ const EditMenu = () => {
                             placeholder="Description"
                             defaultValue={DishCurrent.description}
                             onChange={(e) =>
-                                (DishTemp.description = e.target.value)
+                                setDishTemp({
+                                    ...DishTemp,
+                                    description: e.target.value,
+                                })
                             }
                         />
                         <input
@@ -291,7 +315,10 @@ const EditMenu = () => {
                             placeholder="Category"
                             defaultValue={DishCurrent.category}
                             onChange={(e) =>
-                                (DishTemp.category = e.target.value)
+                                setDishTemp({
+                                    ...DishTemp,
+                                    category: e.target.value,
+                                })
                             }
                         />
                         {!NewDish && (

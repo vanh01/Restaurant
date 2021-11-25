@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace RestaurantPOS2._0.Controllers
 {
@@ -13,7 +14,7 @@ namespace RestaurantPOS2._0.Controllers
         private string GetTypeOfAccount(string username, string password)
         {
             string query = @"EXEC [SE].[DBO].Login @userName = '" + username + "', @password = '" + password + "';";
-            DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
+            DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
 
             List<Account> accounts = table.ConvertToList<Account>();
             if (accounts.Count == 0)
@@ -30,7 +31,7 @@ namespace RestaurantPOS2._0.Controllers
                             FROM PAYMENT, ORDER_FOOD, USER_ACCOUNT
                             WHERE PAYMENT.OrderID = ORDER_FOOD.OrderID AND PAYMENT.CustomerID = USER_ACCOUNT.ID AND USER_ACCOUNT.UserName = '" + UserName + "' AND USER_ACCOUNT.Password = '" + Password + "';";
 
-                DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
+                DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
 
                 return table.ConvertToList<Pay_Ord>();
             }
@@ -44,7 +45,7 @@ namespace RestaurantPOS2._0.Controllers
             {
                 string query = $"SELECT FOOD.Name, FOOD.Price, ORDERED.Quantity, ORDERED.OrderNote FROM dbo.ORDERED, dbo.FOOD WHERE ORDERED.FoodID = FOOD.FoodID AND ORDERED.CustomerID = {CustomerID} AND ORDERED.OrderID = {OrderID};";
 
-                DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
+                DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
 
                 return table.ConvertToList<foodsOrdered>();
             }
@@ -61,7 +62,7 @@ namespace RestaurantPOS2._0.Controllers
                             FROM PAYMENT, ORDER_FOOD, USER_ACCOUNT
                             WHERE PAYMENT.OrderID = ORDER_FOOD.OrderID AND PAYMENT.CustomerID = USER_ACCOUNT.ID;";
 
-                DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
+                DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
 
                 return table.ConvertToList<Pay_Ord>();
             }
@@ -75,7 +76,7 @@ namespace RestaurantPOS2._0.Controllers
             {
                 string query = @"UPDATE ORDER_FOOD SET Available = '" + Available + "' WHERE ORDER_FOOD.OrderID = '" + OrderID + "';";
 
-                int n = SqlExecutes.Instance.ExecuteNonQuery(query);
+                int n = SqlExecutes.Instance.ExecuteNonQuery(query).Result;
                 if (n == 1)
                     return "Success";
                 return "Fail";
@@ -89,13 +90,13 @@ namespace RestaurantPOS2._0.Controllers
             if (GetTypeOfAccount(userName, password) == "Customer")
             {
                 string query2 = $"INSERT INTO ORDER_FOOD VALUES ( '{allInfo.Date}', 'Waitting', 1);SELECT TOP 1 OrderID FROM ORDER_FOOD ORDER BY OrderID DESC; ";
-                string OrderID = SqlExecutes.Instance.ExecuteQuery(query2).Rows[0]["OrderID"].ToString();
+                string OrderID = SqlExecutes.Instance.ExecuteQuery(query2).Result.Rows[0]["OrderID"].ToString();
                 string query = $"INSERT INTO PAYMENT VALUES ({allInfo.CustomerID}, {OrderID}, '{allInfo.Paytype}', '{allInfo.Total}');";
-                SqlExecutes.Instance.ExecuteNonQuery(query);
+                SqlExecutes.Instance.ExecuteNonQuery(query).Wait();
                 foreach (var item in allInfo.inforFoods)
                 {
                     string query4 = $"INSERT INTO ORDERED VALUES ({allInfo.CustomerID}, {OrderID}, {item.FoodID}, {item.Quantity}, '{item.OrderNote}');";
-                    SqlExecutes.Instance.ExecuteNonQuery(query4);
+                    SqlExecutes.Instance.ExecuteNonQuery(query4).Wait();
                 }
                 return "Success";
             }

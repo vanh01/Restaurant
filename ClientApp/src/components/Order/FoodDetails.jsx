@@ -26,7 +26,7 @@ const FoodDetails = ({
                 <div className="food-detail1">
                     <img
                         className="image-food"
-                        src={FoodCur.pathImg}
+                        src={"https://localhost:5001/Images/" + FoodCur.pathImg}
                         alt={FoodCur.name}
                     />
                 </div>

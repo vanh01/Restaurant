@@ -8,7 +8,13 @@ const Items = ({ listOrderFood, setlistOrderFood, CalcTotal }) => {
             {listOrderFood.map((orderFood) => {
                 return (
                     <div className="ordering-cart-item">
-                        <img src={orderFood.pathImg} alt={orderFood.name} />
+                        <img
+                            src={
+                                "https://localhost:5001/Images/" +
+                                orderFood.pathImg
+                            }
+                            alt={orderFood.name}
+                        />
                         <div className="item-name">{orderFood.name}</div>
                         <div className="item-price">{orderFood.price}đ</div>
                         <input

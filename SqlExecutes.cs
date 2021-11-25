@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Data.SqlClient;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace RestaurantPOS2._0
 {
@@ -18,7 +19,7 @@ namespace RestaurantPOS2._0
 
         public SqlExecutes() { }
 
-        public DataTable ExecuteQuery(string query)
+        public async Task<DataTable> ExecuteQuery(string query)
         {
             DataTable table = new DataTable();
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
@@ -27,7 +28,7 @@ namespace RestaurantPOS2._0
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myReader = myCommand.ExecuteReader();
+                    myReader = await myCommand.ExecuteReaderAsync();
                     table.Load(myReader);
 
                     myReader.Close();
@@ -37,7 +38,7 @@ namespace RestaurantPOS2._0
             return table;
         }
 
-        public int ExecuteNonQuery(string query)
+        public async Task<int> ExecuteNonQuery(string query)
         {
             int numberOfRows = 0;
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
@@ -45,7 +46,7 @@ namespace RestaurantPOS2._0
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    numberOfRows = myCommand.ExecuteNonQuery();
+                    numberOfRows = await myCommand.ExecuteNonQueryAsync();
                     myCon.Close();
                 }
             }

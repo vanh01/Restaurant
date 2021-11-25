@@ -12,10 +12,10 @@
 
 .setting-info {
     height: 100vh;
-    width: 38%;
+    width: 40%;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 7%;
 }
 
 .setting-info div {
@@ -48,10 +48,10 @@
 
 .setting-password {
     height: 100vh;
-    width: 38%;
+    width: 40%;
     position: absolute;
     top: 0;
-    left: 38%;
+    right: 7%;
 }
 
 .setting-password div {
@@ -102,7 +102,7 @@
     color: #eb7c68;
 }
 
-.setting-avatar {
+/* .setting-avatar {
     height: 100vh;
     width: 24%;
     position: absolute;
@@ -145,4 +145,4 @@
 
 .edit i {
     margin-right: 5px;
-}
+} */

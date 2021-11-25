@@ -13,7 +13,7 @@ namespace RestaurantPOS2._0.Controllers
         private string GetTypeOfAccount(string userName, string password)
         {
             string query = @"EXEC [SE].[DBO].Login @userName = '" + userName + "', @password = '" + password + "';";
-            DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
+            DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
 
             List<Account> accounts = table.ConvertToList<Account>();
             if (accounts.Count == 0)
@@ -30,7 +30,7 @@ namespace RestaurantPOS2._0.Controllers
             if (GetTypeOfAccount(username, password) != "Manager")
                 return new List<Account>();
 
-            DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
+            DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
 
             return table.ConvertToList<Account>();
         }
@@ -41,7 +41,7 @@ namespace RestaurantPOS2._0.Controllers
         {
             string query = @"EXEC [SE].[DBO].Login @userName = '" + username + "', @password = '" + password + "';";
 
-            DataTable table = SqlExecutes.Instance.ExecuteQuery(query);
+            DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
 
             List<Account> accounts = table.ConvertToList<Account>();
             if (accounts.Count == 0)
@@ -58,7 +58,7 @@ namespace RestaurantPOS2._0.Controllers
             // { DateTime.Now.ToString("yyyy-MM-dd")}
             if (GetTypeOfAccount(account.UserName, account.Password) != "")
                 return "Fail";
-            n = SqlExecutes.Instance.ExecuteNonQuery(query);
+            n = SqlExecutes.Instance.ExecuteNonQuery(query).Result;
             if (n == 1)
                 return "Success";
             return "Fail";
@@ -69,7 +69,7 @@ namespace RestaurantPOS2._0.Controllers
         {
             string query = @"DELETE FROM USER_ACCOUNT WHERE USER_ACCOUNT.UserName = '" + account.UserName + "';";
 
-            int n = SqlExecutes.Instance.ExecuteNonQuery(query);
+            int n = SqlExecutes.Instance.ExecuteNonQuery(query).Result;
             if (n == 1)
                 return "Success";
 
@@ -84,7 +84,7 @@ namespace RestaurantPOS2._0.Controllers
             if (GetTypeOfAccount(account.UserName, account.Password) == "")
                 return "Fail";
 
-            int n = SqlExecutes.Instance.ExecuteNonQuery(query);
+            int n = SqlExecutes.Instance.ExecuteNonQuery(query).Result;
             if (n == 1)
                 return "Success";
 
@@ -99,7 +99,7 @@ namespace RestaurantPOS2._0.Controllers
             if (GetTypeOfAccount(account.UserName, account.Password) == "")
                 return "Fail";
 
-            int n = SqlExecutes.Instance.ExecuteNonQuery(query);
+            int n = SqlExecutes.Instance.ExecuteNonQuery(query).Result;
             if (n == 1)
                 return "Success";
 

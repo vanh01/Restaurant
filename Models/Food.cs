@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Http;
 
 namespace RestaurantPOS2._0
 {
@@ -12,5 +13,15 @@ namespace RestaurantPOS2._0
         public string Category { get; set; }
         public int Amount { get; set; }
         public double Rating { get; set; }
+    }
+
+    public class FoodFull
+    {
+        public int FoodID { get; set; }
+        public IFormFile file { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Price { get; set; }
+        public string Category { get; set; }
     }
 }
