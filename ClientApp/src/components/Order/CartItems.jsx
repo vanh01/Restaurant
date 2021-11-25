@@ -5,9 +5,9 @@ const Items = ({ listOrderFood, setlistOrderFood, CalcTotal }) => {
 
     return (
         <>
-            {listOrderFood.map((orderFood) => {
+            {listOrderFood.map((orderFood, index) => {
                 return (
-                    <div className="ordering-cart-item">
+                    <div className="ordering-cart-item" key={index}>
                         <img
                             src={
                                 "https://localhost:5001/Images/" +
