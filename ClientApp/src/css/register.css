@@ -5,8 +5,8 @@
 }
 
 .register-form {
-    width: 400px;
-    height: 500px;
+    width: 420px;
+    height: 540px;
     padding-top: 50px;
     position: fixed;
     left: 50%;
@@ -102,4 +102,52 @@
     border: 1px solid #eb7c68;
     color: #eb7c68;
     border-radius: 7px;
+}
+
+@media only screen and (max-height: 500px) {
+    .register-form {
+        height: 90%;
+        overflow: auto;
+        padding-bottom: 35px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .register-form {
+        width: 90%;
+        height: 600px;
+    }
+
+    .register-form > div > div > div:nth-child(1) {
+        display: inline-block;
+        width: 100%;
+    }
+    .register-form > div > div > div:nth-child(2) {
+        display: inline-block;
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-height: 600px) and (max-width: 450px) {
+    .register-form {
+        height: 90%;
+        width: 90%;
+        overflow: auto;
+        padding-bottom: 35px;
+    }
+
+    .register-form > div > div > div:nth-child(1) {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .register-form > div > div > div:nth-child(2) {
+        display: inline-block;
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
 }

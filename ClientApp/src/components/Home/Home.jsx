@@ -11,7 +11,7 @@ const Home = () => {
                         WELCOME TO OUR <span>WEBSITE</span>
                     </h1>
                     <div className="btns">
-                        <NavLink className="btn1" to="/Login">
+                        <NavLink className="btn1" to="/Register">
                             Register
                         </NavLink>
                         <NavLink className="btn2" to="/Login">
