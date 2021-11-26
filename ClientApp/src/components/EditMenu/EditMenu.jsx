@@ -268,7 +268,7 @@ const EditMenu = () => {
                             <span>
                                 {DishTemp.file
                                     ? DishTemp.file.name
-                                    : "Select a image"}
+                                    : "Select an image"}
                             </span>
                         </label>
                     </div>

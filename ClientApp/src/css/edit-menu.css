@@ -228,6 +228,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    white-space: nowrap;
     user-select: none;
 }
 
@@ -238,6 +239,7 @@
     top: 0;
     left: 45%;
     padding-top: 10%;
+    box-sizing: border-box;
 }
 
 .edit-info-dish2 > input[type="text"] {

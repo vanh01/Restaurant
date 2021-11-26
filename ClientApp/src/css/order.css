@@ -8,7 +8,7 @@
 .ordering-payment > .hide1 {
     width: calc(100% + 80px);
     left: -80px;
-    z-index: 9998;
+    /* z-index: 9998; */
 }
 
 .ordering-menu {
@@ -211,7 +211,7 @@
 
 .ordering-cart-full {
     right: 0;
-    z-index: 9999;
+    /* z-index: 9999; */
 }
 
 .ordering-cart-1 {
@@ -532,7 +532,7 @@
     width: 700px;
     background-color: #262837;
     border-radius: 20px;
-    z-index: 9999;
+    /* z-index: 9999; */
 }
 
 .food-detail > i {
@@ -670,10 +670,15 @@
         display: none;
     }
     .ordering-cart {
-        width: 85%;
-        right: -85%;
+        width: 0;
+        height: 0;
+        right: 0;
+        overflow: hidden;
+        transition: all ease-in-out 0.25s;
     }
     .ordering-cart-full {
+        width: 85%;
+        height: 100%;
         right: 0;
     }
     .food-detail {
@@ -729,10 +734,12 @@
     .show-cart > i {
         font-size: 20px;
     }
-    .hide1 {
+    /* .hide1 {
         z-index: 9998;
-    }
+    } */
     .input-search {
-        width: 30%;
+        width: 35%;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }

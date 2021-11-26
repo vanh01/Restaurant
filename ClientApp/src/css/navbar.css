@@ -154,6 +154,10 @@
     display: none;
 }
 
+.logo > span {
+    display: none;
+}
+
 @media only screen and (max-width: 740px) {
     .nav-bar {
         width: 100%;
@@ -172,13 +176,12 @@
         position: relative;
         width: max-content;
         height: max-content;
-        left: 30px;
+        left: 15px;
         top: -27px;
     }
 
     .nav-bar .logo > i {
         left: 0;
-        transform: translate(0, 0);
     }
 
     .nav-bar > a > div > span {
@@ -206,5 +209,16 @@
 
     .show-nav > i {
         font-size: 20px;
+    }
+
+    .logo > span {
+        display: inline-block;
+        position: absolute;
+        top: -2.52px;
+        left: 45px;
+        font-size: 25px;
+        color: #eb7c68;
+        font-weight: bolder;
+        user-select: none;
     }
 }

@@ -11,6 +11,7 @@ const NavbarManager = ({ setUser }) => {
             <nav className={navFull}>
                 <div className="logo">
                     <i className="fas fa-store"></i>
+                    <span>POS</span>
                 </div>
                 <NavLink
                     activeClassName="active"
@@ -25,13 +26,6 @@ const NavbarManager = ({ setUser }) => {
                         <span>Edit Menu</span>
                     </div>
                 </NavLink>
-                {/* <NavLink activeClassName="active" exact to="/EditMenu">
-                    <b></b>
-                    <b></b>
-                    <div>
-                        <i className="fas fa-chart-pie"></i>
-                    </div>
-                </NavLink> */}
                 <NavLink
                     activeClassName="active"
                     exact
@@ -84,9 +78,6 @@ const NavbarManager = ({ setUser }) => {
                 >
                     <div>
                         <i className="fas fa-sign-out"></i>
-                    </div>
-                    <div className="show-nav">
-                        <i className="fas fa-bars"></i>
                         <span>Logout</span>
                     </div>
                 </NavLink>
