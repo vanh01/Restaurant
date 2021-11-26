@@ -77,7 +77,7 @@ const HistoryOfManage = () => {
                         </thead>
                         <tbody>
                             {listOrdered.map((ordered, index) => {
-                                if (ordered.available === "Ready") {
+                                if (ordered.status === "Ready") {
                                     return (
                                         <tr
                                             key={index}

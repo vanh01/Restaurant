@@ -76,15 +76,15 @@ const ManageOrder = () => {
             .catch((error) => console.log("error", error));
     };
 
-    const Confirm = async (ordered, Available) => {
+    const Confirm = async (ordered, Status) => {
         var requestOptions = {
             method: "PUT",
             redirect: "follow",
         };
 
         await fetch(
-            "https://localhost:5001/api/order/confirm?Available=" +
-                Available +
+            "https://localhost:5001/api/order/confirm?Status=" +
+                Status +
                 "&OrderID=" +
                 ordered.orderID +
                 "&UserName=" +
@@ -133,7 +133,7 @@ const ManageOrder = () => {
                         </thead>
                         <tbody>
                             {listOrdered.map((ordered, index) => {
-                                if (ordered.available === "Waitting") {
+                                if (ordered.status === "Waitting") {
                                     return (
                                         <tr
                                             key={index}

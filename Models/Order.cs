@@ -16,7 +16,7 @@ namespace RestaurantPOS2._0
         public string FName { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
-        public string Available { get; set; }
+        public string Status { get; set; }
         public string Date { get; set; }
         public string Paytype { get; set; }
         public string Total { get; set; }

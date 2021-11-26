@@ -51,11 +51,11 @@ const ManageAccount = ({ User }) => {
 
     const CreateAccount = async (e) => {
         e.preventDefault();
-        var current = new Date();
-        var date = `${current.getFullYear()}-${
-            current.getMonth() + 1
-        }-${current.getDate()}`;
-        AccountTemp.birthOfDate = date;
+        // var current = new Date();
+        // var date = `${current.getFullYear()}-${
+        //     current.getMonth() + 1
+        // }-${current.getDate()}`;
+        // AccountTemp.birthOfDate = date;
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -65,7 +65,7 @@ const ManageAccount = ({ User }) => {
             password: AccountTemp.password,
             fName: AccountTemp.fName,
             lName: AccountTemp.lName,
-            birthOfDate: AccountTemp.birthOfDate,
+            birthOfDate: "",
             address: "",
             phoneNumber: AccountTemp.phoneNumber,
             img: "IMG",
@@ -125,7 +125,7 @@ const ManageAccount = ({ User }) => {
                                 <th>Username</th>
                                 <th>Last Name</th>
                                 <th>First Name</th>
-                                <th>Date</th>
+                                <th>Birth Of Date</th>
                                 <th>Phone Number</th>
                                 <th>Delete</th>
                             </tr>

@@ -153,4 +153,13 @@
         left: 0;
         width: 100%;
     }
+    .new-account {
+        width: 100%;
+        height: 65%;
+        border-radius: 10px;
+    }
+    .manage-account > .create-account {
+        right: 30px;
+        bottom: 30px;
+    }
 }

@@ -31,7 +31,7 @@ namespace RestaurantPOS2._0
         [HttpGet]
         public List<Food> GetFoods()
         {
-            string query = "SELECT * FROM FOOD";
+            string query = "SELECT * FROM FOOD WHERE Available = 1";
 
             DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
 
@@ -41,7 +41,7 @@ namespace RestaurantPOS2._0
         [HttpGet("category")]
         public List<string> GetCategory()
         {
-            string query = $"SELECT Category FROM FOOD GROUP BY Category;";
+            string query = $"SELECT Category FROM FOOD WHERE Available = 1 GROUP BY Category;";
 
             DataTable table = SqlExecutes.Instance.ExecuteQuery(query).Result;
             List<string> strs = new List<string>();
@@ -92,7 +92,7 @@ namespace RestaurantPOS2._0
         public async Task<string> PostFoods([FromForm] FoodFull foodFull, string userName, string password)
         {
             string fileName = DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss") + Path.GetExtension(foodFull.file.FileName);
-            string query = $"INSERT INTO FOOD VALUES ('{foodFull.Name}', '{foodFull.Description}', '{foodFull.Price}', '{fileName}', '{foodFull.Category}' , 1, 5);";
+            string query = $"INSERT INTO FOOD VALUES ('{foodFull.Name}', '{foodFull.Description}', '{foodFull.Price}', '{fileName}', '{foodFull.Category}' , 1);";
 
             if (GetTypeOfAccount(userName, password) == "Manager")
             {
@@ -117,7 +117,7 @@ namespace RestaurantPOS2._0
         [HttpDelete]
         public string DeleteFood([FromBody] Food food, string userName, string password)
         {
-            string query = $"DELETE FROM FOOD WHERE FoodID = {food.FoodID}";
+            string query = $"UPDATE FOOD SET Available = 0 WHERE FoodID = {food.FoodID}";
 
             if (GetTypeOfAccount(userName, password) == "Manager")
             {

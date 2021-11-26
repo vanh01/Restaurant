@@ -27,7 +27,7 @@ namespace RestaurantPOS2._0.Controllers
         {
             if (GetTypeOfAccount(UserName, Password) == "Customer")
             {
-                string query = @"SELECT PAYMENT.CustomerID, PAYMENT.OrderID, USER_ACCOUNT.FName, USER_ACCOUNT.Address, USER_ACCOUNT.PhoneNumber, ORDER_FOOD.Available, ORDER_FOOD.Date,PAYMENT.Paytype ,PAYMENT.Total
+                string query = @"SELECT PAYMENT.CustomerID, PAYMENT.OrderID, USER_ACCOUNT.FName, USER_ACCOUNT.Address, USER_ACCOUNT.PhoneNumber, ORDER_FOOD.Status, ORDER_FOOD.Date,PAYMENT.Paytype ,PAYMENT.Total
                             FROM PAYMENT, ORDER_FOOD, USER_ACCOUNT
                             WHERE PAYMENT.OrderID = ORDER_FOOD.OrderID AND PAYMENT.CustomerID = USER_ACCOUNT.ID AND USER_ACCOUNT.UserName = '" + UserName + "' AND USER_ACCOUNT.Password = '" + Password + "';";
 
@@ -58,7 +58,7 @@ namespace RestaurantPOS2._0.Controllers
             string s = GetTypeOfAccount(UserName, Password);
             if (s == "Manager" || s == "Clerk")
             {
-                string query = @"SELECT PAYMENT.CustomerID, PAYMENT.OrderID, USER_ACCOUNT.FName, USER_ACCOUNT.Address, USER_ACCOUNT.PhoneNumber, ORDER_FOOD.Available, ORDER_FOOD.Date,PAYMENT.Paytype ,PAYMENT.Total
+                string query = @"SELECT PAYMENT.CustomerID, PAYMENT.OrderID, USER_ACCOUNT.FName, USER_ACCOUNT.Address, USER_ACCOUNT.PhoneNumber, ORDER_FOOD.Status, ORDER_FOOD.Date,PAYMENT.Paytype ,PAYMENT.Total
                             FROM PAYMENT, ORDER_FOOD, USER_ACCOUNT
                             WHERE PAYMENT.OrderID = ORDER_FOOD.OrderID AND PAYMENT.CustomerID = USER_ACCOUNT.ID;";
 
@@ -70,11 +70,11 @@ namespace RestaurantPOS2._0.Controllers
         }
 
         [HttpPut("confirm")]
-        public string EditAllOrders(string Available, string OrderID, string UserName, string Password)
+        public string EditAllOrders(string Status, string OrderID, string UserName, string Password)
         {
             if (GetTypeOfAccount(UserName, Password) == "Clerk")
             {
-                string query = @"UPDATE ORDER_FOOD SET Available = '" + Available + "' WHERE ORDER_FOOD.OrderID = '" + OrderID + "';";
+                string query = @"UPDATE ORDER_FOOD SET Status = '" + Status + "' WHERE ORDER_FOOD.OrderID = '" + OrderID + "';";
 
                 int n = SqlExecutes.Instance.ExecuteNonQuery(query).Result;
                 if (n == 1)

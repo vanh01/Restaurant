@@ -11,8 +11,7 @@ namespace RestaurantPOS2._0
         public string Price { get; set; }
         public string PathImg { get; set; }
         public string Category { get; set; }
-        public int Amount { get; set; }
-        public double Rating { get; set; }
+        public int Available { get; set; }
     }
 
     public class FoodFull

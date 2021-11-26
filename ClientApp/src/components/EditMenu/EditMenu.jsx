@@ -10,7 +10,7 @@ const EditMenu = () => {
     const [NewDish, setNewDish] = useState(false);
     const [DishCurrent, setDishCurrent] = useState({});
     const [DishTemp, setDishTemp] = useState({});
-    const [listMenuFood, setlistMenuFood] = useState([{}]);
+    const [listMenuFood, setlistMenuFood] = useState([]);
 
     const notify = () => {
         toast.success("Success!", {
@@ -125,7 +125,7 @@ const EditMenu = () => {
             redirect: "follow",
         };
 
-        fetch(
+        await fetch(
             "https://localhost:5001/api/food?userName=" +
                 localStorage.getItem("userName") +
                 "&password=" +

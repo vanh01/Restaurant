@@ -23,7 +23,7 @@ const OrderDetails = ({
                     <div className="order-detail-info2">
                         <div>Type of payment: {Ordered.paytype}</div>
                         <div>Time: {Ordered.date}</div>
-                        <div>Status: {Ordered.available}</div>
+                        <div>Status: {Ordered.status}</div>
                     </div>
                 </div>
                 <div className="order-detail-list">

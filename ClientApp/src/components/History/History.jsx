@@ -93,7 +93,7 @@ const History = () => {
                                         >
                                             <td>{index + 1}</td>
                                             <td>{ordered.date}</td>
-                                            <td>{ordered.available}</td>
+                                            <td>{ordered.status}</td>
                                             <td>{ordered.paytype}</td>
                                             <td>{ordered.total}</td>
                                         </tr>

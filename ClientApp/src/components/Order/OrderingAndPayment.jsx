@@ -18,7 +18,7 @@ const OrderingAndPayment = () => {
     const [ShowFoodDetails, setShowFoodDetails] = useState(false);
     const [Total, setTotal] = useState(0);
     const [Category, setCategory] = useState("Category");
-    const [listMenuFood, setlistMenuFood] = useState([{}]);
+    const [listMenuFood, setlistMenuFood] = useState([]);
     const [listCategory, setlistCategory] = useState([]);
     const notify = (s) => {
         toast.success(s, {
