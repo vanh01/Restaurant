@@ -6,7 +6,6 @@ import Manager from './Pages/Manager';
 import HomePage from './Pages/HomePage';
 
 const App = () => {
-    // let menu;
     const [User, setUser] = useState({});
 
     useEffect(() => {
@@ -23,31 +22,6 @@ const App = () => {
         return <Clerk setUser={setUser} User={User} />
     else
         return <HomePage setUser={setUser} />
-    
-    // return (
-    //     <>
-    //         <Switch>
-    //             <Route path="/" >
-    //                 <HomePage/>
-    //             </Route>
-    //             <Route path="/Customer" >
-    //                 <Customer setUser={setUser} User={User}  />
-    //             </Route>
-    //             <Route path="/Clerk" >
-    //                 <Clerk setUser={setUser} User={User}  />
-    //             </Route>
-    //             <Route path="/Manager" >
-    //                 <Manager setUser={setUser} User={User}  />
-    //             </Route>
-    //         </Switch>
-    //     </>
-    // );
-
-    // return (
-    //     <>
-    //         {menu}
-    //     </>
-    // );
 }
 
 export default App;
