@@ -153,7 +153,7 @@ const ManageOrder = () => {
                                             <td>{ordered.total}</td>
                                             <td>
                                                 <i
-                                                    class="fas fa-check"
+                                                    className="fas fa-check"
                                                     onClick={(e) => {
                                                         e.stopPropagation();
                                                         Confirm(
