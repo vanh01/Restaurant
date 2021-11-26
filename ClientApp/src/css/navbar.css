@@ -117,3 +117,48 @@
     top: 0;
     left: 0;
 }
+
+.show-nav {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    color: #eb7c68;
+    background-color: transparent;
+    border: 1px solid #eb7c68;
+    border-radius: 100%;
+    cursor: pointer;
+    z-index: 1;
+    display: none;
+}
+
+.show-nav:hover {
+    background-color: #eb7c68;
+    color: #fefefe;
+}
+
+.show-nav > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 740px) {
+    .nav-bar {
+        display: none;
+    }
+    .nav-behind {
+        display: none;
+    }
+    .show-nav {
+        display: unset;
+        width: 45px;
+        height: 45px;
+    }
+    .show-nav > i {
+        font-size: 20px;
+    }
+}

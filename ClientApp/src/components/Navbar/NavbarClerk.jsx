@@ -46,6 +46,9 @@ const NavbarClerk = ({ setUser }) => {
                     </div>
                 </NavLink>
             </nav>
+            <div className="show-nav">
+                <i className="fas fa-bars"></i>
+            </div>
         </>
     );
 };

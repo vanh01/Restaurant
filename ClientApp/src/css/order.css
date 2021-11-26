@@ -8,11 +8,12 @@
 .ordering-payment > .hide1 {
     width: calc(100% + 80px);
     left: -80px;
+    z-index: 9998;
 }
 
 .ordering-menu {
     height: 100vh;
-    width: 67%;
+    width: 70%;
     background-color: #262837;
     position: absolute;
     left: 0;
@@ -192,15 +193,15 @@
     position: absolute;
     right: 0;
     height: 100vh;
-    width: 33%;
+    width: 30%;
     background-color: #262837;
 }
 
 .ordering-cart {
     position: absolute;
-    right: -33%;
+    right: -30%;
     height: 100vh;
-    width: 66%;
+    width: 60%;
     background-color: #1f1d2c;
     box-sizing: border-box;
     border-bottom-left-radius: 10px;
@@ -210,6 +211,7 @@
 
 .ordering-cart-full {
     right: 0;
+    z-index: 9999;
 }
 
 .ordering-cart-1 {
@@ -530,6 +532,7 @@
     width: 700px;
     background-color: #262837;
     border-radius: 20px;
+    z-index: 9999;
 }
 
 .food-detail > i {
@@ -683,6 +686,10 @@
 }
 
 @media only screen and (max-width: 740px) {
+    .ordering-payment {
+        left: 0;
+        width: 100%;
+    }
     .ordering-menu {
         width: 100%;
     }
@@ -702,5 +709,18 @@
     }
     .show-cart {
         display: block;
+        right: 30px;
+        bottom: 30px;
+        width: 45px;
+        height: 45px;
+    }
+    .show-cart > i {
+        font-size: 20px;
+    }
+    .hide1 {
+        z-index: 9998;
+    }
+    .input-search {
+        width: 30%;
     }
 }
