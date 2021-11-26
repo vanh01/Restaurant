@@ -12,8 +12,7 @@
     border-bottom-right-radius: 10px;
 }
 
-.nav-bar > a,
-.logout {
+.nav-bar > a {
     width: 60px;
     height: 60px;
     list-style: none;
@@ -24,6 +23,14 @@
     border-top-left-radius: 13px;
     border-bottom-left-radius: 13px;
     cursor: pointer;
+}
+
+.nav-bar > a:hover {
+    background: #262837;
+}
+
+.nav-bar > .logout:hover {
+    background: #1f1d2c;
 }
 
 /* active */
@@ -78,8 +85,7 @@
 }
 /* end active */
 
-.nav-bar > a div,
-.logout > div {
+.nav-bar > a div {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -88,8 +94,7 @@
     border-radius: 7px;
 }
 
-.nav-bar > a div i,
-.logout > div > i {
+.nav-bar > a div i {
     color: #eb7c68;
     position: absolute;
     top: 50%;
@@ -102,7 +107,7 @@
     margin-bottom: 30px;
 }
 
-.nav-bar > div > i {
+.nav-bar > div.logo > i {
     color: #eb7c68;
     font-size: 25px;
     position: relative;
@@ -120,15 +125,14 @@
 }
 
 .show-nav {
-    width: 55px;
-    height: 55px;
     position: absolute;
+    width: max-content;
+    height: max-content;
     right: 30px;
-    top: 10px;
+    top: 13px;
     color: #eb7c68;
     background-color: transparent;
-    border: 1px solid #eb7c68;
-    border-radius: 100%;
+    border-radius: 5px;
     cursor: pointer;
     display: none;
 }
@@ -146,20 +150,60 @@
     font-size: 25px;
 }
 
+.nav-bar > a > div > span {
+    display: none;
+}
+
 @media only screen and (max-width: 740px) {
     .nav-bar {
         width: 100%;
         height: 70px;
         border-radius: 0;
+        transition: all ease-in-out 0.25s;
+        padding-left: 30px;
     }
+
+    .nav-bar.active {
+        height: 100vh;
+        z-index: 1;
+    }
+
+    .nav-bar .logo {
+        position: relative;
+        width: max-content;
+        height: max-content;
+        left: 30px;
+        top: -27px;
+    }
+
+    .nav-bar .logo > i {
+        left: 0;
+        transform: translate(0, 0);
+    }
+
+    .nav-bar > a > div > span {
+        display: inline-flex;
+        position: absolute;
+        left: 80px;
+        top: 52%;
+        transform: translate(0, -50%);
+        font-size: 15px;
+        font-weight: 600;
+        color: #eb7c68;
+        user-select: none;
+        white-space: nowrap;
+    }
+
     .nav-behind {
         display: none;
     }
+
     .show-nav {
-        display: unset;
+        display: block;
         width: 45px;
         height: 45px;
     }
+
     .show-nav > i {
         font-size: 20px;
     }

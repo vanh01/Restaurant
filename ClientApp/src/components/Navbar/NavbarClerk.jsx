@@ -7,7 +7,7 @@ const NavbarClerk = ({ setUser }) => {
         <>
             <div className="nav-behind"></div>
             <nav className="nav-bar">
-                <div>
+                <div className="logo">
                     <i className="fas fa-store"></i>
                 </div>
                 <NavLink activeClassName="active" exact to="/">
@@ -32,6 +32,7 @@ const NavbarClerk = ({ setUser }) => {
                     </div>
                 </NavLink>
                 <NavLink
+                    className="logout"
                     exact
                     to="/Login"
                     onClick={() => {
