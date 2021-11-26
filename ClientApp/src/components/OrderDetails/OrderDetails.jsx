@@ -13,6 +13,7 @@ const OrderDetails = ({
                     onClick={HandleCancelShowDetail}
                 ></i>
                 <div className="history-title">Order Details</div>
+                <div className="line"></div>
                 <div className="order-detail-info">
                     <div className="order-detail-info1">
                         <div>Name: {Ordered.fName}</div>
@@ -21,6 +22,7 @@ const OrderDetails = ({
                     </div>
                     <div className="order-detail-info2">
                         <div>Type of payment: {Ordered.paytype}</div>
+                        <div>Time: {Ordered.date}</div>
                         <div>Status: {Ordered.available}</div>
                     </div>
                 </div>

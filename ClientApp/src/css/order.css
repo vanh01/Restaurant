@@ -21,7 +21,7 @@
 }
 
 .ordering-menu-header {
-    margin: 0;
+    margin-bottom: 10px;
     width: 100%;
     height: 65px;
     box-sizing: border-box;
@@ -52,11 +52,6 @@
     height: calc(100% - 65px);
     color: #fefefe;
     position: absolute;
-}
-
-.ordering-menu-item > .title {
-    margin-top: 20px;
-    margin-bottom: 10px;
 }
 
 .ordering-menu-item > select {
@@ -532,7 +527,6 @@
     width: 700px;
     background-color: #262837;
     border-radius: 20px;
-    /* z-index: 9999; */
 }
 
 .food-detail > i {
@@ -734,12 +728,52 @@
     .show-cart > i {
         font-size: 20px;
     }
-    /* .hide1 {
-        z-index: 9998;
-    } */
     .input-search {
         width: 35%;
         padding-left: 15px;
         padding-right: 15px;
+    }
+    .food-detail {
+        width: 100%;
+        height: 70%;
+        border-radius: 5px;
+    }
+    .food-detail1 {
+        width: 100%;
+        height: 45%;
+    }
+    .food-detail1 > .image-food {
+        width: 90%;
+        height: 80%;
+        top: 20%;
+        left: 5%;
+        border-radius: 10px;
+    }
+    .food-detail2 {
+        top: 45%;
+        width: 100%;
+        height: 55%;
+    }
+    .food-detail2 > .food-detail-info1 {
+        margin-top: 30px;
+        height: 40px;
+    }
+    .food-detail2 > .food-detail-info2 {
+        margin-top: 0;
+        height: 40px;
+    }
+    .food-detail2 > .food-detail-info3 {
+        margin-top: 0;
+    }
+    .food-detail2 > .food-detail-info3 > input {
+        right: 5%;
+    }
+    .food-detail2 > input {
+        margin-top: 20px;
+        width: 90%;
+        box-sizing: border-box;
+    }
+    .food-detail2 > i {
+        top: 75%;
     }
 }
