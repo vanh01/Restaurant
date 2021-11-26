@@ -124,7 +124,7 @@
     height: 55px;
     position: absolute;
     right: 30px;
-    bottom: 0;
+    top: 50%;
     color: #eb7c68;
     background-color: transparent;
     border: 1px solid #eb7c68;
