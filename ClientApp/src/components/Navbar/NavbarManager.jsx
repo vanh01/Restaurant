@@ -58,11 +58,11 @@ const NavbarManager = ({ setUser }) => {
                     <div>
                         <i className="fas fa-sign-out"></i>
                     </div>
+                    <div className="show-nav">
+                        <i className="fas fa-bars"></i>
+                    </div>
                 </NavLink>
             </nav>
-            <div className="show-nav">
-                <i className="fas fa-bars"></i>
-            </div>
         </>
     );
 };

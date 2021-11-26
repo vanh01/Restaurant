@@ -12,7 +12,7 @@
 }
 
 .ordering-menu {
-    height: 100vh;
+    height: 100%;
     width: 70%;
     background-color: #262837;
     position: absolute;
@@ -49,7 +49,7 @@
 
 .ordering-menu-item {
     width: 100%;
-    height: calc(100vh - 65px);
+    height: calc(100% - 65px);
     color: #fefefe;
     position: absolute;
 }
@@ -200,7 +200,7 @@
 .ordering-cart {
     position: absolute;
     right: -30%;
-    height: 100vh;
+    height: 100%;
     width: 60%;
     background-color: #1f1d2c;
     box-sizing: border-box;
@@ -216,7 +216,7 @@
 
 .ordering-cart-1 {
     position: relative;
-    height: 100vh;
+    height: 100%;
     width: 50%;
     background-color: #1f1d2c;
     border-bottom-left-radius: 10px;
@@ -241,7 +241,7 @@
 
 .ordering-cart-list-item {
     width: 100%;
-    height: calc(100vh - 120px - 81px - 20px);
+    height: calc(100% - 120px - 81px - 20px);
     flex-wrap: wrap;
     overflow-y: auto;
     position: relative;
@@ -251,7 +251,7 @@
 }
 
 .ordering-cart-list-item1 {
-    height: calc(100vh - 50px - 81px - 20px);
+    height: calc(100% - 50px - 81px - 20px);
 }
 
 .ordering-cart-list-item::-webkit-scrollbar {
@@ -403,7 +403,7 @@
 
 .ordering-cart-2 {
     width: 50%;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     right: 0;
     top: 0;
@@ -687,11 +687,14 @@
 
 @media only screen and (max-width: 740px) {
     .ordering-payment {
+        height: calc(100vh - 70px);
+        top: 70px;
         left: 0;
         width: 100%;
     }
     .ordering-menu {
         width: 100%;
+        height: calc(100vh - 70px);
     }
     .ordering-cart-behind {
         display: none;
@@ -702,6 +705,7 @@
     }
     .ordering-cart-full {
         right: 0;
+        height: calc(100vh - 70px);
     }
     .food-detail {
         width: 560px;

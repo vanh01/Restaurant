@@ -69,7 +69,9 @@
 
 @media only screen and (max-width: 740px) {
     .history-of-manage {
-        width: 100%;
+        height: calc(100vh - 70px);
+        top: 70px;
         left: 0;
+        width: 100%;
     }
 }
