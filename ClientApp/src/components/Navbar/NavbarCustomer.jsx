@@ -52,10 +52,10 @@ const NavbarCustomer = ({ setUser }) => {
                         <i className="fas fa-sign-out"></i>
                     </div>
                 </NavLink>
+                <div className="show-nav">
+                    <i className="fas fa-bars"></i>
+                </div>
             </nav>
-            <div className="show-nav">
-                <i className="fas fa-bars"></i>
-            </div>
         </>
     );
 };
