@@ -145,3 +145,10 @@
     border: 0;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 740px) {
+    .manage-account {
+        width: 100%;
+        left: 0;
+    }
+}
