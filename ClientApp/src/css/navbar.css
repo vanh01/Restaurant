@@ -222,3 +222,10 @@
         user-select: none;
     }
 }
+
+@media screen and (max-height: 500px) {
+    .nav-bar {
+        /* height: max-content; */
+        overflow-y: auto;
+    }
+}

@@ -333,3 +333,19 @@
         bottom: 10%;
     }
 }
+
+@media screen and (max-height: 400px) {
+    .edit-info-dish {
+        height: 100%;
+        overflow-y: auto;
+        border-radius: 10px;
+    }
+    .edit-info-dish2 {
+        padding-top: 30px;
+    }
+    .edit-info-dish2 > button {
+        left: 60%;
+        position: absolute;
+        bottom: 10px;
+    }
+}

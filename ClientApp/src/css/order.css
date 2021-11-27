@@ -810,3 +810,12 @@
         width: 150px;
     }
 }
+@media screen and (max-height: 400px) {
+    .food-detail {
+        height: 100%;
+        border-radius: 5px;
+    }
+    .food-detail2 > i {
+        top: 85%;
+    }
+}

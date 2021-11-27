@@ -170,3 +170,17 @@
         bottom: 30px;
     }
 }
+
+@media screen and (max-height: 400px) {
+    .new-account {
+        height: 100%;
+        border-radius: 10px;
+        overflow-y: auto;
+        padding-bottom: 20px;
+    }
+    .new-account > button {
+        position: relative;
+        left: 60%;
+        top: 3%;
+    }
+}
