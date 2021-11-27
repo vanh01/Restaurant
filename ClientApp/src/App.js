@@ -8,9 +8,33 @@ import HomePage from './Pages/HomePage';
 const App = () => {
     const [User, setUser] = useState({});
 
+    const fetchData = async () => {
+        var requestOptions = {
+            method: "GET",
+        };
+
+        await fetch(
+            "https://localhost:5001/api/account/login?username=" +
+                localStorage.getItem("userName") +
+                "&password=" +
+                localStorage.getItem("password"),
+            requestOptions
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.typeOfUser === "Manager")
+                    localStorage.setItem("type", "Manager");
+                else if (result.typeOfUser === "Clerk")
+                    localStorage.setItem("type", "Clerk");
+                else if (result.typeOfUser === "Customer")
+                    localStorage.setItem("type", "Customer");
+                else localStorage.setItem("type", "");
+                setUser(result);
+            })
+            .catch((error) => console.log("error", error));
+    };
     useEffect(() => {
-        if (localStorage.getItem("user") !== null)
-            setUser(localStorage.getItem("user"));
+        fetchData();
     },[]
     );
     

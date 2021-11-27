@@ -7,7 +7,7 @@ import FoodDetails from "./FoodDetails";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const OrderingAndPayment = () => {
+const OrderingAndPayment = ({ User }) => {
     const [listOrderFood, setlistOrderFood] = useState([]);
     const [Search, setSearch] = useState("");
     const [Disable, setDisable] = useState("hide");
@@ -76,7 +76,8 @@ const OrderingAndPayment = () => {
         setTotal(tempTotal);
     };
 
-    const Payment = () => {
+    const Payment = (e) => {
+        e.preventDefault();
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -156,7 +157,7 @@ const OrderingAndPayment = () => {
             <div className="ordering-payment">
                 <div className="ordering-menu">
                     <div className="ordering-menu-header">
-                        <div className="title">Hi, Việt Anh</div>
+                        <div className="title">Hi, {User.fName}</div>
                         <div className="title2">Monday 27 Sep, 2021</div>
                         <input
                             className="input-search"
@@ -252,7 +253,7 @@ const OrderingAndPayment = () => {
                             </div>
                         </div>
                         <div className="line2"></div>
-                        <div className="ordering-cart-2">
+                        <form className="ordering-cart-2" onSubmit={Payment}>
                             <div className="ordering-cart-header">
                                 <div className="title">Payment</div>
                                 <div className="title2">
@@ -295,34 +296,62 @@ const OrderingAndPayment = () => {
                                     <>
                                         <div className="ordering-infor">
                                             Name
-                                            <input type="text" />
-                                        </div>
-                                        <div className="ordering-infor">
-                                            Card Number
-                                            <input type="text" />
-                                        </div>
-                                        <div className="ordering-infor">
-                                            Phone Number
-                                            <input type="text" />
+                                            <input
+                                                type="text"
+                                                required
+                                                defaultValue={User.fName}
+                                            />
                                         </div>
                                         <div className="ordering-infor">
                                             Address
-                                            <input type="text" />
+                                            <input
+                                                type="text"
+                                                required
+                                                defaultValue={User.address}
+                                            />
+                                        </div>
+                                        <div className="ordering-infor">
+                                            Phone Number
+                                            <input
+                                                type="text"
+                                                required
+                                                defaultValue={User.phoneNumber}
+                                            />
+                                        </div>
+                                        <div className="ordering-infor">
+                                            Card Number
+                                            <input
+                                                type="text"
+                                                required
+                                                autoComplete="off"
+                                            />
                                         </div>
                                     </>
                                 ) : (
                                     <>
                                         <div className="ordering-infor">
                                             Name
-                                            <input type="text" />
+                                            <input
+                                                type="text"
+                                                required
+                                                defaultValue={User.fName}
+                                            />
                                         </div>
                                         <div className="ordering-infor">
                                             Address
-                                            <input type="text" />
+                                            <input
+                                                type="text"
+                                                required
+                                                defaultValue={User.address}
+                                            />
                                         </div>
                                         <div className="ordering-infor">
                                             Phone Number
-                                            <input type="text" />
+                                            <input
+                                                type="text"
+                                                required
+                                                defaultValue={User.phoneNumber}
+                                            />
                                         </div>
                                     </>
                                 )}
@@ -332,15 +361,9 @@ const OrderingAndPayment = () => {
                                 <button onClick={HandleCancelPayment}>
                                     Cancel
                                 </button>
-                                <button
-                                    onClick={() => {
-                                        Payment();
-                                    }}
-                                >
-                                    Payment
-                                </button>
+                                <button type="submit">Payment</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 )}
                 {!PaymentFull && (

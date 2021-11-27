@@ -8,8 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 const ManageOrder = () => {
     const [Disable, setDisable] = useState("hide");
     const [Update, setUpdate] = useState(false);
-    const [listOrdered, setlistOrdered] = useState([{}]);
-    const [listFoodsOrdered, setlistFoodsOrdered] = useState([{}]);
+    const [listOrdered, setlistOrdered] = useState([]);
+    const [listFoodsOrdered, setlistFoodsOrdered] = useState([]);
     const [Ordered, setOrdered] = useState({});
     const notify = () => {
         toast.success("Success!", {

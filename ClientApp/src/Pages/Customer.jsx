@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router";
 import NavbarCustomer from "../components/Navbar/NavbarCustomer";
 import OrderingAndPayment from "../components/Order/OrderingAndPayment";
@@ -10,7 +10,9 @@ const Customer = ({ setUser, User }) => {
         <>
             <NavbarCustomer setUser={setUser} />
             <Switch>
-                <Route path="/" exact component={OrderingAndPayment}></Route>
+                <Route path="/" exact>
+                    <OrderingAndPayment User={User} />
+                </Route>
                 <Route path="/History" exact component={History}></Route>
                 <Route path="/Setting" exact>
                     <Setting setUser={setUser} User={User} />

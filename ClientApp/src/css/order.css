@@ -778,3 +778,35 @@
         top: 75%;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .ordering-cart {
+        overflow-y: auto;
+        height: calc(100vh - 70px - 65px);
+        border-radius: 0;
+    }
+    .ordering-cart-1 {
+        position: static;
+        width: 100%;
+        display: block;
+    }
+    .ordering-cart-2 {
+        position: static;
+        width: 100%;
+        height: max-content;
+        display: block;
+        padding-bottom: 20px;
+    }
+    .ordering-cart > .line2 {
+        display: none;
+    }
+    .ordering-cart-2-btn {
+        background-color: #1f1d2c;
+        position: fixed;
+        bottom: 0;
+        height: 65px;
+    }
+    .ordering-menu-item select {
+        width: 150px;
+    }
+}

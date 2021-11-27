@@ -5,8 +5,8 @@ import OrderDetails from "../OrderDetails/OrderDetails";
 
 const HistoryOfManage = () => {
     const [Disable, setDisable] = useState("hide");
-    const [listOrdered, setlistOrdered] = useState([{}]);
-    const [listFoodsOrdered, setlistFoodsOrdered] = useState([{}]);
+    const [listOrdered, setlistOrdered] = useState([]);
+    const [listFoodsOrdered, setlistFoodsOrdered] = useState([]);
     const [Ordered, setOrdered] = useState({});
 
     useEffect(() => {
