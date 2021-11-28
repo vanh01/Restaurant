@@ -147,7 +147,7 @@ const ManageOrder = () => {
                                             }}
                                         >
                                             <td>{index}</td>
-                                            <td>{ordered.fName}</td>
+                                            <td>{ordered.name}</td>
                                             <td>{ordered.address}</td>
                                             <td>{ordered.date}</td>
                                             <td>{ordered.total}</td>

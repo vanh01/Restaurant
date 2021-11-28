@@ -54,7 +54,7 @@ namespace RestaurantPOS2._0.Controllers
         {
             int n = 0;
 
-            string query = $"INSERT INTO USER_ACCOUNT VALUES ('{account.UserName}', '{account.Password}', '{account.FName}','{account.LName}', '{account.BirthOfDate}', '{account.Address}', '{account.PhoneNumber}', 'IMG', '{account.TypeOfUser}');";
+            string query = $"INSERT INTO USER_ACCOUNT VALUES ('{account.UserName}', '{account.Password}', N'{account.FName}', N'{account.LName}', '{account.BirthOfDate}', N'{account.Address}', N'{account.PhoneNumber}', 'IMG', N'{account.TypeOfUser}');";
             // { DateTime.Now.ToString("yyyy-MM-dd")}
             if (GetTypeOfAccount(account.UserName, account.Password) != "")
                 return "Fail";
@@ -79,7 +79,7 @@ namespace RestaurantPOS2._0.Controllers
         [HttpPut]
         public string Update(Account account)
         {
-            string query = $"UPDATE USER_ACCOUNT SET FName = '{account.FName}' , LName = '{account.LName}' , BirthOfDate = '{account.BirthOfDate}' , Address = '{account.Address}' , PhoneNumber = '{account.PhoneNumber}' WHERE ID = {account.ID};";
+            string query = $"UPDATE USER_ACCOUNT SET FName = N'{account.FName}' , LName = N'{account.LName}' , BirthOfDate = N'{account.BirthOfDate}' , Address = N'{account.Address}' , PhoneNumber = N'{account.PhoneNumber}' WHERE ID = {account.ID};";
 
             if (GetTypeOfAccount(account.UserName, account.Password) == "")
                 return "Fail";

@@ -63,7 +63,7 @@ namespace RestaurantPOS2._0
                 fileName = DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss") + Path.GetExtension(foodFull.file.FileName);
                 pathImg = ", PathImg = '" + fileName + "'";
             }
-            string query = $"UPDATE FOOD SET Name = '{foodFull.Name}', Description = '{foodFull.Description}', Price = '{foodFull.Price}'{pathImg} , Category = '{foodFull.Category}' WHERE FOOD.FoodID = {foodFull.FoodID}";
+            string query = $"UPDATE FOOD SET Name = N'{foodFull.Name}', Description = N'{foodFull.Description}', Price = '{foodFull.Price}'{pathImg} , Category = N'{foodFull.Category}' WHERE FOOD.FoodID = {foodFull.FoodID}";
 
             if (GetTypeOfAccount(userName, password) == "Manager")
             {
@@ -92,7 +92,7 @@ namespace RestaurantPOS2._0
         public async Task<string> PostFoods([FromForm] FoodFull foodFull, string userName, string password)
         {
             string fileName = DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss") + Path.GetExtension(foodFull.file.FileName);
-            string query = $"INSERT INTO FOOD VALUES ('{foodFull.Name}', '{foodFull.Description}', '{foodFull.Price}', '{fileName}', '{foodFull.Category}' , 1);";
+            string query = $"INSERT INTO FOOD VALUES (N'{foodFull.Name}', N'{foodFull.Description}', N'{foodFull.Price}', N'{fileName}', N'{foodFull.Category}' , 1);";
 
             if (GetTypeOfAccount(userName, password) == "Manager")
             {

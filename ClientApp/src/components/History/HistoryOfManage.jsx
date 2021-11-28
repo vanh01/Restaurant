@@ -91,7 +91,7 @@ const HistoryOfManage = () => {
                                             }}
                                         >
                                             <td>{index + 1}</td>
-                                            <td>{ordered.fName}</td>
+                                            <td>{ordered.name}</td>
                                             <td>{ordered.address}</td>
                                             <td>{ordered.phoneNumber}</td>
                                             <td>{ordered.date}</td>

@@ -16,7 +16,7 @@ const OrderDetails = ({
                 <div className="line"></div>
                 <div className="order-detail-info">
                     <div className="order-detail-info1">
-                        <div>Name: {Ordered.fName}</div>
+                        <div>Name: {Ordered.name}</div>
                         <div>Phone number: {Ordered.phoneNumber}</div>
                         <div>Address: {Ordered.address}</div>
                     </div>

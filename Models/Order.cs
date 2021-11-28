@@ -9,11 +9,11 @@ namespace RestaurantPOS2._0
         public int Quantity { get; set; }
         public string OrderNote { get; set; }
     }
-    public class Pay_Ord
+    public class Ordered
     {
         public int CustomerID { get; set; }
         public int OrderID { get; set; }
-        public string FName { get; set; }
+        public string Name { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Status { get; set; }
@@ -28,6 +28,9 @@ namespace RestaurantPOS2._0
         public string Date { get; set; }
         public string Paytype { get; set; }
         public string Total { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
         public List<InforFood> inforFoods { get; set; }
 
     }

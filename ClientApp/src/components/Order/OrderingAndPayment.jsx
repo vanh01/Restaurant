@@ -20,6 +20,11 @@ const OrderingAndPayment = ({ User }) => {
     const [Category, setCategory] = useState("Category");
     const [listMenuFood, setlistMenuFood] = useState([]);
     const [listCategory, setlistCategory] = useState([]);
+    const [info, setinfo] = useState({
+        name: User.lName + User.fName,
+        address: User.address,
+        phoneNumber: User.phoneNumber,
+    });
     const notify = (s) => {
         toast.success(s, {
             position: "top-right",
@@ -91,6 +96,9 @@ const OrderingAndPayment = ({ User }) => {
             date: date,
             paytype: PaymentMethod,
             total: Total.toString(),
+            name: info.name,
+            address: info.address,
+            phoneNumber: info.phoneNumber,
             inforFoods: listOrderFood,
         });
 
@@ -299,7 +307,13 @@ const OrderingAndPayment = ({ User }) => {
                                             <input
                                                 type="text"
                                                 required
-                                                defaultValue={User.fName}
+                                                defaultValue={info.name}
+                                                onChange={(e) =>
+                                                    setinfo({
+                                                        ...info,
+                                                        name: e.target.value,
+                                                    })
+                                                }
                                             />
                                         </div>
                                         <div className="ordering-infor">
@@ -307,7 +321,13 @@ const OrderingAndPayment = ({ User }) => {
                                             <input
                                                 type="text"
                                                 required
-                                                defaultValue={User.address}
+                                                defaultValue={info.address}
+                                                onChange={(e) =>
+                                                    setinfo({
+                                                        ...info,
+                                                        address: e.target.value,
+                                                    })
+                                                }
                                             />
                                         </div>
                                         <div className="ordering-infor">
@@ -315,7 +335,14 @@ const OrderingAndPayment = ({ User }) => {
                                             <input
                                                 type="text"
                                                 required
-                                                defaultValue={User.phoneNumber}
+                                                defaultValue={info.phoneNumber}
+                                                onChange={(e) =>
+                                                    setinfo({
+                                                        ...info,
+                                                        phoneNumber:
+                                                            e.target.value,
+                                                    })
+                                                }
                                             />
                                         </div>
                                         <div className="ordering-infor">
@@ -334,7 +361,13 @@ const OrderingAndPayment = ({ User }) => {
                                             <input
                                                 type="text"
                                                 required
-                                                defaultValue={User.fName}
+                                                defaultValue={info.name}
+                                                onChange={(e) =>
+                                                    setinfo({
+                                                        ...info,
+                                                        name: e.target.value,
+                                                    })
+                                                }
                                             />
                                         </div>
                                         <div className="ordering-infor">
@@ -342,7 +375,13 @@ const OrderingAndPayment = ({ User }) => {
                                             <input
                                                 type="text"
                                                 required
-                                                defaultValue={User.address}
+                                                defaultValue={info.address}
+                                                onChange={(e) =>
+                                                    setinfo({
+                                                        ...info,
+                                                        address: e.target.value,
+                                                    })
+                                                }
                                             />
                                         </div>
                                         <div className="ordering-infor">
@@ -350,7 +389,14 @@ const OrderingAndPayment = ({ User }) => {
                                             <input
                                                 type="text"
                                                 required
-                                                defaultValue={User.phoneNumber}
+                                                defaultValue={info.phoneNumber}
+                                                onChange={(e) =>
+                                                    setinfo({
+                                                        ...info,
+                                                        phoneNumber:
+                                                            e.target.value,
+                                                    })
+                                                }
                                             />
                                         </div>
                                     </>
