@@ -9,6 +9,10 @@ const History = () => {
     const [listFoodsOrdered, setlistFoodsOrdered] = useState([]);
     const [Ordered, setOrdered] = useState({});
 
+    var current = new Date();
+    var date = `${current.getDate()}-${
+        current.getMonth() + 1
+    }-${current.getFullYear()}`;
     useEffect(() => {
         var requestOptions = {
             method: "GET",
@@ -62,7 +66,7 @@ const History = () => {
                 <div className="history-report">
                     <div className="history-header">
                         <div className="title">History</div>
-                        <div className="title2">Monday 27 Sep, 2021</div>
+                        <div className="title2">Today: {date}</div>
                     </div>
 
                     <div className="line"></div>

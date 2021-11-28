@@ -78,7 +78,7 @@
 
 .ordering-menu-list-food {
     width: inherit;
-    height: calc(100% - 61px);
+    height: calc(100% - 71px);
     align-items: center;
     justify-content: center;
     display: flex;
@@ -86,6 +86,7 @@
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    margin-top: 20px;
 }
 
 .ordering-menu-list-food::-webkit-scrollbar {

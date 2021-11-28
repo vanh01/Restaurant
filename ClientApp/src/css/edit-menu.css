@@ -222,11 +222,14 @@
 }
 
 .edit-info-dish1 > label > span {
+    width: 100%;
     color: #eb7c68;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
     user-select: none;
 }

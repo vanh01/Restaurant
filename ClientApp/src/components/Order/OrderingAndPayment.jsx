@@ -20,6 +20,11 @@ const OrderingAndPayment = ({ User }) => {
     const [Category, setCategory] = useState("Category");
     const [listMenuFood, setlistMenuFood] = useState([]);
     const [listCategory, setlistCategory] = useState([]);
+    var current = new Date();
+    var date = `${current.getDate()}-${
+        current.getMonth() + 1
+    }-${current.getFullYear()}`;
+
     const [info, setinfo] = useState({
         name: User.lName + User.fName,
         address: User.address,
@@ -166,7 +171,7 @@ const OrderingAndPayment = ({ User }) => {
                 <div className="ordering-menu">
                     <div className="ordering-menu-header">
                         <div className="title">Hi, {User.fName}</div>
-                        <div className="title2">Monday 27 Sep, 2021</div>
+                        <div className="title2">Today: {date}</div>
                         <input
                             className="input-search"
                             type="text"
