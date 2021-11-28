@@ -11,6 +11,7 @@ const NavbarCustomer = ({ setUser }) => {
             <nav className={navFull}>
                 <div className="logo">
                     <i className="fas fa-store"></i>
+                    <span>POS</span>
                 </div>
                 <NavLink
                     activeClassName="active"
